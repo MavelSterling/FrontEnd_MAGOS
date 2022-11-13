@@ -9,7 +9,7 @@
         class="navbar-brand font-weight-bolder ms-lg-0 ms-3"
         :class="darkMode ? 'text-black' : 'text-white'"
         to="/"
-        >Argon Dashboard 2</router-link
+        >MAGOS</router-link
       >
       <button
         class="shadow-none navbar-toggler ms-2"
@@ -39,7 +39,7 @@
                 aria-hidden="true"
                 :class="isBlur ? 'text-dark' : 'text-white'"
               ></i>
-              Dashboard
+              Inicio
             </router-link>
           </li>
           <li class="nav-item">
@@ -49,7 +49,7 @@
                 aria-hidden="true"
                 :class="isBlur ? 'text-dark' : 'text-white'"
               ></i>
-              Profile
+              Perfil
             </router-link>
           </li>
           <li class="nav-item">
@@ -59,7 +59,7 @@
                 aria-hidden="true"
                 :class="isBlur ? 'text-dark' : 'text-white'"
               ></i>
-              Sign Up
+              Registrarse
             </router-link>
           </li>
           <li class="nav-item">
@@ -69,11 +69,11 @@
                 aria-hidden="true"
                 :class="isBlur ? 'text-dark' : 'text-white'"
               ></i>
-              Sign In
+              Iniciar sesión
             </router-link>
           </li>
         </ul>
-        <ul class="navbar-nav d-lg-block d-none">
+        <!-- <ul class="navbar-nav d-lg-block d-none">
           <li class="nav-item">
             <a
               href="https://www.creative-tim.com/product/vue-argon-dashboard"
@@ -82,7 +82,7 @@
               >Free download</a
             >
           </li>
-        </ul>
+        </ul>-->
       </div>
     </div>
   </nav>
