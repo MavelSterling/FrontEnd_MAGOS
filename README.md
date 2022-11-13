@@ -77,7 +77,7 @@ Quick start options:
 
 1. Download and Install NodeJs LTS version from [NodeJs Official Page](https://nodejs.org/en/download/).
 2. Navigate to the root ./ directory of the product and run `npm install`  or  `yarn install` to install our local dependencies.
-3. Then run `npm run serve` or `yarn serve`
+3. Then run `npm run serve` or `yarn serve.`
 
 ## Documentation
 
