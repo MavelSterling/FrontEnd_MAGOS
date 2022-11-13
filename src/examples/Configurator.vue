@@ -12,8 +12,8 @@
           class=""
           :class="this.$store.state.isRTL ? 'float-end' : 'float-start'"
         >
-          <h5 class="mt-3 mb-0">Argon Configurator</h5>
-          <p>See our dashboard options.</p>
+          <h5 class="mt-3 mb-0">Configuración</h5>
+          <p>Opciones de modo ambiente</p>
         </div>
         <div
           class="mt-4"
@@ -30,7 +30,7 @@
       <div class="pt-0 card-body pt-sm-3">
         <!-- Sidebar Backgrounds -->
         <div>
-          <h6 class="mb-0">Sidebar Colors</h6>
+          <h6 class="mb-0">Color para botón de selección</h6>
         </div>
         <a href="#" class="switch-trigger background-color">
           <div
@@ -71,8 +71,8 @@
         </a>
         <!-- Sidenav Type -->
         <div class="mt-3">
-          <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between 2 different sidenav types.</p>
+          <h6 class="mb-0">Barra de navegación</h6>
+          <p class="text-sm">Seleccione el modo para la barra de navegación.</p>
         </div>
         <div class="d-flex gap-2">
           <button
@@ -135,11 +135,11 @@
             />
           </div>
         </div>
-        <a
+       <!-- <a
           class="btn bg-gradient-dark w-100"
           href="https://www.creative-tim.com/product/vue-argon-dashboard"
           >Free Download</a
-        >
+        >--> 
         <a
           class="btn btn-outline-dark w-100"
           href="https://www.creative-tim.com/learning-lab/vue/overview/argon-dashboard/"
