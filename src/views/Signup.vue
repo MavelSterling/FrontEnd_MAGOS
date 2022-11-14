@@ -97,9 +97,10 @@
             </div>
             <div class="card-body">
               <form role="form">
-                <argon-input type="text" placeholder="Name" aria-label="Name" />
-                <argon-input type="email" placeholder="Email" aria-label="Email" />
-                <argon-input type="password" placeholder="Password" aria-label="Password" />
+                <argon-input type="text" placeholder="Nombre(s)" aria-label="Nombre" />
+                <argon-input type="text" placeholder="Apellidos" aria-label="Apellidos" />
+                <argon-input type="email" placeholder="Correo electrónico" aria-label="Correo" />
+                <argon-input type="password" placeholder="Contraseña" aria-label="Contraseña" />
                 <argon-checkbox checked>
                   <label class="form-check-label" for="flexCheckDefault">
                     Acepto
@@ -110,12 +111,12 @@
                   </label>
                 </argon-checkbox>
                 <div class="text-center">
-                  <argon-button fullWidth color="dark" variant="gradient" class="my-4 mb-2">Sign up</argon-button>
+                  <argon-button fullWidth color="dark" variant="gradient" class="my-4 mb-2">Registrarse</argon-button>
                 </div>
                 <p class="text-sm mt-3 mb-0">
                   ¿Tienes cuenta?
                   <a
-                    href="javascript:;"
+                    href="/signin"
                     class="text-dark font-weight-bolder"
                   >Iniciar sesión</a>
                 </p>
