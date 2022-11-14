@@ -133,7 +133,7 @@ export default {
   },
   data() {
     return {
-      title: "Argon Dashboard 2",
+      title: "MAGOS",
       controls: "dashboardsExamples",
       isActive: "active"
     };
