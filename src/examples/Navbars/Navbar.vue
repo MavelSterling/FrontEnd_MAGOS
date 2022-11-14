@@ -101,8 +101,8 @@
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                       <h6 class="mb-1 text-sm font-weight-normal">
-                        <span class="font-weight-bold">New message</span> from
-                        Laur
+                        <span class="font-weight-bold">Nuevo mensaje</span> del
+                        administrador
                       </h6>
                       <p class="mb-0 text-xs text-secondary">
                         <i class="fa fa-clock me-1"></i>
@@ -112,7 +112,7 @@
                   </div>
                 </a>
               </li>
-              <li class="mb-2">
+             <!--  <li class="mb-2">
                 <a class="dropdown-item border-radius-md" href="javascript:;">
                   <div class="py-1 d-flex">
                     <div class="my-auto">
@@ -134,7 +134,7 @@
                     </div>
                   </div>
                 </a>
-              </li>
+              </li>-->
               <li>
                 <a class="dropdown-item border-radius-md" href="javascript:;">
                   <div class="py-1 d-flex">
@@ -180,7 +180,7 @@
                     </div>
                     <div class="d-flex flex-column justify-content-center">
                       <h6 class="mb-1 text-sm font-weight-normal">
-                        Payment successfully completed
+                        Abono se realizó exitosamente
                       </h6>
                       <p class="mb-0 text-xs text-secondary">
                         <i class="fa fa-clock me-1"></i>
