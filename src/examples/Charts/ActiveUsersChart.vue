@@ -185,7 +185,7 @@
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
-                  <title>settings</title>
+                  <title>Configuración</title>
                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g
                       transform="translate(-2020.000000, -442.000000)"
