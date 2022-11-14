@@ -121,10 +121,10 @@ import GradientLineChart from "@/examples/Charts/GradientLineChart.vue";
 import Carousel from "./components/Carousel.vue";
 import CategoriesCard from "./components/CategoriesCard.vue";
 
-//import US from "@/assets/img/icons/flags/US.png";
-//import DE from "@/assets/img/icons/flags/DE.png";
-//import GB from "@/assets/img/icons/flags/GB.png";
-//import BR from "@/assets/img/icons/flags/BR.png";
+import US from "@/assets/img/icons/flags/US.png";
+import DE from "@/assets/img/icons/flags/DE.png";
+import GB from "@/assets/img/icons/flags/GB.png";
+import BR from "@/assets/img/icons/flags/BR.png";
 
 export default {
   name: "dashboard-default",
@@ -152,13 +152,13 @@ export default {
           detail: "Información constante del estado de cuenta de ahorros",
         },
         sales: {
-          title: "Notificaciones",
-          iconClass: "ni ni-cart",
+          title: "Abonos",
+          iconClass: "ni ni-money-coins",
           iconBackground: "bg-gradient-warning",
-          detail: " correo electrónico",
+          detail: "Contamos con los mejores medios de pago para tu deuda ",
         },
       },
-      /* sales: {
+       sales: {
         us: {
           country: "United States",
           sales: 2500,
@@ -187,7 +187,7 @@ export default {
           bounce: "32.14%",
           flag: BR,
         },
-      },*/
+      },
     };
   },
   components: {
