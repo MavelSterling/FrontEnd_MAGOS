@@ -9,7 +9,7 @@
         >
           <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
             <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-              <i class="ni ni-camera-compact text-dark opacity-10"></i>
+             <i class="ni ni-credit-card text-dark opacity-10"></i>
             </div>
             <h5 class="text-white mb-1">Cuenta de Ahorros</h5>
             <p>Mantener tu dinero protegido y separado de los gastos es tu mejor inversión.</p>
@@ -22,7 +22,7 @@
         >
           <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
             <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-              <i class="ni ni-bulb-61 text-dark opacity-10"></i>
+              <i class="ni ni-money-coins text-dark opacity-10"></i>
             </div>
             <h5 class="text-white mb-1">Préstamos</h5>
             <p>Para nuestros asociados y clientes con la tasa de interés más baja del mercado. </p>
@@ -35,10 +35,10 @@
         >
           <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
             <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-              <i class="ni ni-trophy text-dark opacity-10"></i>
+             <i class="ni ni-chart-bar-32 text-dark opacity-10"></i>
             </div>
-            <h5 class="text-white mb-1">Share with us your design tips!</h5>
-            <p>Don’t be afraid to be wrong because you can’t learn anything from a compliment.</p>
+            <h5 class="text-white mb-2">Reportes</h5>
+            <p>Ten información constante del manejo de tu dinero.</p>
           </div>
         </div>
       </div>
