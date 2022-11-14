@@ -16,17 +16,17 @@ const routes = [
   },
   {
     path: "/dashboard-default",
-    name: "Dashboard",
+    name: "Página de inicio",
     component: Dashboard,
   },
   {
     path: "/tables",
-    name: "Tables",
+    name: "Reportes",
     component: Tables,
   },
   {
     path: "/billing",
-    name: "Billing",
+    name: "Cuenta de Ahorros",
     component: Billing,
   },
   /*{
@@ -41,7 +41,7 @@ const routes = [
   },
   {
     path: "/profile",
-    name: "Profile",
+    name: "Perfil de usuario",
     component: Profile,
   },
   {
