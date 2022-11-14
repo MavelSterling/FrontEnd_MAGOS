@@ -307,7 +307,7 @@
 <script>
 import setNavPills from "@/assets/js/nav-pills.js";
 import setTooltip from "@/assets/js/tooltip.js";
-import ProfileCard from "./components/ProfileCard.vue";
+//import ProfileCard from "./components/ProfileCard.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
 
@@ -320,7 +320,9 @@ export default {
       showMenu: false
     };
   },
-  components: { ProfileCard, ArgonInput, ArgonButton },
+  /*components: { ProfileCard, ArgonInput, ArgonButton },*/
+  components: {ArgonInput, ArgonButton },
+
 
   mounted() {
     this.$store.state.isAbsolute = true;
