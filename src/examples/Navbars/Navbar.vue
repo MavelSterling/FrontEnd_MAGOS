@@ -28,7 +28,7 @@
               type="text"
               class="form-control"
               :placeholder="
-                this.$store.state.isRTL ? 'أكتب هنا...' : 'Type here...'
+                this.$store.state.isRTL ? 'Type here...' : 'Type here...'
               "
             />
           </div>
@@ -184,7 +184,7 @@
                       </h6>
                       <p class="mb-0 text-xs text-secondary">
                         <i class="fa fa-clock me-1"></i>
-                        2 days
+                        2 díass
                       </p>
                     </div>
                   </div>
