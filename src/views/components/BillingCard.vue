@@ -13,7 +13,7 @@
               <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span>
             </span>
             <span class="mb-2 text-xs">
-              Email Address:
+              Correo electronico:
               <span class="text-dark ms-sm-2 font-weight-bold">oliver@burrito.com</span>
             </span>
             <span class="text-xs">
