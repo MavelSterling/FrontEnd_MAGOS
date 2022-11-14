@@ -65,7 +65,7 @@
             <div class="card">
               <div class="p-3 pb-0 card-header">
                 <div class="d-flex justify-content-between">
-                  <h6 class="mb-2">Sales by Country</h6>
+                  <!--  <h6 class="mb-2">Sales by Country</h6>-->
                 </div>
               </div>
               <div class="table-responsive">
@@ -121,10 +121,10 @@ import GradientLineChart from "@/examples/Charts/GradientLineChart.vue";
 import Carousel from "./components/Carousel.vue";
 import CategoriesCard from "./components/CategoriesCard.vue";
 
-import US from "@/assets/img/icons/flags/US.png";
-import DE from "@/assets/img/icons/flags/DE.png";
-import GB from "@/assets/img/icons/flags/GB.png";
-import BR from "@/assets/img/icons/flags/BR.png";
+//import US from "@/assets/img/icons/flags/US.png";
+//import DE from "@/assets/img/icons/flags/DE.png";
+//import GB from "@/assets/img/icons/flags/GB.png";
+//import BR from "@/assets/img/icons/flags/BR.png";
 
 export default {
   name: "dashboard-default",
@@ -165,7 +165,7 @@ export default {
           detail: "than last month",
         },
       },
-      sales: {
+      /* sales: {
         us: {
           country: "United States",
           sales: 2500,
@@ -194,7 +194,7 @@ export default {
           bounce: "32.14%",
           flag: BR,
         },
-      },
+      },*/
     };
   },
   components: {
