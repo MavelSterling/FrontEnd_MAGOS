@@ -105,7 +105,7 @@
                   <label class="form-check-label" for="flexCheckDefault">
                     Acepto
                     <a
-                      href="javascript:;"
+                      href="/termsConditions"
                       class="text-dark font-weight-bolder"
                     >Terminos y condiciones</a>
                   </label>
