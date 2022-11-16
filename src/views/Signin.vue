@@ -82,6 +82,7 @@ import Navbar from "@/examples/PageLayout/Navbar.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonSwitch from "@/components/ArgonSwitch.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
+import axios from 'axios';
 const body = document.getElementsByTagName("body")[0];
 
 export default {
@@ -106,5 +107,31 @@ export default {
     this.$store.state.showFooter = true;
     body.classList.add("bg-gray-100");
   },
+  data(){
+    return {
+      email:null,
+      password:null,
+      auth:null
+    }
+  },
+  mounted(){
+    this.login();
+  },
+  methods:{
+    login(){
+      axios.post('http://localhost:8000/api/auth',
+        {
+          'username':this.email,
+          'password':this.password
+        }
+      )
+        .then( response  => {
+          this.auth = response.data.status
+        })
+        .catch(
+          err => console.log(err)
+        )
+    }
+  }
 };
 </script>
