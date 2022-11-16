@@ -24,10 +24,10 @@
                 <div class="card-body">
                   <form role="form">
                     <div class="mb-3">
-                      <argon-input type="email" placeholder="Email" name="email" size="lg" />
+                      <argon-input type="email" placeholder="Email" name="email" size="lg" v-model='email'/>
                     </div>
                     <div class="mb-3">
-                      <argon-input type="password" placeholder="Password" name="password" size="lg" />
+                      <argon-input type="password" placeholder="Password" name="password" size="lg" v-model='password'/>
                     </div>
                     <argon-switch id="rememberMe">Recordar usuario</argon-switch>
 
@@ -115,9 +115,9 @@ export default {
   },
   data(){
     return {
-      email:null,
-      password:null,
-      auth:null
+      email: '',
+      password: '',
+      auth: false
     }
   },
   mounted(){
