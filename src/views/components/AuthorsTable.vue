@@ -1,23 +1,23 @@
 <template>
   <div class="card">
     <div class="card-header pb-0">
-      <h6>Authors table</h6>
+      <h6>Información de asoaciados</h6>
     </div>
     <div class="card-body px-0 pt-0 pb-2">
       <div class="table-responsive p-0">
         <table class="table align-items-center mb-0">
           <thead>
             <tr>
-              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
+              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre completo</th>
               <th
                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-              >Function</th>
+              >Ocupación</th>
               <th
                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-              >Status</th>
+              >Estado de cuenta</th>
               <th
                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-              >Employed</th>
+              >Fecha de registro</th>
               <th class="text-secondary opacity-7"></th>
             </tr>
           </thead>
@@ -34,7 +34,7 @@
                   </div>
                   <div class="d-flex flex-column justify-content-center">
                     <h6 class="mb-0 text-sm">John Michael</h6>
-                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                    <p class="text-xs text-secondary mb-0">john@gmail.com</p>
                   </div>
                 </div>
               </td>
@@ -43,14 +43,14 @@
                 <p class="text-xs text-secondary mb-0">Organization</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <span class="badge badge-sm bg-gradient-success">Online</span>
+                <span class="badge badge-sm bg-gradient-success">Activo</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                <span class="text-secondary text-xs font-weight-bold">23/10/22</span>
               </td>
               <td class="align-middle">
                 <a
-                  href="javascript:;"
+                  href="/profile/"
                   class="text-secondary font-weight-bold text-xs"
                   data-toggle="tooltip"
                   data-original-title="Edit user"
@@ -78,14 +78,14 @@
                 <p class="text-xs text-secondary mb-0">Developer</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <span class="badge badge-sm bg-gradient-secondary">Offline</span>
+                <span class="badge badge-sm bg-gradient-secondary">Desactivado</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
+                <span class="text-secondary text-xs font-weight-bold">12/11/22</span>
               </td>
               <td class="align-middle">
                 <a
-                  href="javascript:;"
+                  href="/profile/"
                   class="text-secondary font-weight-bold text-xs"
                   data-toggle="tooltip"
                   data-original-title="Edit user"
@@ -113,14 +113,14 @@
                 <p class="text-xs text-secondary mb-0">Projects</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <span class="badge badge-sm bg-gradient-success">Online</span>
+                <span class="badge badge-sm bg-gradient-success">Activo</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
+                <span class="text-secondary text-xs font-weight-bold">19/09/22</span>
               </td>
               <td class="align-middle">
                 <a
-                  href="javascript:;"
+                  href="/profile/"
                   class="text-secondary font-weight-bold text-xs"
                   data-toggle="tooltip"
                   data-original-title="Edit user"
@@ -148,14 +148,14 @@
                 <p class="text-xs text-secondary mb-0">Developer</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <span class="badge badge-sm bg-gradient-success">Online</span>
+                <span class="badge badge-sm bg-gradient-success">Activo</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
+                <span class="text-secondary text-xs font-weight-bold">24/11/22</span>
               </td>
               <td class="align-middle">
                 <a
-                  href="javascript:;"
+                  href="/profile/"
                   class="text-secondary font-weight-bold text-xs"
                   data-toggle="tooltip"
                   data-original-title="Edit user"
@@ -183,14 +183,14 @@
                 <p class="text-xs text-secondary mb-0">Executive</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <span class="badge badge-sm bg-gradient-secondary">Offline</span>
+                <span class="badge badge-sm bg-gradient-secondary">Desactivado</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
+                <span class="text-secondary text-xs font-weight-bold">04/10/22</span>
               </td>
               <td class="align-middle">
                 <a
-                  href="javascript:;"
+                  href="/profile/"
                   class="text-secondary font-weight-bold text-xs"
                   data-toggle="tooltip"
                   data-original-title="Edit user"
@@ -218,14 +218,14 @@
                 <p class="text-xs text-secondary mb-0">Developer</p>
               </td>
               <td class="align-middle text-center text-sm">
-                <span class="badge badge-sm bg-gradient-secondary">Offline</span>
+                <span class="badge badge-sm bg-gradient-secondary">Desactivado</span>
               </td>
               <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
+                <span class="text-secondary text-xs font-weight-bold">14/09/22</span>
               </td>
               <td class="align-middle">
                 <a
-                  href="javascript:;"
+                  href="/profile/"
                   class="text-secondary font-weight-bold text-xs"
                   data-toggle="tooltip"
                   data-original-title="Edit user"
