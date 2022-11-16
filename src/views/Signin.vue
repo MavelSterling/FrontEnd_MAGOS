@@ -24,10 +24,10 @@
                 <div class="card-body">
                   <form role="form">
                     <div class="mb-3">
-                      <argon-input type="email" placeholder="Email" name="email" size="lg" />
+                      <argon-input type="text" placeholder="Email" name="email" size="lg" v-model='email'/>
                     </div>
                     <div class="mb-3">
-                      <argon-input type="password" placeholder="Password" name="password" size="lg" />
+                      <argon-input type="password" placeholder="Password" name="password" size="lg" v-model='password'/>
                     </div>
                     <argon-switch id="rememberMe">Recordar usuario</argon-switch>
 
@@ -38,6 +38,7 @@
                         color="success"
                         fullWidth
                         size="lg"
+                        v-on:click="login"
                       >Entrar</argon-button>
                     </div>
                   </form>
@@ -88,6 +89,7 @@ import Navbar from "@/examples/PageLayout/Navbar.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonSwitch from "@/components/ArgonSwitch.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
+import axios from 'axios';
 const body = document.getElementsByTagName("body")[0];
 
 export default {
@@ -112,5 +114,36 @@ export default {
     this.$store.state.showFooter = true;
     body.classList.add("bg-gray-100");
   },
+  data(){
+    return {
+      email: "",
+      password: "",
+      datos: {},
+      auth: false
+    }
+  },
+  methods:{
+    async login(e){
+      e.preventDefault()
+
+      this.datos = {
+        "username":this.email,
+        "password":this.password
+      }
+
+      console.log(this.datos)
+
+      await axios.postForm('http://localhost:8000/api/auth',
+        this.datos
+      )
+        .then( response  => {
+          this.auth = response.data.status
+          console.log('¿Estoy logueado?: ',this.auth)
+        })
+        .catch(
+          err => console.log(err)
+        )
+    }
+  }
 };
 </script>
