@@ -24,7 +24,7 @@
                 <div class="card-body">
                   <form role="form">
                     <div class="mb-3">
-                      <argon-input type="email" placeholder="Email" name="email" size="lg" v-model='email'/>
+                      <argon-input type="text" placeholder="Email" name="email" size="lg" v-model='email'/>
                     </div>
                     <div class="mb-3">
                       <argon-input type="password" placeholder="Password" name="password" size="lg" v-model='password'/>
@@ -38,6 +38,7 @@
                         color="success"
                         fullWidth
                         size="lg"
+                        v-on:click="login"
                       >Entrar</argon-button>
                     </div>
                   </form>
@@ -115,24 +116,29 @@ export default {
   },
   data(){
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
+      datos: {},
       auth: false
     }
   },
-  mounted(){
-    this.login();
-  },
   methods:{
-    login(){
-      axios.post('http://localhost:8000/api/auth',
-        {
-          'username':this.email,
-          'password':this.password
-        }
+    async login(e){
+      e.preventDefault()
+
+      this.datos = {
+        "username":this.email,
+        "password":this.password
+      }
+
+      console.log(this.datos)
+
+      await axios.postForm('http://localhost:8000/api/auth',
+        this.datos
       )
         .then( response  => {
           this.auth = response.data.status
+          console.log('¿Estoy logueado?: ',this.auth)
         })
         .catch(
           err => console.log(err)
