@@ -44,11 +44,17 @@
                 </div>
                 <div class="px-1 pt-0 text-center card-footer px-lg-2">
                   <p class="mx-auto mb-4 text-sm">
-                    ¿No tienes una cuenta?
+                    ¿No tienes una cuenta? ¡Únete como 
                     <a
                       href="/signup"
                       class="text-success text-gradient font-weight-bold"
-                    >Registrarse</a>
+                    >Asociado</a> 
+                    o como
+                    <a
+                      href="/signup-cliente"
+                      class="text-success text-gradient font-weight-bold"
+                    >Cliente</a> 
+                    !
                   </p>
                 </div>
               </div>
