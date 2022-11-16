@@ -10,11 +10,11 @@
           class="opacity-5 ps-2"
           href="#"
           :class="this.$store.state.isNavFixed ? 'text-dark' : 'text-white'"
-          >لوحات القيادة</a
+          >Pages</a
         >
         <a v-else 
         :class="this.$store.state.isNavFixed ? 'text-dark' : 'text-white'"
-         class="opacity-8" href="#">Pages</a>
+         class="opacity-8" href="#">Página</a>
       </li>
       <li
         class="text-sm breadcrumb-item active"

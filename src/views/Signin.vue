@@ -18,8 +18,8 @@
             <div class="mx-auto col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0">
               <div class="card card-plain">
                 <div class="pb-0 card-header text-start">
-                  <h4 class="font-weight-bolder">Sign In</h4>
-                  <p class="mb-0">Enter your email and password to sign in</p>
+                  <h4 class="font-weight-bolder">Inicio de sesión</h4>
+                  <p class="mb-0">Ingrese su correo electrónico y contraseña para iniciar sesión</p>
                 </div>
                 <div class="card-body">
                   <form role="form">
@@ -29,7 +29,7 @@
                     <div class="mb-3">
                       <argon-input type="password" placeholder="Password" name="password" size="lg" />
                     </div>
-                    <argon-switch id="rememberMe">Remember me</argon-switch>
+                    <argon-switch id="rememberMe">Recordar usuario</argon-switch>
 
                     <div class="text-center">
                       <argon-button
@@ -38,17 +38,23 @@
                         color="success"
                         fullWidth
                         size="lg"
-                      >Sign in</argon-button>
+                      >Entrar</argon-button>
                     </div>
                   </form>
                 </div>
                 <div class="px-1 pt-0 text-center card-footer px-lg-2">
                   <p class="mx-auto mb-4 text-sm">
-                    Don't have an account?
+                    ¿No tienes una cuenta? ¡Únete como 
                     <a
-                      href="javascript:;"
+                      href="/signup"
                       class="text-success text-gradient font-weight-bold"
-                    >Sign up</a>
+                    >Asociado</a> 
+                    o como
+                    <a
+                      href="/signup-cliente"
+                      class="text-success text-gradient font-weight-bold"
+                    >Cliente</a> 
+                    !
                   </p>
                 </div>
               </div>
@@ -64,10 +70,10 @@
                 <span class="mask bg-gradient-success opacity-6"></span>
                 <h4
                   class="mt-5 text-white font-weight-bolder position-relative"
-                >"Attention is the new currency"</h4>
+                >Bienvenid@ a MAGOS</h4>
                 <p
                   class="text-white position-relative"
-                >The more effortless the writing looks, the more effort the writer actually put into the process.</p>
+                >Su dinero en un lugar seguro.</p>
               </div>
             </div>
           </div>

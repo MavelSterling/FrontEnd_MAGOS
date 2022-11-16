@@ -65,7 +65,7 @@
             <div class="card">
               <div class="p-3 pb-0 card-header">
                 <div class="d-flex justify-content-between">
-                  <h6 class="mb-2">Sales by Country</h6>
+                  <!--  <h6 class="mb-2">Sales by Country</h6>-->
                 </div>
               </div>
               <div class="table-responsive">
@@ -132,40 +132,33 @@ export default {
     return {
       stats: {
         money: {
-          title: "Today's Money",
-          value: "$53,000",
-          percentage: "+55%",
+          title: "Cuenta de ahorros",
           iconClass: "ni ni-money-coins",
-          detail: "since yesterday",
+          detail: "La mejor manera de cuidar su dinero y obtener ganancias",
           iconBackground: "bg-gradient-primary",
         },
         users: {
-          title: "Today's Users",
-          value: "2,300",
-          percentage: "+3%",
+          title: "Préstamos",
+          detail: "Con la tasa de interés más baja del mercado: 2% para asociados y 2.5% para clientes",
           iconClass: "ni ni-world",
           iconBackground: "bg-gradient-danger",
-          detail: "since last week",
+          
         },
         clients: {
-          title: "New Clients",
-          value: "+3,462",
-          percentage: "-2%",
+          title: "Reportes",
           iconClass: "ni ni-paper-diploma",
           percentageColor: "text-danger",
           iconBackground: "bg-gradient-success",
-          detail: "since last quarter",
+          detail: "Información constante del estado de cuenta de ahorros",
         },
         sales: {
-          title: "Sales",
-          value: "$103,430",
-          percentage: "+5%",
-          iconClass: "ni ni-cart",
+          title: "Abonos",
+          iconClass: "ni ni-money-coins",
           iconBackground: "bg-gradient-warning",
-          detail: "than last month",
+          detail: "Contamos con los mejores medios de pago para tu deuda ",
         },
       },
-      sales: {
+       sales: {
         us: {
           country: "United States",
           sales: 2500,

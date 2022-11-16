@@ -2,38 +2,39 @@ import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
 import Tables from "../views/Tables.vue";
 import Billing from "../views/Billing.vue";
-import VirtualReality from "../views/VirtualReality.vue";
+//import VirtualReality from "../views/VirtualReality.vue";
 import RTL from "../views/Rtl.vue";
 import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
+import SignupCliente from "../views/SignupCliente.vue";
 import Signin from "../views/Signin.vue";
 
 const routes = [
   {
     path: "/",
     name: "/",
-    redirect: "/dashboard-default",
+    redirect: "/signin",
   },
   {
     path: "/dashboard-default",
-    name: "Dashboard",
+    name: "Página de inicio",
     component: Dashboard,
   },
   {
     path: "/tables",
-    name: "Tables",
+    name: "Reportes",
     component: Tables,
   },
   {
     path: "/billing",
-    name: "Billing",
+    name: "Cuenta de Ahorros",
     component: Billing,
   },
-  {
+  /*{
     path: "/virtual-reality",
     name: "Virtual Reality",
     component: VirtualReality,
-  },
+  },*/
   {
     path: "/rtl-page",
     name: "RTL",
@@ -41,7 +42,7 @@ const routes = [
   },
   {
     path: "/profile",
-    name: "Profile",
+    name: "Perfil de usuario",
     component: Profile,
   },
   {
@@ -53,6 +54,11 @@ const routes = [
     path: "/signup",
     name: "Signup",
     component: Signup,
+  },
+  {
+    path: "/signup-cliente",
+    name: "Signup cliente",
+    component: SignupCliente,
   },
   
 ];

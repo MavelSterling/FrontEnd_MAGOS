@@ -6,7 +6,7 @@
 
 Start your Development with an Innovative Admin Template for Bootstrap 5 and VueJS 3. If you like the look & feel of the hottest design trend right now, you will fall in love with this dashboard! It features a huge number of components built to fit together and look amazing.
 
-**Fully Coded Components**<br />
+**Fully Coded Components**`<br />`
 Vue Argon Dashboard 2 is built with over 70 frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. All components can take variations in color, which you can easily modify using SASS files and classes. You will save a lot of time going from prototyping to full-functional code because all elements are implemented.
 
 This free Bootstrap 5 & VueJS 3 Dashboard is coming with prebuilt design blocks, so the development process is seamless,
@@ -14,11 +14,11 @@ switching from our pages to the real website is very easy to be done.
 
 View [all components here](https://www.creative-tim.com/learning-lab/vue/alerts/argon-dashboard/).
 
-**Documentation built by Developers**<br />
+**Documentation built by Developers**`<br />`
 Each element is well presented in very complex documentation.
 You can read more about the [documentation here](https://www.creative-tim.com/learning-lab/vue/overview/argon-dashboard/).
 
-**Example Pages**<br />
+**Example Pages**`<br />`
 If you want to get inspiration or just show something directly to your clients, you can jump-start your development with our pre-built example pages. Every page is spaced well, with attractive layouts and pleasing shapes. Vue Argon Dashboard 2 has everything you need to quickly set up an amazing project.
 
 View [example pages here](https://demos.creative-tim.com/vue-argon-dashboard/).
@@ -52,7 +52,7 @@ Let us know your thoughts below. And good luck with development!
 
 ## Versions
 
-[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/vue-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/vue-argon-dashboard?ref=readme-vad)
+[`<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/vue-logo.jpg?raw=true" width="60" height="60" />`](https://www.creative-tim.com/product/vue-argon-dashboard?ref=readme-vad)
 
 | VueJS |
 | ----- |
@@ -76,7 +76,8 @@ Quick start options:
 ## Terminal Commands
 
 1. Download and Install NodeJs LTS version from [NodeJs Official Page](https://nodejs.org/en/download/).
-2. Navigate to the root ./ directory of the product and run `npm install` to install our local dependencies.
+2. Navigate to the root ./ directory of the product and run `npm install`  or  `yarn install` to install our local dependencies.
+3. Then run `npm run serve` or `yarn serve.`
 
 ## Documentation
 
@@ -184,21 +185,18 @@ If you have questions or need help integrating the product please [contact us](h
 ## Useful Links
 
 - [More products](https://www.creative-tim.com/templates?ref=readme-vad) from Creative Tim
-
 - [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
-
 - [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-vad) from Creative Tim
-
 - [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-vad) (earn money)
 
 ##### Social Media
 
-Twitter: <https://twitter.com/CreativeTim>
+Twitter: [https://twitter.com/CreativeTim](https://twitter.com/CreativeTim)
 
-Facebook: <https://www.facebook.com/CreativeTim>
+Facebook: [https://www.facebook.com/CreativeTim](https://www.facebook.com/CreativeTim)
 
-Dribbble: <https://dribbble.com/creativetim>
+Dribbble: [https://dribbble.com/creativetim](https://dribbble.com/creativetim)
 
-Google+: <https://plus.google.com/+CreativetimPage>
+Google+: [https://plus.google.com/+CreativetimPage](https://plus.google.com/+CreativetimPage)
 
-Instagram: <https://instagram.com/creativetimofficial>
+Instagram: [https://instagram.com/creativetimofficial](https://instagram.com/creativetimofficial)

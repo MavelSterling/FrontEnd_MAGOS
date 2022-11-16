@@ -68,14 +68,14 @@ export default {
     return {
       salary: {
         classIcon: "text-white fas fa-landmark",
-        title: "Salary",
-        desc: "Belong Interactive",
+        title: "Ahorro:",
+        desc: "Monto del ahorrado:",
         price: "+$2000",
       },
       paypal: {
         classIcon: "text-white fab fa-paypal",
-        title: "Paypal",
-        desc: "Freelance Payment",
+        title: "Abonos",
+        desc: "Monto abonado:",
         price: "$455.00",
       },
     };
