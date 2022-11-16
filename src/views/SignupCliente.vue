@@ -18,7 +18,7 @@
             <h1 class="text-white mb-2 mt-5">Bienvenid@!</h1>
             <p
               class="text-lead text-white"
-            >Para registrarte como asociado por favor completa el siguiente formulario</p>
+            >Para registrarte como cliente por favor completa el siguiente formulario</p>
           </div>
         </div>
       </div>
@@ -35,9 +35,7 @@
                 <argon-input type="text" placeholder="Nombre(s)" aria-label="Nombre" />
                 <argon-input type="text" placeholder="Apellidos" aria-label="Apellido" />
                 <argon-input type="date" placeholder="Fecha de nacimiento" aria-label="Fecha_nacimiento" />
-                <argon-input type="tel" placeholder="Teléfono" aria-label="Telefono" /> 
-                <argon-input type="text" placeholder="Ocupación" aria-label="Ocupacion" />
-                <argon-input type="text" placeholder="Ciudad" aria-label="Ciudad" />
+                <argon-input type="text" placeholder="Teléfono" aria-label="Telefono" /> 
                 <argon-input type="email" placeholder="Correo electrónico" aria-label="Correo" />
                 <argon-input type="password" placeholder="Contraseña" aria-label="Contrasena" />
                 <argon-checkbox checked>
@@ -78,7 +76,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
 const body = document.getElementsByTagName("body")[0];
 
 export default {
-  name: "signup",
+  name: "signupcliente",
   components: {
     Navbar,
     AppFooter,

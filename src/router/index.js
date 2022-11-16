@@ -6,6 +6,7 @@ import Billing from "../views/Billing.vue";
 import RTL from "../views/Rtl.vue";
 import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
+import SignupCliente from "../views/SignupCliente.vue";
 import Signin from "../views/Signin.vue";
 
 const routes = [
@@ -53,6 +54,11 @@ const routes = [
     path: "/signup",
     name: "Signup",
     component: Signup,
+  },
+  {
+    path: "/signup-cliente",
+    name: "Signup cliente",
+    component: SignupCliente,
   },
   
 ];
