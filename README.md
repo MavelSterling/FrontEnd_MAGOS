@@ -4,16 +4,23 @@ Para ejecutar el programa:
 git clone https://github.com/JFOZ1010/backend-django.git
 ~~~
 <br>
-~~~sh
+
+Instalación de paquetes
+~~~
 npm install
 ~~~
+
 <br>
+
 Si está con un sistema operativo Linux, insertar el siguiente comando: 
-~~~sh
+
+~~~
 export NODE_OPTIONS=--openssl-legacy-provider
 ~~~
 <br>
-~~~sh
+
+Ejecutar el programa en la versión de desarrollo
+~~~
 npm run dev
 ~~~
 <br>
