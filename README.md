@@ -1,7 +1,7 @@
 Para ejecutar el programa:
 <br>
 ~~~sh
-git clone https://github.com/JFOZ1010/backend-django.git
+git clone https://github.com/MavelSterling/Frontend_MAGOS.git
 ~~~
 <br>
 
