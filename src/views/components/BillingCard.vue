@@ -23,10 +23,10 @@
           </div>
           <div class="ms-auto text-end">
             <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
-              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Delete
+              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>DEsactivar
             </a>
             <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;">
-              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit
+              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar
             </a>
           </div>
         </li>
@@ -48,10 +48,10 @@
           </div>
           <div class="ms-auto text-end">
             <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
-              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Delete
+              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Desactivar
             </a>
             <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;">
-              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit
+              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar
             </a>
           </div>
         </li>
@@ -73,10 +73,10 @@
           </div>
           <div class="ms-auto text-end">
             <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
-              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Delete
+              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Desactivar
             </a>
             <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;">
-              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Edit
+              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar
             </a>
           </div>
         </li>
