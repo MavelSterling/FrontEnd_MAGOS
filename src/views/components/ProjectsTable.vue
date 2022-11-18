@@ -1,17 +1,17 @@
 <template>
   <div class="card mb-4">
 <div class="card-header pb-0">
-<h6>Projects table</h6>
+<h6>Reporte de deudas de clientes por mes</h6>
 </div>
 <div class="card-body px-0 pt-0 pb-2">
 <div class="table-responsive p-0">
  <table class="table align-items-center justify-content-center mb-0">
 <thead>
 <tr>
-<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Project</th>
-<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Budget</th>
-<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
-<th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Completion</th>
+<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre del cliente</th>
+<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Valor de deuda</th>
+<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Estado de pago</th>
+<th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Completado</th>
 <th></th>
 </tr>
 </thead>
@@ -31,7 +31,7 @@
 <p class="text-sm font-weight-bold mb-0">$2,500</p>
 </td>
 <td>
-<span class="text-xs font-weight-bold">working</span>
+<span class="text-xs font-weight-bold">En proceso</span>
 </td>
 <td class="align-middle text-center">
 <div class="d-flex align-items-center justify-content-center">
@@ -64,7 +64,7 @@
 <p class="text-sm font-weight-bold mb-0">$5,000</p>
 </td>
 <td>
-<span class="text-xs font-weight-bold">done</span>
+<span class="text-xs font-weight-bold">Finalizado</span>
 </td>
 <td class="align-middle text-center">
 <div class="d-flex align-items-center justify-content-center">
@@ -97,7 +97,7 @@
 <p class="text-sm font-weight-bold mb-0">$3,400</p>
 </td>
 <td>
-<span class="text-xs font-weight-bold">canceled</span>
+<span class="text-xs font-weight-bold">Cancelado</span>
 </td>
 <td class="align-middle text-center">
 <div class="d-flex align-items-center justify-content-center">
@@ -130,7 +130,7 @@
 <p class="text-sm font-weight-bold mb-0">$1,000</p>
 </td>
 <td>
-<span class="text-xs font-weight-bold">canceled</span>
+<span class="text-xs font-weight-bold">No realizado</span>
 </td>
 <td class="align-middle text-center">
 <div class="d-flex align-items-center justify-content-center">
@@ -163,7 +163,7 @@
 <p class="text-sm font-weight-bold mb-0">$14,000</p>
 </td>
 <td>
-<span class="text-xs font-weight-bold">working</span>
+<span class="text-xs font-weight-bold">En proceso</span>
 </td>
 <td class="align-middle text-center">
 <div class="d-flex align-items-center justify-content-center">
@@ -196,7 +196,7 @@
 <p class="text-sm font-weight-bold mb-0">$2,300</p>
 </td>
 <td>
-<span class="text-xs font-weight-bold">done</span>
+<span class="text-xs font-weight-bold">Finalizado</span>
 </td>
 <td class="align-middle text-center">
 <div class="d-flex align-items-center justify-content-center">
