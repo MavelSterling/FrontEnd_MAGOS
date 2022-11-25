@@ -39,7 +39,7 @@
                 <argon-input type="text" placeholder="Ocupación" aria-label="Ocupacion" />
                 <argon-input type="text" placeholder="Ciudad" aria-label="Ciudad" />
                 <argon-input type="email" placeholder="Correo electrónico" aria-label="Correo" />
-                <argon-input type="password" placeholder="Contraseña" aria-label="Contrasena" />
+                <argon-input type="password" placeholder="Contraseña" aria-label="Contraseña" />
                 <argon-checkbox checked>
                   <label class="form-check-label" for="flexCheckDefault">
                     Acepto
