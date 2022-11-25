@@ -28,7 +28,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link
               class="nav-link d-flex align-items-center me-2 active"
               aria-current="page"
@@ -41,8 +41,8 @@
               ></i>
               Inicio
             </router-link>
-          </li>
-          <li class="nav-item">
+          </li> -->
+          <!-- <li class="nav-item">
             <router-link class="nav-link me-2" to="/profile">
               <i
                 class="fa fa-user opacity-6 me-1"
@@ -51,7 +51,7 @@
               ></i>
               Perfil
             </router-link>
-          </li>
+          </li> -->
           <li class="nav-item">
             <router-link class="nav-link me-2" to="/signup">
               <i
@@ -62,7 +62,7 @@
               Registrarse
             </router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link class="nav-link me-2" to="/signin">
               <i
                 class="fas fa-key opacity-6 me-1"
@@ -71,7 +71,7 @@
               ></i>
               Iniciar sesión
             </router-link>
-          </li>
+          </li>-->
         </ul>
         <!-- <ul class="navbar-nav d-lg-block d-none">
           <li class="nav-item">
