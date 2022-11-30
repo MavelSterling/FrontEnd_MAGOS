@@ -26,19 +26,6 @@
           </template>
         </sidenav-item>
       </li>
-      <li class="nav-item">
-        <sidenav-item
-          url="/tables"
-          :class="getRoute() === 'tables' ? 'active' : ''"
-          :navText="this.$store.state.isRTL ? 'Reports' : 'Reportes'"
-        >
-          <template v-slot:icon>
-            <i
-              class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"
-            ></i>
-          </template>
-        </sidenav-item>
-      </li>
       <!--<li class="nav-item">
         <sidenav-item
           url="/virtual-reality"
@@ -61,6 +48,19 @@
           <template v-slot:icon>
             <i
               class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"
+            ></i>
+          </template>
+        </sidenav-item>
+      </li>
+      <li class="nav-item">
+        <sidenav-item
+          url="/tables"
+          :class="getRoute() === 'tables' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'Reports' : 'Reportes'"
+        >
+          <template v-slot:icon>
+            <i
+              class="ni ni-chart-bar-32 text-warning text-sm opacity-10"
             ></i>
           </template>
         </sidenav-item>
