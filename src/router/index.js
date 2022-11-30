@@ -8,6 +8,7 @@ import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
 import SignupCliente from "../views/SignupCliente.vue";
 import Signin from "../views/Signin.vue";
+import Meeting from "../views/Meeting.vue";
 
 const routes = [
   {
@@ -59,6 +60,11 @@ const routes = [
     path: "/signup-cliente",
     name: "Signup cliente",
     component: SignupCliente,
+  },
+  {
+    path: "/meeting",
+    name: "Reuniones",
+    component: Meeting,
   },
   
 ];

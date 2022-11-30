@@ -54,6 +54,19 @@
       </li>-->
       <li class="nav-item">
         <sidenav-item
+          url="/meeting"
+          :class="getRoute() === 'tables' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'Meeting' : 'Reuniones'"
+        >
+          <template v-slot:icon>
+            <i
+              class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"
+            ></i>
+          </template>
+        </sidenav-item>
+      </li>
+      <li class="nav-item">
+        <sidenav-item
           url="/rtl-page"
           :class="getRoute() === 'rtl-page' ? 'active' : ''"
           navText="RTL"
