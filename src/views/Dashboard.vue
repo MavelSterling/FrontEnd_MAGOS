@@ -49,23 +49,22 @@
             ></card>
           </div>
         </div>
-        <div class="row">
+        <div class="row mt-4">
           <div class="col-lg-7 mb-lg">
-            <!-- line chart -->
-            <div class="card z-index-2">
-              <gradient-line-chart />
+            <div class="col-lg-12">
+            <categories-card />
             </div>
           </div>
-          <div class="col-lg-5">
+          <div class="col-lg-5 mb-lg">
             <carousel />
           </div>
         </div>
         <div class="row mt-4">
           <div class="col-lg-7 mb-lg-0 mb-4">
-            <div class="card">
+            <!--<div class="card">
               <div class="p-3 pb-0 card-header">
                 <div class="d-flex justify-content-between">
-                  <!--  <h6 class="mb-2">Sales by Country</h6>-->
+                    <h6 class="mb-2">Sales by Country</h6>
                 </div>
               </div>
               <div class="table-responsive">
@@ -105,10 +104,11 @@
                   </tbody>
                 </table>
               </div>
-            </div>
+            </div>-->
           </div>
-          <div class="col-lg-5">
-            <categories-card />
+            <!-- line chart -->
+          <div class="card z-index-2">
+            <gradient-line-chart  />
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@
 </template>
 <script>
 import Card from "@/examples/Cards/Card.vue";
-import GradientLineChart from "@/examples/Charts/GradientLineChart.vue";
+//import GradientLineChart from "@/examples/Charts/GradientLineChart.vue";
 import Carousel from "./components/Carousel.vue";
 import CategoriesCard from "./components/CategoriesCard.vue";
 
@@ -192,9 +192,9 @@ export default {
   },
   components: {
     Card,
-    GradientLineChart,
+    /*GradientLineChart,*/
     Carousel,
-    CategoriesCard,
+   CategoriesCard,
   },
 };
 </script>
