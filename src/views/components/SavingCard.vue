@@ -62,7 +62,7 @@
             <!-- <span class="sr-only">Editar valor</span>-->
           </div>
         </div>
-        <div class="col-md-13">
+        <div class="col-md-13 mt-3">
           <div
             class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row"
           >
@@ -80,7 +80,7 @@
             <span class="sr-only">Editar tarjeta</span>-->
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mt-3">
           <div
             class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row"
           >
@@ -89,7 +89,7 @@
           
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mt-3">
           <div
             class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row"
           >
