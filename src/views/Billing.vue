@@ -26,8 +26,8 @@
               </div>
             </div>
           </div>
-          <div class="col-md-12 mb-4">
-            <payment-card />
+         <div class="col-md-13 mb-3">
+            <saving-card/>
           </div>
         </div>
       </div>
@@ -36,9 +36,9 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-7">
+     <!-- <div class="col-md-7">
         <billing-card />
-      </div>
+      </div>-->
       <div class="col-md-5">
         <transaction-card />
       </div>
@@ -49,9 +49,9 @@
 <script>
 import MasterCard from "@/examples/Cards/MasterCard.vue";
 import DefaultInfoCard from "@/examples/Cards/DefaultInfoCard.vue";
-import PaymentCard from "./components/PaymentCard.vue";
+import SavingCard from "./components/SavingCard.vue";
 import InvoiceCard from "./components/InvoiceCard.vue";
-import BillingCard from "./components/BillingCard.vue";
+//import BillingCard from "./components/BillingCard.vue";
 import TransactionCard from "./components/TransactionCard.vue";
 
 export default {
@@ -59,9 +59,9 @@ export default {
   components: {
     MasterCard,
     DefaultInfoCard,
-    PaymentCard,
+    SavingCard,
     InvoiceCard,
-    BillingCard,
+    /*BillingCard,*/
     TransactionCard,
   },
   data() {
