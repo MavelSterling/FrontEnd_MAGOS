@@ -1,33 +1,38 @@
 <template>
-  <div class="card mt-4">
+  <div class="card mt-5">
     <div class="card-header pb-0 p-4">
       <div class="row">
-        <div class="col-6 d-flex align-items-center">
-          <h6 class="mb-0">Transacción</h6>
+        <div class="col-3 d-flex align-items-center">
+          <h6 class="mb-0">Nueva transacción</h6>
         </div>
         <div class="col-3 text-center">
           <argon-button class="bg-success text-white" variant="gradient">
-            <i class="fas fa-plus me-1"></i>
+           <!--<i class="fas fa-plus me-1"></i>--> 
             Ingresar monto
           </argon-button>
         </div>
         <div class="col-3 text-end">
           <argon-button class="bg-warning text-white" variant="gradient">
-            <i class="fas fa-plus me-1"></i>
+            <!--<i class="fas fa-plus me-1"></i>-->
             Actualizar monto
           </argon-button>
         </div>
+       <!--<div class="col-3 text-end">
+          <argon-button class="bg-warning text-white" variant="gradient">
+            Cancelar
+          </argon-button>
+        </div>--> 
       </div>
     </div>
-    <div class="card-body p-4">
+    <div class="card-body p-5">
       <div class="row">
-        <!--<div class="col-md-6 mb-md-0 mb-4">
+        <div class="col-md-6 mb-md-0 mb-4">
           <div
             class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row"
           >
-            <img class="w-10 me-3 mb-0" src="@/assets/img/logos/mastercard.png" alt="logo" />
-            <h6 class="mb-0">****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;7852</h6>
-            <i
+           <!-- <img class="w-10 me-3 mb-0" src="@/assets/img/logos/mastercard.png" alt="logo" />-->
+            <h6 class="mb-0">Tipo de consignación</h6>
+           <!-- <i
               class="fas fa-pencil-alt ms-auto text-dark cursor-pointer"
               data-bs-toggle="tooltip"
               data-bs-placement="top"
@@ -35,10 +40,10 @@
               aria-hidden="true"
               data-bs-original-title="Edit Card"
               aria-label="Edit Card"
-            ></i>
+            ></i>-->
             <span class="sr-only">Editar tarjeta</span>
           </div>
-        </div>-->
+        </div>
         <div class="col-md-6 ">
           <div
             class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row"
@@ -55,6 +60,41 @@
               aria-label="Edit Card"
             ></i>-->
             <!-- <span class="sr-only">Editar valor</span>-->
+          </div>
+        </div>
+        <div class="col-md-13">
+          <div
+            class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row"
+          >
+           <!-- <img class="w-10 me-3 mb-0" src="@/assets/img/logos/mastercard.png" alt="logo" />-->
+            <h6 class="mb-3">Descripción</h6>
+           <!-- <i
+              class="fas fa-pencil-alt ms-auto text-dark cursor-pointer"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title
+              aria-hidden="true"
+              data-bs-original-title="Edit Card"
+              aria-label="Edit Card"
+            ></i>
+            <span class="sr-only">Editar tarjeta</span>-->
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row"
+          >
+            <h6 class="mb-0"> Fecha</h6>
+            
+          
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row"
+          >
+            <h6 class="mb-0">Firma</h6>
+      
           </div>
         </div>
       </div>
