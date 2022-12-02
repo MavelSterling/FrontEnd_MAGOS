@@ -41,6 +41,9 @@
                         v-on:click="login"
                       >Entrar</argon-button>
                     </div>
+                    <h6 class="alert-danger">
+                      {{this.info}}
+                    </h6>
                   </form>
                 </div>
                 <div class="px-1 pt-0 text-center card-footer px-lg-2">
@@ -66,7 +69,7 @@
               <div
                 class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
                 style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
-          background-size: cover;"
+                background-size: cover;"
               >
                 <span class="mask bg-gradient-success opacity-6"></span>
                 <h4
@@ -121,6 +124,7 @@ export default {
       datos: {},
       auth: false,
       tokenAutenticacion : null,
+      info : null
     }
   },
   methods:{
@@ -140,8 +144,16 @@ export default {
         .then( response  => {
           this.auth = response.data.message
           console.log('¿Estoy logueado?: ',this.auth, '\n', response)
-          this.tokenAutenticacion = response.data.tokens.access
-          console.log( this.tokenAutenticacion )
+          try {
+            this.tokenAutenticacion = response.data.tokens.access
+            console.log( this.tokenAutenticacion )
+            console.log( 'Entré!!!!!')
+            this.$router.push('dashboard-default')
+          }catch( err ){
+            console.log( 'No pude entrar D:   ')
+            this.info = 'Usuario y/o contraseña incorrecto, por favor intente nuevamente'
+          }
+           
         })
         .catch( 
           err => console.log(err)
