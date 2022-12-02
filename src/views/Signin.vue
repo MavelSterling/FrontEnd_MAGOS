@@ -24,10 +24,10 @@
                 <div class="card-body">
                   <form role="form">
                     <div class="mb-3">
-                      <argon-input type="text" placeholder="Email" name="email" size="lg" v-model='email'/>
+                      <input type="text" placeholder="Email" name="email" size="40" v-model='email'/>
                     </div>
                     <div class="mb-3">
-                      <argon-input type="password" placeholder="Password" name="password" size="lg" v-model='password'/>
+                      <input type="password" placeholder="Password" name="password" size="40" v-model='password'/>
                     </div>
                     <argon-switch id="rememberMe">Recordar usuario</argon-switch>
 
@@ -85,20 +85,20 @@
 </template>
 
 <script>
-import Navbar from "@/examples/PageLayout/Navbar.vue";
-import ArgonInput from "@/components/ArgonInput.vue";
+/* eslint-disable */
+import Navbar from "@/examples/PageLayout/Navbar.vue"; 
 import ArgonSwitch from "@/components/ArgonSwitch.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
 import axios from 'axios';
+import { createLogger } from 'vuex';
 const body = document.getElementsByTagName("body")[0];
-
+const hola =123
 export default {
   name: "signin",
   components: {
-    Navbar,
-    ArgonInput,
-    ArgonSwitch,
+    Navbar, 
     ArgonButton,
+    ArgonSwitch
   },
   created() {
     this.$store.state.hideConfigButton = true;
@@ -119,31 +119,42 @@ export default {
       email: "",
       password: "",
       datos: {},
-      auth: false
+      auth: false,
+      tokenAutenticacion : null,
     }
   },
   methods:{
     async login(e){
-      e.preventDefault()
+      e.preventDefault() // Para evitar que redireccione la página
 
       this.datos = {
-        "username":this.email,
+        "email":this.email,
         "password":this.password
       }
 
-      console.log(this.datos)
+      console.log(this.datos) 
 
       await axios.postForm('http://localhost:8000/api/auth',
         this.datos
       )
         .then( response  => {
-          this.auth = response.data.status
-          console.log('¿Estoy logueado?: ',this.auth)
+          this.auth = response.data.message
+          console.log('¿Estoy logueado?: ',this.auth, '\n', response)
+          this.tokenAutenticacion = response.data.tokens.access
+          console.log( this.tokenAutenticacion )
         })
-        .catch(
+        .catch( 
           err => console.log(err)
-        )
-    }
+        ) 
+    },
+
+    // Método de prueba, después se eliminará
+    printx( e ) {
+      e.preventDefault()
+      console.log( this.email, this.password )
+    },
+
+    
   }
 };
 </script>
