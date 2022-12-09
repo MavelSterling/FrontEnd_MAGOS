@@ -138,7 +138,7 @@ export default {
 
       console.log(this.datos) 
 
-      await axios.postForm('http://localhost:8000/api/auth',
+      await axios.postForm('http://localhost:8000/api/login',
         this.datos
       )
         .then( response  => {
