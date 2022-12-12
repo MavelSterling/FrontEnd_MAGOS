@@ -1,0 +1,135 @@
+import Conexion from "./Conexion";
+/* eslint-disable */
+class Usuario { 
+  _username = null;  
+  _first_name = null;  
+  _last_name = null;  
+  _email = null;  
+  _rol = null;  
+  _password = null;  // No es necesario guardarla
+  _fechaNacimiento = null;  
+  _documento = null; 
+  _token = null; 
+
+
+  constructor( username, first_name, last_name, email, rol, fechaNacimiento, documento ){
+    this._username = username;  
+    this._first_name = first_name;  
+    this._last_name = last_name;  
+    this._email = email;  
+    this._rol = rol;   
+    this._fechaNacimiento = fechaNacimiento;  
+    this._documento =  documento; 
+
+    if (typeof Usuario.instance === 'object' ) {
+      return Usuario.instance;
+    }
+
+    Usuario.instance = this;
+    return this;
+  }
+
+  // getters
+  get getFirst_name() {
+    return this._first_name;
+  }
+
+  get getUsername (){      
+    return this._username;
+  }
+
+  get getLast_name (){    
+    return this._last_name;
+  }
+
+  get getEmail (){    
+    return this._email;
+  }
+
+  get getRol (){     
+    return this._rol;
+  }
+
+  get getFechaNacimiento (){    
+    return this._fechaNacimiento;
+  }
+
+  get getDocumento (){   
+    return this._documen;
+  }
+
+  get getPassword() {
+    return this._password;
+  }
+
+  get getToken() {
+    return this._token;
+  }
+  
+  // setters
+
+  set setFirst_name( first_name ) {
+    this._first_name = first_name;
+  }
+
+  set setUsername (username){      
+    this._username = username;
+  }
+
+  set setLast_name (last_name){    
+    this._last_name = last_name;
+  }
+
+  set setEmail (email){    
+    this._email = email;
+  }
+
+  set setRol (rol){     
+    this._rol = rol;
+  }
+
+  set setFechaNacimiento (fechaNacimiento){    
+    this._fechaNacimiento = fechaNacimiento;
+  }
+
+  set setDocumento ( documento){   
+    this._documento =  documento;
+  }
+
+  set setPassword( password ) {
+    this._password = password;
+  }
+
+  set setToken( token ) {
+    this._token = token;
+  }
+  
+  saludar() {
+    //console.log(`Hola, me llamo ${this._first_name} ${this._last_name}, y soy un ${this._rol}`);
+    console.log(`Mi token es: ${this._token}`);
+  }
+
+  // Método que elimina la única instancia de Usuario en el caso que éste se desconecte.
+  desconectar() {
+    delete Usuario.instance;
+  }
+
+  // Este método siempre tendrá que ejecutarse primero para asegurar que el usuario tenga todas sus credenciales correctas, sin importar la operación (una vez haya accedido satisfactoriamente)
+  validarOperacion( ) {
+    return Conexion.validarConexion( this._email, this._password, this._token) 
+  }
+
+  obtenerUsuarios() {
+    this.validarOperacion()
+      .then( validar => {
+        Conexion.listarUsuarios( this._token )
+          .then( resp => {
+            console.log( resp.data )
+          })
+      })
+      .catch( err => console.log( err ))
+  }
+
+}
+
+export default Usuario;

@@ -90,11 +90,12 @@
 <script>
 /* eslint-disable */
 import Conexion from "@/classes/Conexion.js";
+import Usuario from "@/classes/Usuario.js"
 import Navbar from "@/examples/PageLayout/Navbar.vue"; 
 import ArgonSwitch from "@/components/ArgonSwitch.vue";
-import ArgonButton from "@/components/ArgonButton.vue";
-import axios from 'axios';
+import ArgonButton from "@/components/ArgonButton.vue"; 
 import { createLogger } from 'vuex';
+
 const body = document.getElementsByTagName("body")[0];
 const hola =123
 export default {
@@ -122,8 +123,7 @@ export default {
     return {
       email: "",
       password: "",
-      datos: {},
-      auth: false,
+      datos: {}, 
       tokenAutenticacion : null,
       info : null
     }
@@ -142,9 +142,8 @@ export default {
       // await axios.postForm('http://localhost:8080/api/login/',
       //   this.datos
       // )
-      //   .then( response  => {
-      //     this.auth = response.data.message
-      //     console.log('¿Estoy logueado?: ',this.auth, '\n', response)
+      //   .then( response  => { 
+      //     console.log('¿Estoy logueado?: ',response.data.message, '\n', response)
       //     try {
       //       this.tokenAutenticacion = response.data.tokens.access
       //       console.log( this.tokenAutenticacion )
@@ -161,20 +160,26 @@ export default {
       //   ) 
 
 
-        const axiosX = new Conexion();
-        await axiosX.loginUsuario( this.email, this.password )
+        
+        await Conexion.loginUsuario( this.email, this.password )
           .then( resp => {
             console.log( resp )
-          
-            this.auth = resp.data.message
-            console.log('¿Estoy logueado?: ',this.auth, '\n', resp)
+           
+            console.log('¿Estoy logueado?: ',resp.data.message)
             try {
               this.tokenAutenticacion = resp.data.tokens.access
               console.log( this.tokenAutenticacion )
               console.log( 'Entré!!!!!')
-              this.$router.push('dashboard-default') // IMPORTANTE, para cambiar de componente
+              const usuario = new Usuario()
+              usuario.setToken = this.tokenAutenticacion
+              usuario.setEmail = this.email
+              usuario.setPassword = this.password
+              usuario.saludar() 
+              usuario.obtenerUsuarios()
+              //this.$router.push('dashboard-default') // IMPORTANTE, para cambiar de componente
             }catch( err ){
-              console.log( 'No pude entrar D:   ')
+              //console.log( 'No pude entrar D:   ')
+              console.log(  err )
               this.info = 'Usuario y/o contraseña incorrecto, por favor intente nuevamente'
             }
           })
