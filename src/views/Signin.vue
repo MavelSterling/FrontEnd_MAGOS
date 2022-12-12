@@ -89,6 +89,7 @@
 
 <script>
 /* eslint-disable */
+import Conexion from "@/classes/Conexion.js";
 import Navbar from "@/examples/PageLayout/Navbar.vue"; 
 import ArgonSwitch from "@/components/ArgonSwitch.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
@@ -131,33 +132,56 @@ export default {
     async login(e){
       e.preventDefault() // Para evitar que redireccione la página
 
-      this.datos = {
-        "email":this.email,
-        "password":this.password
-      }
+      // this.datos = {
+      //   "email":this.email,
+      //   "password":this.password
+      // }
 
-      console.log(this.datos) 
+      // console.log(this.datos) 
 
-      await axios.postForm('http://localhost:8000/api/login',
-        this.datos
-      )
-        .then( response  => {
-          this.auth = response.data.message
-          console.log('¿Estoy logueado?: ',this.auth, '\n', response)
-          try {
-            this.tokenAutenticacion = response.data.tokens.access
-            console.log( this.tokenAutenticacion )
-            console.log( 'Entré!!!!!')
-            this.$router.push('dashboard-default')
-          }catch( err ){
-            console.log( 'No pude entrar D:   ')
-            this.info = 'Usuario y/o contraseña incorrecto, por favor intente nuevamente'
-          }
+      // await axios.postForm('http://localhost:8080/api/login/',
+      //   this.datos
+      // )
+      //   .then( response  => {
+      //     this.auth = response.data.message
+      //     console.log('¿Estoy logueado?: ',this.auth, '\n', response)
+      //     try {
+      //       this.tokenAutenticacion = response.data.tokens.access
+      //       console.log( this.tokenAutenticacion )
+      //       console.log( 'Entré!!!!!')
+      //       this.$router.push('dashboard-default') // IMPORTANTE, para cambiar de componente
+      //     }catch( err ){
+      //       console.log( 'No pude entrar D:   ')
+      //       this.info = 'Usuario y/o contraseña incorrecto, por favor intente nuevamente'
+      //     }
            
-        })
-        .catch( 
-          err => console.log(err)
-        ) 
+      //   })
+      //   .catch( 
+      //     
+      //   ) 
+
+
+        const axiosX = new Conexion();
+        await axiosX.loginUsuario( this.email, this.password )
+          .then( resp => {
+            console.log( resp )
+          
+            this.auth = resp.data.message
+            console.log('¿Estoy logueado?: ',this.auth, '\n', resp)
+            try {
+              this.tokenAutenticacion = resp.data.tokens.access
+              console.log( this.tokenAutenticacion )
+              console.log( 'Entré!!!!!')
+              this.$router.push('dashboard-default') // IMPORTANTE, para cambiar de componente
+            }catch( err ){
+              console.log( 'No pude entrar D:   ')
+              this.info = 'Usuario y/o contraseña incorrecto, por favor intente nuevamente'
+            }
+          })
+            
+          .catch( err => console.log(err))
+         
+         
     },
 
     // Método de prueba, después se eliminará
