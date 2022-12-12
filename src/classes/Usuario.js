@@ -1,6 +1,6 @@
 import Conexion from "./Conexion";
 /* eslint-disable */
-class Usuario { 
+class Usuario {  
   _username = null;  
   _first_name = null;  
   _last_name = null;  
@@ -103,6 +103,26 @@ class Usuario {
   set setToken( token ) {
     this._token = token;
   }
+
+  guardarInformacion( {username, first_name, last_name, email, rol, fechaNacimiento, documento,
+    password} ){
+    this._username = username;  
+    this._first_name = first_name;  
+    this._last_name = last_name;  
+    this._email = email;  
+    this._rol = rol;   
+    this._fechaNacimiento = fechaNacimiento;  
+    this._documento =  documento; 
+    this._password = password;
+  }
+
+  // Método que se encarga de encontrar el objeto Usuario de un arreglo de usuarios según el email
+  encontrarUsuarioPorEmail( arreglo ) {
+    const respuesta = arreglo.find( elem => this._email === elem.email );
+    // console.log( arreglo );
+    // console.log( respuesta ); 
+    return respuesta
+  }
   
   saludar() {
     //console.log(`Hola, me llamo ${this._first_name} ${this._last_name}, y soy un ${this._rol}`);
@@ -123,8 +143,16 @@ class Usuario {
     this.validarOperacion()
       .then( validar => {
         Conexion.listarUsuarios( this._token )
-          .then( resp => {
-            console.log( resp.data )
+          .then( async (resp) => {
+            const usuarioEncontrado = this.encontrarUsuarioPorEmail( await resp.data );
+            console.log('usuario Encontrado:', usuarioEncontrado );
+            if ( usuarioEncontrado ) {
+              this.guardarInformacion( usuarioEncontrado ); 
+              console.log(`Mi fecha de nacimiento es: ${this._fechaNacimiento}`);
+            } else {
+              throw 'Usuario no encontrado, o error en el servidor';
+            }
+            //console.log( resp.data )
           })
       })
       .catch( err => console.log( err ))
