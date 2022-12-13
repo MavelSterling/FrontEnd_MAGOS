@@ -43,10 +43,19 @@
                 <argon-checkbox checked>
                   <label class="form-check-label" for="flexCheckDefault">
                     Acepto
-                    <a
-                      href="javascript;;"
-                      class="text-dark font-weight-bolder"
-                    >Terminos y condiciones</a>
+                   <!-- <a   
+                    href="#" class="text-dark font-weight-bolder">
+                            <span class="btn-inner--icon"></span>
+                            <span class="btn-inner--text">términos y condiciones</span>
+                            
+                  </a>-->
+                  <button id="show-modal" @click="showModal = true"> términos y condiciones</button>
+                    <!-- use the modal component, pass in the prop -->
+                    <modal :show="showModal" @close="showModal = false">
+                      <template #header>
+                        <h3>Términos y condiciones</h3>
+                      </template>
+                    </modal> 
                   </label>
                 </argon-checkbox>
                 <div class="text-center">
