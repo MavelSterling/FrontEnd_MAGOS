@@ -176,7 +176,7 @@ export default {
               usuario.setPassword = this.password
               usuario.saludar() 
               usuario.obtenerUsuarios()
-              //this.$router.push('dashboard-default') // IMPORTANTE, para cambiar de componente
+              this.$router.push('dashboard-default') // IMPORTANTE, para cambiar de componente
             }catch( err ){
               //console.log( 'No pude entrar D:   ')
               console.log(  err )

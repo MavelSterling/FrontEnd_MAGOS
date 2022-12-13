@@ -1,25 +1,26 @@
 import Conexion from "./Conexion";
 /* eslint-disable */
 class Usuario {  
-  _username = null;  
-  _first_name = null;  
-  _last_name = null;  
-  _email = null;  
-  _rol = null;  
-  _password = null;  // No es necesario guardarla
-  _fechaNacimiento = null;  
-  _documento = null; 
-  _token = null; 
+  _username = 'null';  
+  _first_name = 'null';  
+  _last_name = 'null';  
+  _email = 'null';  
+  _rol = 'null';  
+  _password = 'null';  // No es necesario guardarla
+  _fechaNacimiento = 'null';  
+  _documento = 0; 
+  _token = 'null'; 
 
 
-  constructor( username, first_name, last_name, email, rol, fechaNacimiento, documento ){
-    this._username = username;  
-    this._first_name = first_name;  
-    this._last_name = last_name;  
-    this._email = email;  
-    this._rol = rol;   
-    this._fechaNacimiento = fechaNacimiento;  
-    this._documento =  documento; 
+  constructor( ){
+    //username, first_name, last_name, email, rol, fechaNacimiento, documento 
+    // this._username = username;  
+    // this._first_name = first_name;  
+    // this._last_name = last_name;  
+    // this._email = email;  
+    // this._rol = rol;   
+    // this._fechaNacimiento = fechaNacimiento;  
+    // this._documento =  documento; 
 
     if (typeof Usuario.instance === 'object' ) {
       return Usuario.instance;
@@ -125,7 +126,7 @@ class Usuario {
   }
   
   saludar() {
-    //console.log(`Hola, me llamo ${this._first_name} ${this._last_name}, y soy un ${this._rol}`);
+    console.log(`Hola, me llamo ${this._first_name} ${this._last_name}, y soy un ${this._rol}`);
     console.log(`Mi token es: ${this._token}`);
   }
 
