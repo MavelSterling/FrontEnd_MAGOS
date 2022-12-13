@@ -84,6 +84,8 @@ import AppFooter from "@/examples/PageLayout/Footer.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonCheckbox from "@/components/ArgonCheckbox.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
+import Modal from "@/components/Modal.vue";
+
 const body = document.getElementsByTagName("body")[0];
 
 export default {
@@ -94,6 +96,7 @@ export default {
     ArgonInput,
     ArgonCheckbox,
     ArgonButton,
+    Modal,
   },
   created() {
     this.$store.state.hideConfigButton = true;
@@ -109,5 +112,10 @@ export default {
     this.$store.state.showFooter = true;
     body.classList.add("bg-gray-100");
   },
+  data() {
+    return {
+      showModal: false
+    }
+  }
 };
 </script>
