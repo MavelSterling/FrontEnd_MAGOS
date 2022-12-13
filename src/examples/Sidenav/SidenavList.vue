@@ -41,6 +41,32 @@
       </li>-->
       <li class="nav-item">
         <sidenav-item
+          url="/payment"
+          :class="getRoute() === 'tables' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'Payment' : 'Abonos'"
+        >
+          <template v-slot:icon>
+            <i
+              class="ni ni-credit-card text-success text-sm opacity-10"
+            ></i>
+          </template>
+        </sidenav-item>
+      </li>
+      <li class="nav-item">
+        <sidenav-item
+          url="/lend"
+          :class="getRoute() === 'tables' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'Lend' : 'Préstamo'"
+        >
+          <template v-slot:icon>
+            <i
+              class="ni ni-credit-card text-success text-sm opacity-10"
+            ></i>
+          </template>
+        </sidenav-item>
+      </li>
+      <li class="nav-item">
+        <sidenav-item
           url="/meeting"
           :class="getRoute() === 'tables' ? 'active' : ''"
           :navText="this.$store.state.isRTL ? 'Meeting' : 'Reuniones'"

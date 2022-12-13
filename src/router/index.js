@@ -9,7 +9,8 @@ import Signup from "../views/Signup.vue";
 import SignupCliente from "../views/SignupCliente.vue";
 import Signin from "../views/Signin.vue";
 import Meeting from "../views/Meeting.vue";
-
+import Payment from "../views/Payment.vue";
+import Lend from "../views/Lend.vue";
 const routes = [
   {
     path: "/",
@@ -65,6 +66,16 @@ const routes = [
     path: "/meeting",
     name: "Reuniones",
     component: Meeting,
+  },
+  {
+    path: "/payment",
+    name: "Abonos",
+    component: Payment,
+  },
+  {
+    path: "/lend",
+    name: "Préstamo",
+    component: Lend,
   },
   
 ];
