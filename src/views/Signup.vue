@@ -49,7 +49,7 @@
                             <span class="btn-inner--text">términos y condiciones</span>
                             
                   </a>-->
-                  <button id="show-modal" @click="showModal = true"> términos y condiciones</button>
+                  <button id="show-modal" @click ="mostrarCondicion"> términos y condiciones</button>
                     <!-- use the modal component, pass in the prop -->
                     <modal :show="showModal" @close="showModal = false">
                       <template #header>
@@ -57,6 +57,8 @@
                       </template>
                     </modal> 
                   </label>
+
+                  
                 </argon-checkbox>
                 <div class="text-center">
                   <argon-button fullWidth color="dark" variant="gradient" class="my-4 mb-2">Registrarse</argon-button>
@@ -79,6 +81,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Navbar from "@/examples/PageLayout/Navbar.vue";
 import AppFooter from "@/examples/PageLayout/Footer.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
@@ -115,6 +118,12 @@ export default {
   data() {
     return {
       showModal: false
+    }
+  },
+  methods : {
+    mostrarCondicion( evento ) {
+      evento.preventDefault()
+      this.showModal = true
     }
   }
 };

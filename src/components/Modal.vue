@@ -1,7 +1,14 @@
 <script>
 export default {
+  name : 'Modal',
   props: {
     show: Boolean
+  },
+  methods : {
+    cerrarVentana( evento ) {
+      evento.preventDefault()
+      this.$emit('close')  
+    }
   }
 }
 </script>
@@ -30,7 +37,7 @@ export default {
             <slot name="footer">
               <button
                 class="modal-default-button"
-                @click="$emit('close')"
+                @click="cerrarVentana"
               >OK</button>
             </slot>
           </div>
