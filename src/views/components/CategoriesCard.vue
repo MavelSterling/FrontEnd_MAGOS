@@ -121,51 +121,51 @@ export default {
   props: {
     cardTitle: {
       type: String,
-      default: "Categories",
+      default: "Preguntas frecuentes",
     },
     title: {
       type: String,
-      default: "Devices",
+      default: "¿Dónde puedo solicitar un préstamo?",
     },
     title2: {
       type: String,
-      default: "Tickets",
+      default: "¿Dónde puedo ver el estado de mi cuenta?",
     },
     title3: {
       type: String,
-      default: "Error logs",
+      default: "¿En qué parte puedo ver las reuniones pendientes?",
     },
     title4: {
       type: String,
-      default: "Happy Users",
+      default: "¿Dónde puedo modificar mi información?",
     },
     titleDesc: {
       type: String,
-      default: "250 in stock",
+      default: "Lo puedes solicitar en la opción de préstamo"
     },
     titleDesc2: {
       type: String,
-      default: "346+ sold",
+      default: " en la barra de navegación del lado izquierdo"
     },
     title2Desc: {
       type: String,
-      default: "123 closed",
+      default: "En la opción de cuenta de ahorros se encuentra los estados de cuenta y historial de la cuenta",
     },
     title4Desc: {
       type: String,
-      default: "+ 430",
+      default: "En la barra de navegación del lado izquierdo se encuentra la opción de Perfil de usuario, en el cual esta toda la información del usuario y podrá modificarla",
     },
     title2Desc2: {
       type: String,
-      default: "15 open",
+      default: "en la barra de navegación del lado izquierdo",
     },
     title3Desc: {
       type: String,
-      default: "1 is active",
+      default: "En la opción Reuniones se encuentra la información sobre todas las reuniones pendientes, finalizada y canceladas",
     },
     title3Desc2: {
       type: String,
-      default: "40 closed",
+      default: " en la barra de navegación del lado izquierdo",
     },
   },
 };
