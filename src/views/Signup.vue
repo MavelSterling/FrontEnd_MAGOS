@@ -44,7 +44,7 @@
                   <label class="form-check-label" for="flexCheckDefault">
                     Acepto
                     <a
-                      href="/termsConditions"
+                      href="javascript;;"
                       class="text-dark font-weight-bolder"
                     >Terminos y condiciones</a>
                   </label>
