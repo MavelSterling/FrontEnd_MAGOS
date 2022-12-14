@@ -26,9 +26,12 @@ export default {
             <slot name="body">
               USUARIO:
                     El usuario de la aplicación declara que la información que ha ingresado es real y no es ninguna suplantación.
-
+                    El usuario acepta el reglamento de convivencia y obligación del fondo de ahorros de pensiones "FAP" que dicta: 
+                    <br>1. El dinero depositado irá creciendo a través del tiempo por un porcentaje determinado e informado por FAP, no obstante, si el usuario retira su dinero antes del tiempo estipulado (1 año), perderá todas las ganancias acumuladas en el tiempo antes del pago de la comisión.
+                    <br>2. El usuario tendrá que ir puntualmente a las reuniones determinadas por el gerente de FAP con el objetivo de ser informado del estado actual de diversas áreas del fondo. De no asistir, o informar su inasistencia por un motivo mayor, incurrirá una multa la cual tendrá que ser pagada a través del abono del usuario.
+                    <br><br>
               MAGOS:
-                    La empresa se compromete que la información suministrada por el ususario es de alto nivel de seguridad por lo que no es, ni será pública.
+                    La empresa se compromete que la información suministrada por el usuario es de alto nivel de seguridad por lo que no es, ni será pública.
                    La empresa no se compromete a realizar transacciones con bancos reales, dado que para ese servicio se requiere un pago.
                   </slot>
           </div>

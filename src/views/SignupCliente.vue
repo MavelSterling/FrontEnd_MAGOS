@@ -47,7 +47,7 @@
                             <span class="btn-inner--text">términos y condiciones</span>
                             
                   </a>-->
-                  <button id="show-modal" @click="showModal = true"> términos y condiciones</button>
+                  <button id="show-modal" @click="mostrarCondicion"> términos y condiciones</button>
                     <!-- use the modal component, pass in the prop -->
                     <modal :show="showModal" @close="showModal = false">
                       <template #header>
@@ -116,6 +116,12 @@ export default {
   data() {
     return {
       showModal: false
+    }
+  },
+  methods : {
+    mostrarCondicion( evento ) {
+      evento.preventDefault()
+      this.showModal = true
     }
   }
 };
