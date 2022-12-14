@@ -210,7 +210,8 @@ export default {
   data() {
     return {
       showMenu: false,
-      usuario : new Usuario()
+      usuario : new Usuario(),
+      nombre : null
     };
   },
   props: ["minNav", "textWhite"],
@@ -228,6 +229,10 @@ export default {
 
     saludar( e ) {
       this.usuario.saludar()
+    },
+    
+    actualizar() {
+      this.$forceUpdate()
     }
   },
   components: {
@@ -237,6 +242,17 @@ export default {
     currentRouteName() {
       return this.$route.name;
     }
+  },
+  watch : {
+    usuario : function( value, oldValue){
+      console.log('hay cambiooox')
+      this.$forceUpdate() // Esto no está funcionando
+    }
+  },
+  beforeCreate () {
+    setTimeout( ()=>{
+      console.log('ya se creó123' )
+      this.actualizar();},3000)
   }
 };
 </script>
