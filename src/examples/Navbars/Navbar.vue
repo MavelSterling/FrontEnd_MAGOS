@@ -44,11 +44,8 @@
               <i
                 class="fa fa-user"
                 :class="this.$store.state.isRTL ? 'ms-sm-2' : 'me-sm-2'"
-              ></i>
-              <span v-if="this.$store.state.isRTL" class="d-sm-inline d-none"
-                >Sign in</span
-              >
-              <span v-else class="d-sm-inline d-none" @click="saludar">¡Hola! {{usuario.getFirst_name}} {{usuario.getLast_name}}</span>
+              ></i> 
+              <span class="d-sm-inline d-none" @click="saludar" v-if="usuario.getFirst_name!=='null'">¡Hola! {{usuario.getFirst_name}} {{usuario.getLast_name}}</span>
             </div>
             <!-- </router-link> -->
           </li>
