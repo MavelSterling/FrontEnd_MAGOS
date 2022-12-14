@@ -121,16 +121,26 @@ export default {
   data() {
     return {
       showModal: false,
-      nombre : 'Alberto',
-      apellido : 'Mujica',
-      fecha : '1989-11-22',
-      telefono : '3165672389',
-      ocupacion : 'Presidente',
-      ciudad : 'Cali',
-      email : 'lordmujica07@gmail.com',
-      password : 'lordmujica123',
+      // nombre : 'Alberto',
+      // apellido : 'Mujica',
+      // fecha : '1989-11-22',
+      // telefono : '3165672389',
+      // ocupacion : 'Presidente',
+      // ciudad : 'Cali',
+      // email : 'lordmujica07@gmail.com',
+      // password : 'lordmujica123',
+      // mensaje : '',
+      // documento : '1155433987'
+      nombre : '',
+      apellido : '',
+      fecha : '',
+      telefono : '',
+      ocupacion : '',
+      ciudad : '',
+      email : '',
+      password : '',
       mensaje : '',
-      documento : '1155433987'
+      documento : ''
     }
   },
   methods : {
