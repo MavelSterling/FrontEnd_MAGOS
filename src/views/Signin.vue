@@ -125,7 +125,8 @@ export default {
       password: "",
       datos: {}, 
       tokenAutenticacion : null,
-      info : null
+      info : null,
+      usuario : new Usuario()
     }
   },
   methods:{

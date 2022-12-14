@@ -129,11 +129,11 @@
           </template>
         </sidenav-item>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" @click=" usuario.desconectar() ">
         <sidenav-item
           url="/signin"
           :class="getRoute() === 'signin' ? 'active' : ''"
-          :navText="this.$store.state.isRTL ? 'Sign In' : 'Iniciar sesión'"
+          :navText="this.$store.state.isRTL ? 'Sign In' : 'Cerrar sesión'"
         >
           <template v-slot:icon>
             <i class="ni ni-single-copy-04 text-danger text-sm opacity-10"></i>
@@ -162,8 +162,10 @@
   </div>
 </template>
 <script>
+/* eslint-disable */
 import SidenavItem from "./SidenavItem.vue";
 import SidenavCard from "./SidenavCard.vue";
+import Usuario from '@/classes/Usuario.js';
 
 export default {
   name: "SidenavList",
@@ -174,7 +176,8 @@ export default {
     return {
       title: "MAGOS",
       controls: "dashboardsExamples",
-      isActive: "active"
+      isActive: "active",
+      usuario : new Usuario()
     };
   },
   components: {
