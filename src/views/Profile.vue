@@ -25,8 +25,8 @@
             </div>
             <div class="col-auto my-auto">
               <div class="h-100">
-                <h5 class="mb-1">Sayo Kravits</h5>
-                <p class="mb-0 font-weight-bold text-sm">Administrador</p>
+                <h5 class="mb-1">{{usuario.getFirst_name}}</h5>
+                <p class="mb-0 font-weight-bold text-sm"> {{usuario.getRol}}</p>
               </div>
             </div>
             <div
@@ -216,25 +216,25 @@
                   <label for="example-text-input" class="form-control-label"
                     >No. de identificación</label
                   >
-                  <argon-input type="text" value="cc" />
+                  <input class="form-control" type="text" :value="`CC. ${usuario.getDocumento}`" readonly />
                 </div>
                 <div class="col-md-6">
                   <label for="example-text-input" class="form-control-label"
                     >Correo electrónico</label
                   >
-                <argon-input type="email" value="jesse@example.com" />
+                  <input class="form-control" type="email" :value="`${usuario.getEmail}`" readonly />
                 </div>
                 <div class="col-md-6">
                   <label for="example-text-input" class="form-control-label"
                     >Nombre(s)</label
                   >
-                  <input class="form-control" type="text" value="Jesse" />
+                  <input class="form-control" type="text" :value="usuario.getFirst_name" readonly />
                 </div>
                 <div class="col-md-6">
                   <label for="example-text-input" class="form-control-label"
                     >Apellidos</label
                   >
-                  <argon-input type="text" value="Lucky" />
+                  <input class="form-control" type="text" :value="usuario.getLast_name" readonly />
                 </div>
                 <div class="col-md-6">
                   <label for="example-text-input" class="form-control-label"
@@ -243,44 +243,46 @@
                   <argon-input type="text" value="Médico" />
                 </div>
               
-                  <div class="form-group">
+                  <div class="form-group ">
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text">
                         <i class="ni ni-calendar-grid-58"></i></span>
                       </div>
-                       <input class="flatpickr flatpickr-input form-control" type="text" placeholder="Fecha de nacimiento">
+                       <input class="flatpickr flatpickr-input form-control" type="text" placeholder="Fecha de nacimiento" readonly :value="usuario.getFechaNacimiento" >
                      </div>
                    </div>
 
                   </div>
               
               <hr class="horizontal dark" />
-              <p class="text-uppercase text-sm">Residencia</p>
-              <div class="row">
-                <div class="col-md-12">
-                  <label for="example-text-input" class="form-control-label"
-                    >Dirección</label
-                  >
-                  <argon-input
-                    type="text"
-                    value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                  />
+              <template v-if="usuario.getRol !== 'admin'"> 
+                <p class="text-uppercase text-sm">Residencia</p>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="example-text-input" class="form-control-label"
+                      >Dirección</label
+                    >
+                    <argon-input
+                      type="text"
+                      value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="example-text-input" class="form-control-label"
+                      >Ciudad</label
+                    >
+                    <argon-input type="text" value="New York" />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="example-text-input" class="form-control-label"
+                      >Teléfono</label
+                    >
+                    <argon-input type="text" value="437300" />
+                  </div>
                 </div>
-                <div class="col-md-6">
-                  <label for="example-text-input" class="form-control-label"
-                    >Ciudad</label
-                  >
-                  <argon-input type="text" value="New York" />
-                </div>
-                <div class="col-md-6">
-                  <label for="example-text-input" class="form-control-label"
-                    >Teléfono</label
-                  >
-                  <argon-input type="text" value="437300" />
-                </div>
-              </div>
-              <hr class="horizontal dark" />
+                <hr class="horizontal dark" />
+              </template>
               <!-- <p class="text-uppercase text-sm">About me</p>
               <div class="row">
                 <div class="col-md-12">
@@ -305,11 +307,14 @@
 </template>
 
 <script>
+/* eslint-disable */
 import setNavPills from "@/assets/js/nav-pills.js";
 import setTooltip from "@/assets/js/tooltip.js";
 //import ProfileCard from "./components/ProfileCard.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
+import Usuario from '@/classes/Usuario.js';
+
 
 const body = document.getElementsByTagName("body")[0];
 
@@ -317,7 +322,8 @@ export default {
   name: "profile",
   data() {
     return {
-      showMenu: false
+      showMenu: false,
+      usuario : new Usuario()
     };
   },
   /*components: { ProfileCard, ArgonInput, ArgonButton },*/

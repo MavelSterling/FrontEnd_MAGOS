@@ -56,7 +56,7 @@ class Usuario {
   }
 
   get getDocumento (){   
-    return this._documen;
+    return this._documento;
   }
 
   get getPassword() {
