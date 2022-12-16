@@ -16,18 +16,18 @@
                   :price="salary.price"
                 />
               </div>-->
-              <div class="col-md-6">
+              <!--<div class="col-md-6">
                 <default-info-card
                   :classIcon="paypal.classIcon"
                   :title="paypal.title"
                   :desc="paypal.desc"
                   :price="paypal.price"
                 />
-              </div>
+              </div>-->
             </div>
           </div>
          <div class="col-md-13 mb-3">
-            <saving-card/>
+            <Payment_card/>
           </div>
         </div>
       </div>
@@ -48,8 +48,8 @@
 
 <script>
 //import MasterCard from "@/examples/Cards/MasterCard.vue";
-import DefaultInfoCard from "@/examples/Cards/DefaultInfoCard.vue";
-import SavingCard from "./components/SavingCard.vue";
+//import DefaultInfoCard from "@/examples/Cards/DefaultInfoCard.vue";
+import Payment_card from "./components/Payment_Card.vue";
 import InvoiceCard from "./components/InvoiceCard.vue";
 //import BillingCard from "./components/BillingCard.vue";
 import TransactionCard from "./components/TransactionCard.vue";
@@ -58,8 +58,8 @@ export default {
   name: "Payment",
   components: {
     /*MasterCard,*/
-    DefaultInfoCard,
-    SavingCard,
+   /* DefaultInfoCard,*/
+   Payment_card,
     InvoiceCard,
     /*BillingCard,*/
     TransactionCard,
@@ -71,13 +71,13 @@ export default {
         title: "Ahorro:",
         desc: "Monto del ahorrado:",
         price: "+$2000",
-      },*/
+      },
       paypal: {
         classIcon: "text-white fab fa-paypal",
         title: "Abonos",
         desc: "Monto recibido:",
         price: "$455.00",
-      },
+      },*/
     };
   },
 };
