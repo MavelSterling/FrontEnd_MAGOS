@@ -67,6 +67,19 @@
       </li>
       <li class="nav-item">
         <sidenav-item
+          url="/penalty_fee"
+          :class="getRoute() === 'tables' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'Penalty_fee' : 'Sanciones'"
+        >
+          <template v-slot:icon>
+            <i
+              class="ni ni-credit-card text-success text-sm opacity-10"
+            ></i>
+          </template>
+        </sidenav-item>
+      </li>
+      <li class="nav-item">
+        <sidenav-item
           url="/meeting"
           :class="getRoute() === 'tables' ? 'active' : ''"
           :navText="this.$store.state.isRTL ? 'Meeting' : 'Reuniones'"

@@ -11,6 +11,7 @@ import Signin from "../views/Signin.vue";
 import Meeting from "../views/Meeting.vue";
 import Payment from "../views/Payment.vue";
 import Lend from "../views/Lend.vue";
+import Penalty_fee from "../views/Penalty_fee.vue";
 const routes = [
   {
     path: "/",
@@ -76,6 +77,11 @@ const routes = [
     path: "/lend",
     name: "Préstamo",
     component: Lend,
+  },
+  {
+    path: "/penalty_fee",
+    name: "Sanciones",
+    component: Penalty_fee,
   },
   
 ];
