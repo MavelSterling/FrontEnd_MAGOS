@@ -101,6 +101,6 @@
 
 <script>
 export default {
-  name: "billing-card",
+  name: "Lend_InfoCard",
 };
 </script>
