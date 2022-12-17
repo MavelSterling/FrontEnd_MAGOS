@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-9">
+      <div class="col-lg-12">
         <div class="row mt-4">
           <!--<div class="col-xl-6 mb-xl-0 mb-4">
             <master-card />
@@ -36,7 +36,7 @@
       </div>-->
     </div>
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-12">
         <Lend_InfoCard />
       </div>
      <!-- <div class="col-md-7">
