@@ -5,23 +5,6 @@
         <div class="col-3 d-flex align-items-center">
           <h6 class="mb-0"> Solicitar préstamo</h6>
         </div>
-        <div class="col-5 text-center">
-          <argon-button class="bg-gradient-info text-white">
-           <!--<i class="fas fa-plus me-1"></i>--> 
-            Solicitar
-          </argon-button>
-        </div>
-       <!-- <div class="col-3 text-end">
-          <argon-button class="bg-gradient-warning text-white">
-            Actualizar abono
-          </argon-button>
-        </div>
-       <div class="col-3 text-end">
-          <argon-button class="bg-gradient-danger text-white" >
-            Desactivar abono
-
-          </argon-button>
-        </div>-->
       </div>
     </div>
     <div class="card-body p-5">
@@ -90,6 +73,23 @@
        
       </div>
     </div>
+    <div class="col-10 text-end mb-3">
+          <argon-button class="bg-gradient-info text-white">
+           <!--<i class="fas fa-plus me-1"></i>--> 
+            Registrar solicitud
+          </argon-button>
+        </div>
+       <!-- <div class="col-3 text-end">
+          <argon-button class="bg-gradient-warning text-white">
+            Actualizar abono
+          </argon-button>
+        </div>
+       <div class="col-3 text-end">
+          <argon-button class="bg-gradient-danger text-white" >
+            Desactivar abono
+
+          </argon-button>
+        </div>-->
   </div>
 </template>
 
