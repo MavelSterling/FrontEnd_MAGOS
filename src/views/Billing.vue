@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-lg-12">
         <div class="row mt-4">
           <div class="col-xl-6 mb-xl-0 mb-4">
             <master-card />
@@ -26,21 +26,29 @@
               </div>
             </div>
           </div>
-         <div class="col-md-13 mb-3">
+         <div class="col-md-12 mb-3">
             <saving-card/>
           </div>
         </div>
       </div>
-      <div class="col-lg-4">
+     <!-- <div class="col-lg-4">
         <invoice-card class="mt-4" />
+      </div>-->
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <Billing_InfoCard/>
       </div>
     </div>
     <div class="row">
      <!-- <div class="col-md-7">
         <billing-card />
       </div>-->
-      <div class="col-md-5">
+      <div class="col-md-5 mb-3">
         <transaction-card />
+      </div>
+      <div class="col-md-7 mb-3">
+        <Handling_fee_Info_Card/>
       </div>
     </div>
   </div>
@@ -50,9 +58,11 @@
 import MasterCard from "@/examples/Cards/MasterCard.vue";
 import DefaultInfoCard from "@/examples/Cards/DefaultInfoCard.vue";
 import SavingCard from "./components/SavingCard.vue";
-import InvoiceCard from "./components/InvoiceCard.vue";
+//import InvoiceCard from "./components/InvoiceCard.vue";
 //import BillingCard from "./components/BillingCard.vue";
 import TransactionCard from "./components/TransactionCard.vue";
+import Billing_InfoCard from "./components/Billing_Info_Card.vue";
+import Handling_fee_Info_Card from "./components/Handling_fee_Info_Card.vue";
 
 export default {
   name: "Billing",
@@ -60,9 +70,11 @@ export default {
     MasterCard,
     DefaultInfoCard,
     SavingCard,
-    InvoiceCard,
+    /*InvoiceCard,*/
     /*BillingCard,*/
     TransactionCard,
+    Billing_InfoCard,
+    Handling_fee_Info_Card,
   },
   data() {
     return {
@@ -74,8 +86,8 @@ export default {
       },
       paypal: {
         classIcon: "text-white fab fa-paypal",
-        title: "Abonos",
-        desc: "Monto abonado:",
+        title: "Cuota de manejo",
+        desc: "Valor:",
         price: "$455.00",
       },
     };

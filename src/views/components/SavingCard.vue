@@ -3,20 +3,19 @@
     <div class="card-header pb-0 p-4">
       <div class="row">
         <div class="col-3 d-flex align-items-center">
-          <h6 class="mb-0">Nueva transacción</h6>
+          <h6 class="mb-0">Cuenta de ahorros</h6>
         </div>
         <div class="col-3 text-center">
           <argon-button class="bg-success text-white" variant="gradient">
            <!--<i class="fas fa-plus me-1"></i>--> 
-            Ingresar monto
+            Registrar
           </argon-button>
         </div>
-        <div class="col-3 text-end">
+       <!-- <div class="col-3 text-end">
           <argon-button class="bg-warning text-white" variant="gradient">
-            <!--<i class="fas fa-plus me-1"></i>-->
             Actualizar monto
           </argon-button>
-        </div>
+        </div>-->
        <!--<div class="col-3 text-end">
           <argon-button class="bg-warning text-white" variant="gradient">
             Cancelar
