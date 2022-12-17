@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-header pb-0 px-3">
-      <h6 class="mb-0">Información de abonos</h6>
+      <h6 class="mb-0">Información de sanciones</h6>
     </div>
     <div class="card-body pt-4 p-3">
       <ul class="list-group">
@@ -9,27 +9,23 @@
           <div class="d-flex flex-column">
            <!-- <h6 class="mb-3 text-sm">Oliver Liam</h6>-->
             <span class="mb-2 text-xs">
-              Nombre del abonador:
-              <span class="text-dark font-weight-bold ms-sm-2">Cliente 1</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Id del abono:
+              Id Multa:
               <span class="text-dark ms-sm-2 font-weight-bold">01</span>
             </span>
             <span class="mb-2 text-xs">
-              Id del préstamo:
+              Id Asociado:
               <span class="text-dark ms-sm-2 font-weight-bold">01</span>
             </span>
             <span class="mb-2 text-xs">
-              Valor del abono:
+              Valor de la sanción:
               <span class="text-dark ms-sm-2 font-weight-bold">01</span>
             </span>
             <span class="mb-2 text-xs">
-              Fecha del abono:
+              Fecha de la sanción:
               <span class="text-dark ms-sm-2 font-weight-bold">01/12/2022</span>
             </span>
             <span class="text-xs">
-              Descripción del abono:
+              Motivo de la sanción:
               <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span>
             </span>
           </div>
@@ -45,27 +41,23 @@
         <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
           <div class="d-flex flex-column">
             <span class="mb-2 text-xs">
-              Nombre del abonador:
-              <span class="text-dark font-weight-bold ms-sm-2">Cliente 2</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Id del abono:
+              Id Multa:
               <span class="text-dark ms-sm-2 font-weight-bold">01</span>
             </span>
             <span class="mb-2 text-xs">
-              Id del préstamo:
+              Id Asociado:
               <span class="text-dark ms-sm-2 font-weight-bold">01</span>
             </span>
             <span class="mb-2 text-xs">
-              Valor del abono:
+              Valor de la sanción:
               <span class="text-dark ms-sm-2 font-weight-bold">01</span>
             </span>
             <span class="mb-2 text-xs">
-              Fecha del abono:
+              Fecha de la sanción:
               <span class="text-dark ms-sm-2 font-weight-bold">01/12/2022</span>
             </span>
             <span class="text-xs">
-              Descripción del abono:
+              Motivo de la sanción:
               <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span>
             </span>
           </div>
@@ -85,6 +77,6 @@
 
 <script>
 export default {
-  name: "billing-card",
+  name: "Penalty_fee_Info_Card",
 };
 </script>
