@@ -85,6 +85,6 @@
 
 <script>
 export default {
-  name: "billing-card",
+  name: "Payment_Info_Card",
 };
 </script>

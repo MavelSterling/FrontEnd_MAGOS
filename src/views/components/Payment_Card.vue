@@ -108,7 +108,7 @@ import img1 from "@/assets/img/logos/mastercard.png";
 import img2 from "@/assets/img/logos/dinero.png";
 
 export default {
-  name: "saving-card",
+  name: "Payment_card",
   components: {
     ArgonButton,
   },
