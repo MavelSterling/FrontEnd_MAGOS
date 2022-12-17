@@ -5,22 +5,6 @@
         <div class="col-3 d-flex align-items-center">
           <h6 class="mb-0">Cuenta de ahorros</h6>
         </div>
-        <div class="col-3 text-center">
-          <argon-button class="bg-success text-white" variant="gradient">
-           <!--<i class="fas fa-plus me-1"></i>--> 
-            Registrar
-          </argon-button>
-        </div>
-       <!-- <div class="col-3 text-end">
-          <argon-button class="bg-warning text-white" variant="gradient">
-            Actualizar monto
-          </argon-button>
-        </div>-->
-       <!--<div class="col-3 text-end">
-          <argon-button class="bg-warning text-white" variant="gradient">
-            Cancelar
-          </argon-button>
-        </div>--> 
       </div>
     </div>
     <div class="card-body p-5">
@@ -98,6 +82,22 @@
         </div>
       </div>
     </div>
+    <div class="col-10 text-end mb-3">
+          <argon-button class="bg-success text-white" variant="gradient">
+           <!--<i class="fas fa-plus me-1"></i>--> 
+            Registrar
+          </argon-button>
+        </div>
+       <!-- <div class="col-3 text-end">
+          <argon-button class="bg-warning text-white" variant="gradient">
+            Actualizar monto
+          </argon-button>
+        </div>-->
+       <!--<div class="col-3 text-end">
+          <argon-button class="bg-warning text-white" variant="gradient">
+            Cancelar
+          </argon-button>
+        </div>--> 
   </div>
 </template>
 
