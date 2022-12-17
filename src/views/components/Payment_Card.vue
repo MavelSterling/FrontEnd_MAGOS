@@ -11,9 +11,8 @@
             Ingresar abono
           </argon-button>
         </div>
-        <div class="col-3 text-end">
+       <!-- <div class="col-3 text-end">
           <argon-button class="bg-gradient-warning text-white">
-            <!--<i class="fas fa-plus me-1"></i>-->
             Actualizar abono
           </argon-button>
         </div>
@@ -22,7 +21,7 @@
             Desactivar abono
 
           </argon-button>
-        </div>
+        </div>-->
       </div>
     </div>
     <div class="card-body p-5">
@@ -94,7 +93,7 @@
           <div
             class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row"
           >
-            <h6 class="mb-0">Firma</h6>
+            <h6 class="mb-0">Nombre del abonador</h6>
       
           </div>
         </div>
