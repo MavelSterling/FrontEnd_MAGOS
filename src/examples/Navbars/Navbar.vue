@@ -35,20 +35,19 @@
         </div>
         <ul class="navbar-nav justify-content-end">
           <li class="nav-item d-flex align-items-center">
-            <router-link
-              :to="{ name: 'Signin' }"
+            <!-- <router-link
+              :to="{ name: 'Perfil de usuario' }"
               class="px-0 nav-link font-weight-bold text-white"
               target="_blank"
-            >
+            > -->
+            <div class="px-0 nav-link font-weight-bold text-white">
               <i
                 class="fa fa-user"
                 :class="this.$store.state.isRTL ? 'ms-sm-2' : 'me-sm-2'"
-              ></i>
-              <span v-if="this.$store.state.isRTL" class="d-sm-inline d-none"
-                >Sign in</span
-              >
-              <span v-else class="d-sm-inline d-none">Iniciar sesión</span>
-            </router-link>
+              ></i> 
+              <span class="d-sm-inline d-none" @click="saludar" v-if="usuario.getFirst_name!=='null'">¡Hola! {{usuario.getFirst_name}} {{usuario.getLast_name}}</span>
+            </div>
+            <!-- </router-link> -->
           </li>
           <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
             <a
@@ -198,14 +197,18 @@
   </nav>
 </template>
 <script>
+/* eslint-disable */
 import Breadcrumbs from "../Breadcrumbs.vue";
 import { mapMutations, mapActions } from "vuex";
+import Usuario from '@/classes/Usuario.js';
 
 export default {
   name: "navbar",
   data() {
     return {
-      showMenu: false
+      showMenu: false,
+      usuario : new Usuario(),
+      nombre : null
     };
   },
   props: ["minNav", "textWhite"],
@@ -219,6 +222,14 @@ export default {
     toggleSidebar() {
       this.toggleSidebarColor("bg-white");
       this.navbarMinimize();
+    },
+
+    saludar( e ) {
+      this.usuario.saludar()
+    },
+    
+    actualizar() {
+      this.$forceUpdate()
     }
   },
   components: {
@@ -228,6 +239,17 @@ export default {
     currentRouteName() {
       return this.$route.name;
     }
+  },
+  watch : {
+    usuario : function( value, oldValue){
+      console.log('hay cambiooox')
+      this.$forceUpdate() // Esto no está funcionando
+    }
+  },
+  beforeCreate () {
+    setTimeout( ()=>{
+      console.log('ya se creó123' )
+      this.actualizar();},3000)
   }
 };
 </script>

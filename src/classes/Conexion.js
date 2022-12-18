@@ -26,6 +26,56 @@ class Conexion {
     }) 
   }
 
+  static async pedirCredenciaesSinRegistro() {
+    const token =  await Conexion.loginUsuario('magosds2@correounivalle.edu.co', 'Magos_DS2')
+      .then( resp => {return resp.data.tokens.access})
+    console.log('del metodo', token )
+     
+  }
+
+
+  static async crearAsociado( username, first_name, last_name, email, rol, documento, password, fechaNacimiento, ){
+    console.log(
+      {
+        method: 'post',
+        url : urlBase + '/users/',
+        headers : {
+          Authorization : `Bearer ${await Conexion.pedirCredenciaesSinRegistro()}`,
+        },
+        data :  {
+          username,
+          first_name,
+          last_name,
+          email,
+          rol,
+          documento,
+          password,
+          fechaNacimiento,
+          is_active : true
+        }
+      }
+    )
+    return axios({
+      method: 'post',
+      url : urlBase + '/users/',
+      headers : {
+        Authorization : `Bearer ${Conexion.pedirCredenciaesSinRegistro()}`,
+        'Content-Type': 'application/json'
+      },
+      data :  {
+        username,
+        first_name,
+        last_name,
+        email,
+        rol,
+        documento,
+        password,
+        fechaNacimiento,
+        is_active : true
+      }
+    }). then( console.log('token!', await Conexion.pedirCredenciaesSinRegistro() ))
+  }
+
 
   static validarConexion( email, password, token ){
     return axios({
