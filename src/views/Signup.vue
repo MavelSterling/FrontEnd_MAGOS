@@ -32,25 +32,37 @@
             </div>
             <div class="card-body">
               <form role="form">
-                <argon-input type="text" placeholder="Nombre(s)" aria-label="Nombre" />
-                <argon-input type="text" placeholder="Apellidos" aria-label="Apellido" />
-                <argon-input type="date" placeholder="Fecha de nacimiento" aria-label="Fecha_nacimiento" />
-                <argon-input type="tel" placeholder="Teléfono" aria-label="Telefono" /> 
-                <argon-input type="text" placeholder="Ocupación" aria-label="Ocupacion" />
-                <argon-input type="text" placeholder="Ciudad" aria-label="Ciudad" />
-                <argon-input type="email" placeholder="Correo electrónico" aria-label="Correo" />
-                <argon-input type="password" placeholder="Contraseña" aria-label="Contraseña" />
+                <input class="form-control " type="text" placeholder="Nombre(s)" aria-label="Nombre" v-model="nombre"/>
+                <input class="form-control " type="text" placeholder="Apellidos" aria-label="Apellido"  v-model="apellido" />
+                <input class="form-control " type="text" placeholder="Documento de identidad (sólo números)" aria-label="Documento_identidad"  v-model="documento" />
+                <input class="form-control " type="date" placeholder="Fecha de nacimiento" aria-label="Fecha_nacimiento" v-model="fecha" />
+                <input class="form-control " type="tel" placeholder="Teléfono" aria-label="Telefono"  v-model="telefono"/> 
+                <input class="form-control " type="text" placeholder="Ocupación" aria-label="Ocupacion" v-model="ocupacion" />
+                <input class="form-control " type="text" placeholder="Ciudad" aria-label="Ciudad" v-model="ciudad" />
+                <input class="form-control " type="email" placeholder="Correo electrónico" aria-label="Correo" v-model="email" />
+                <input class="form-control " type="password" placeholder="Contraseña" aria-label="Contraseña" v-model="password" />
                 <argon-checkbox checked>
                   <label class="form-check-label" for="flexCheckDefault">
                     Acepto
-                    <a
-                      href="/termsConditions"
-                      class="text-dark font-weight-bolder"
-                    >Terminos y condiciones</a>
+                   <!-- <a   
+                    href="#" class="text-dark font-weight-bolder">
+                            <span class="btn-inner--icon"></span>
+                            <span class="btn-inner--text">términos y condiciones</span>
+                            
+                  </a>-->
+                  <button id="show-modal" @click ="mostrarCondicion"> términos y condiciones</button>
+                    <!-- use the modal component, pass in the prop -->
+                    <modal :show="showModal" @close="showModal = false">
+                      <template #header>
+                        <h3>Términos y condiciones</h3>
+                      </template>
+                    </modal> 
                   </label>
+
+                  
                 </argon-checkbox>
                 <div class="text-center">
-                  <argon-button fullWidth color="dark" variant="gradient" class="my-4 mb-2">Registrarse</argon-button>
+                  <argon-button fullWidth color="dark" variant="gradient" class="my-4 mb-2" @click="registrarAsociado">Registrarse</argon-button>
                 </div>
                 <p class="text-sm mt-3 mb-0">
                   ¿Tienes cuenta?
@@ -60,6 +72,7 @@
                   >Iniciar sesión</a>
                 </p>
               </form>
+              <h6 class="text.success">{{mensaje}}</h6>
             </div>
           </div>
         </div>
@@ -70,11 +83,15 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Navbar from "@/examples/PageLayout/Navbar.vue";
 import AppFooter from "@/examples/PageLayout/Footer.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonCheckbox from "@/components/ArgonCheckbox.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
+import Modal from "@/components/Modal.vue";
+import Conexion from '@/classes/Conexion.js'; 
+
 const body = document.getElementsByTagName("body")[0];
 
 export default {
@@ -85,6 +102,7 @@ export default {
     ArgonInput,
     ArgonCheckbox,
     ArgonButton,
+    Modal,
   },
   created() {
     this.$store.state.hideConfigButton = true;
@@ -100,5 +118,55 @@ export default {
     this.$store.state.showFooter = true;
     body.classList.add("bg-gray-100");
   },
+  data() {
+    return {
+      showModal: false,
+      // nombre : 'Alberto',
+      // apellido : 'Mujica',
+      // fecha : '1989-11-22',
+      // telefono : '3165672389',
+      // ocupacion : 'Presidente',
+      // ciudad : 'Cali',
+      // email : 'lordmujica07@gmail.com',
+      // password : 'lordmujica123',
+      // mensaje : '',
+      // documento : '1155433987'
+      nombre : '',
+      apellido : '',
+      fecha : '',
+      telefono : '',
+      ocupacion : '',
+      ciudad : '',
+      email : '',
+      password : '',
+      mensaje : '',
+      documento : ''
+    }
+  },
+  methods : {
+    mostrarCondicion( evento ) {
+      evento.preventDefault()
+      this.showModal = true
+    },
+    registrarAsociado( evento ) {
+      evento.preventDefault()
+      Conexion.crearAsociado(this.email ,this.nombre, this.apellido, this.email, 'asociado', this.documento, this.password, this.fecha)
+        .then( resp => {
+          this.mensaje = 'Usuario registrado correctamente'
+          console.log( resp.data )
+
+        })
+        .catch( err => {
+          console.log( err )
+          this.mensaje = 'Sucedió un error'
+        })
+    }
+  }
 };
 </script>
+
+<style scoped>
+ input .form-control {
+  margin: 10px 10px;
+ }
+</style>

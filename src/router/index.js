@@ -9,7 +9,9 @@ import Signup from "../views/Signup.vue";
 import SignupCliente from "../views/SignupCliente.vue";
 import Signin from "../views/Signin.vue";
 import Meeting from "../views/Meeting.vue";
-
+import Payment from "../views/Payment.vue";
+import Lend from "../views/Lend.vue";
+import Penalty_fee from "../views/Penalty_fee.vue";
 const routes = [
   {
     path: "/",
@@ -65,6 +67,21 @@ const routes = [
     path: "/meeting",
     name: "Reuniones",
     component: Meeting,
+  },
+  {
+    path: "/payment",
+    name: "Abonos",
+    component: Payment,
+  },
+  {
+    path: "/lend",
+    name: "Préstamo",
+    component: Lend,
+  },
+  {
+    path: "/penalty_fee",
+    name: "Sanciones",
+    component: Penalty_fee,
   },
   
 ];

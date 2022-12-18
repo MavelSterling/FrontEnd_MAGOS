@@ -3,7 +3,7 @@
     <div class="card-header pb-0 p-4">
       <div class="row">
         <div class="col-3 d-flex align-items-center">
-          <h6 class="mb-0">Cuenta de ahorros</h6>
+          <h6 class="mb-0">Nuevo Abono</h6>
         </div>
       </div>
     </div>
@@ -76,28 +76,29 @@
           <div
             class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row"
           >
-            <h6 class="mb-0">Firma</h6>
+            <h6 class="mb-0">Nombre del abonador</h6>
       
           </div>
         </div>
       </div>
     </div>
     <div class="col-10 text-end mb-3">
-          <argon-button class="bg-success text-white" variant="gradient">
+          <argon-button class="bg-gradient-info text-white">
            <!--<i class="fas fa-plus me-1"></i>--> 
-            Registrar
+            Ingresar abono
           </argon-button>
         </div>
        <!-- <div class="col-3 text-end">
-          <argon-button class="bg-warning text-white" variant="gradient">
-            Actualizar monto
+          <argon-button class="bg-gradient-warning text-white">
+            Actualizar abono
+          </argon-button>
+        </div>
+       <div class="col-3 text-end">
+          <argon-button class="bg-gradient-danger text-white" >
+            Desactivar abono
+
           </argon-button>
         </div>-->
-       <!--<div class="col-3 text-end">
-          <argon-button class="bg-warning text-white" variant="gradient">
-            Cancelar
-          </argon-button>
-        </div>--> 
   </div>
 </template>
 
@@ -107,7 +108,7 @@ import img1 from "@/assets/img/logos/mastercard.png";
 import img2 from "@/assets/img/logos/dinero.png";
 
 export default {
-  name: "saving-card",
+  name: "Payment_card",
   components: {
     ArgonButton,
   },

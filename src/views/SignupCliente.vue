@@ -41,12 +41,24 @@
                 <argon-checkbox checked>
                   <label class="form-check-label" for="flexCheckDefault">
                     Acepto
-                    <a
-                      href="/termsConditions"
-                      class="text-dark font-weight-bolder"
-                    >Terminos y condiciones</a>
+                   <!-- <a   
+                    href="#" class="text-dark font-weight-bolder">
+                            <span class="btn-inner--icon"></span>
+                            <span class="btn-inner--text">términos y condiciones</span>
+                            
+                  </a>-->
+                  <button id="show-modal" @click="mostrarCondicion"> términos y condiciones</button>
+                    <!-- use the modal component, pass in the prop -->
+                    <modal :show="showModal" @close="showModal = false">
+                      <template #header>
+                        <h3>Términos y condiciones</h3>
+                      </template>
+                    </modal> 
                   </label>
+                  
                 </argon-checkbox>
+                 
+             
                 <div class="text-center">
                   <argon-button fullWidth color="dark" variant="gradient" class="my-4 mb-2">Registrarse</argon-button>
                 </div>
@@ -73,6 +85,8 @@ import AppFooter from "@/examples/PageLayout/Footer.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonCheckbox from "@/components/ArgonCheckbox.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
+import Modal from "@/components/Modal.vue";
+
 const body = document.getElementsByTagName("body")[0];
 
 export default {
@@ -83,6 +97,7 @@ export default {
     ArgonInput,
     ArgonCheckbox,
     ArgonButton,
+    Modal,
   },
   created() {
     this.$store.state.hideConfigButton = true;
@@ -98,5 +113,16 @@ export default {
     this.$store.state.showFooter = true;
     body.classList.add("bg-gray-100");
   },
+  data() {
+    return {
+      showModal: false
+    }
+  },
+  methods : {
+    mostrarCondicion( evento ) {
+      evento.preventDefault()
+      this.showModal = true
+    }
+  }
 };
 </script>

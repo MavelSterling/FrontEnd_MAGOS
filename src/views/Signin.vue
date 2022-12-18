@@ -24,10 +24,10 @@
                 <div class="card-body">
                   <form role="form">
                     <div class="mb-3">
-                      <argon-input type="text" placeholder="Email" name="email" size="lg" v-model='email'/>
+                      <input type="text" placeholder="Email" name="email" size="40" v-model='email'/>
                     </div>
                     <div class="mb-3">
-                      <argon-input type="password" placeholder="Password" name="password" size="lg" v-model='password'/>
+                      <input type="password" placeholder="Password" name="password" size="40" v-model='password'/>
                     </div>
                     <argon-switch id="rememberMe">Recordar usuario</argon-switch>
 
@@ -41,6 +41,9 @@
                         v-on:click="login"
                       >Entrar</argon-button>
                     </div>
+                    <h6 class="alert-danger">
+                      {{this.info}}
+                    </h6>
                   </form>
                 </div>
                 <div class="px-1 pt-0 text-center card-footer px-lg-2">
@@ -66,7 +69,7 @@
               <div
                 class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
                 style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
-          background-size: cover;"
+                background-size: cover;"
               >
                 <span class="mask bg-gradient-success opacity-6"></span>
                 <h4
@@ -85,20 +88,22 @@
 </template>
 
 <script>
-import Navbar from "@/examples/PageLayout/Navbar.vue";
-import ArgonInput from "@/components/ArgonInput.vue";
+/* eslint-disable */
+import Conexion from "@/classes/Conexion.js";
+import Usuario from "@/classes/Usuario.js"
+import Navbar from "@/examples/PageLayout/Navbar.vue"; 
 import ArgonSwitch from "@/components/ArgonSwitch.vue";
-import ArgonButton from "@/components/ArgonButton.vue";
-import axios from 'axios';
-const body = document.getElementsByTagName("body")[0];
+import ArgonButton from "@/components/ArgonButton.vue"; 
+import { createLogger } from 'vuex';
 
+const body = document.getElementsByTagName("body")[0];
+const hola =123
 export default {
   name: "signin",
   components: {
-    Navbar,
-    ArgonInput,
-    ArgonSwitch,
+    Navbar, 
     ArgonButton,
+    ArgonSwitch
   },
   created() {
     this.$store.state.hideConfigButton = true;
@@ -118,32 +123,80 @@ export default {
     return {
       email: "",
       password: "",
-      datos: {},
-      auth: false
+      datos: {}, 
+      tokenAutenticacion : null,
+      info : null,
+      usuario : new Usuario()
     }
   },
   methods:{
     async login(e){
+      e.preventDefault() // Para evitar que redireccione la página
+
+      // this.datos = {
+      //   "email":this.email,
+      //   "password":this.password
+      // }
+
+      // console.log(this.datos) 
+
+      // await axios.postForm('http://localhost:8080/api/login/',
+      //   this.datos
+      // )
+      //   .then( response  => { 
+      //     console.log('¿Estoy logueado?: ',response.data.message, '\n', response)
+      //     try {
+      //       this.tokenAutenticacion = response.data.tokens.access
+      //       console.log( this.tokenAutenticacion )
+      //       console.log( 'Entré!!!!!')
+      //       this.$router.push('dashboard-default') // IMPORTANTE, para cambiar de componente
+      //     }catch( err ){
+      //       console.log( 'No pude entrar D:   ')
+      //       this.info = 'Usuario y/o contraseña incorrecto, por favor intente nuevamente'
+      //     }
+           
+      //   })
+      //   .catch( 
+      //     
+      //   ) 
+
+
+        
+        await Conexion.loginUsuario( this.email, this.password )
+          .then( resp => {
+            console.log( resp )
+           
+            console.log('¿Estoy logueado?: ',resp.data.message)
+            try {
+              this.tokenAutenticacion = resp.data.tokens.access
+              console.log( this.tokenAutenticacion )
+              console.log( 'Entré!!!!!')
+              const usuario = new Usuario()
+              usuario.setToken = this.tokenAutenticacion
+              usuario.setEmail = this.email
+              usuario.setPassword = this.password
+              usuario.saludar() 
+              usuario.obtenerUsuarios()
+              this.$router.push('dashboard-default') // IMPORTANTE, para cambiar de componente
+            }catch( err ){
+              //console.log( 'No pude entrar D:   ')
+              console.log(  err )
+              this.info = 'Usuario y/o contraseña incorrecto, por favor intente nuevamente'
+            }
+          })
+            
+          .catch( err => console.log(err))
+         
+         
+    },
+
+    // Método de prueba, después se eliminará
+    printx( e ) {
       e.preventDefault()
+      console.log( this.email, this.password )
+    },
 
-      this.datos = {
-        "username":this.email,
-        "password":this.password
-      }
-
-      console.log(this.datos)
-
-      await axios.postForm('http://localhost:8000/api/auth',
-        this.datos
-      )
-        .then( response  => {
-          this.auth = response.data.status
-          console.log('¿Estoy logueado?: ',this.auth)
-        })
-        .catch(
-          err => console.log(err)
-        )
-    }
-  }
+    
+  },
 };
 </script>

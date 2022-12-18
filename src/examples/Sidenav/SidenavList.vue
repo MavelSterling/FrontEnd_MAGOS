@@ -41,6 +41,45 @@
       </li>-->
       <li class="nav-item">
         <sidenav-item
+          url="/payment"
+          :class="getRoute() === 'tables' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'Payment' : 'Abonos'"
+        >
+          <template v-slot:icon>
+            <i
+              class="ni ni-credit-card text-success text-sm opacity-10"
+            ></i>
+          </template>
+        </sidenav-item>
+      </li>
+      <li class="nav-item">
+        <sidenav-item
+          url="/lend"
+          :class="getRoute() === 'tables' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'Lend' : 'Préstamo'"
+        >
+          <template v-slot:icon>
+            <i
+              class="ni ni-credit-card text-success text-sm opacity-10"
+            ></i>
+          </template>
+        </sidenav-item>
+      </li>
+      <li class="nav-item">
+        <sidenav-item
+          url="/penalty_fee"
+          :class="getRoute() === 'tables' ? 'active' : ''"
+          :navText="this.$store.state.isRTL ? 'Penalty_fee' : 'Sanciones'"
+        >
+          <template v-slot:icon>
+            <i
+              class="ni ni-credit-card text-success text-sm opacity-10"
+            ></i>
+          </template>
+        </sidenav-item>
+      </li>
+      <li class="nav-item">
+        <sidenav-item
           url="/meeting"
           :class="getRoute() === 'tables' ? 'active' : ''"
           :navText="this.$store.state.isRTL ? 'Meeting' : 'Reuniones'"
@@ -65,7 +104,7 @@
           </template>
         </sidenav-item>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <sidenav-item
           url="/rtl-page"
           :class="getRoute() === 'rtl-page' ? 'active' : ''"
@@ -75,7 +114,7 @@
             <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
           </template>
         </sidenav-item>
-      </li>
+      </li> -->
       <li class="mt-3 nav-item">
         <h6
           v-if="this.$store.state.isRTL"
@@ -103,41 +142,38 @@
           </template>
         </sidenav-item>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" @click=" usuario.desconectar() ">
         <sidenav-item
           url="/signin"
           :class="getRoute() === 'signin' ? 'active' : ''"
-          :navText="this.$store.state.isRTL ? 'Sign In' : 'Iniciar sesión'"
+          :navText="this.$store.state.isRTL ? 'Sign In' : 'Cerrar sesión'"
         >
           <template v-slot:icon>
             <i class="ni ni-single-copy-04 text-danger text-sm opacity-10"></i>
           </template>
         </sidenav-item>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <sidenav-item
           url="/signup"
-          :class="getRoute() === 'signup' ? 'active' : ''"
-          :navText="this.$store.state.isRTL ? 'Sign Up' : 'Registrarse'"
+          :class="''"
+          :navText="'xd'"
         >
           <template v-slot:icon>
             <i class="ni ni-collection text-info text-sm opacity-10"></i>
           </template>
         </sidenav-item>
-      </li>
+      </li> -->
     </ul>
   </div>
-  <div class="pt-3 mx-3 mt-3 sidenav-footer">
-    <sidenav-card
-      :class="cardBg"
-      textPrimary="Need Help?"
-      textSecondary="Please check our docs"
-    />
+  <div class="pt-3 mx-3 mt-3 sidenav-footer">  
   </div>
 </template>
 <script>
+/* eslint-disable */
 import SidenavItem from "./SidenavItem.vue";
 import SidenavCard from "./SidenavCard.vue";
+import Usuario from '@/classes/Usuario.js';
 
 export default {
   name: "SidenavList",
@@ -148,7 +184,8 @@ export default {
     return {
       title: "MAGOS",
       controls: "dashboardsExamples",
-      isActive: "active"
+      isActive: "active",
+      usuario : new Usuario()
     };
   },
   components: {
