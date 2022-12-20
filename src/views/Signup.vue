@@ -39,6 +39,7 @@
                 <input class="form-control " type="tel" placeholder="Teléfono" aria-label="Telefono"  v-model="telefono"/> 
                 <input class="form-control " type="text" placeholder="Ocupación" aria-label="Ocupacion" v-model="ocupacion" />
                 <input class="form-control " type="text" placeholder="Ciudad" aria-label="Ciudad" v-model="ciudad" />
+                <input class="form-control " type="text" placeholder="Dirección" aria-label="Direccion" v-model="direccion" />
                 <input class="form-control " type="email" placeholder="Correo electrónico" aria-label="Correo" v-model="email" />
                 <input class="form-control " type="password" placeholder="Contraseña" aria-label="Contraseña" v-model="password" />
                 <div>
@@ -142,7 +143,8 @@ export default {
       email : '',
       password : '',
       mensaje : '',
-      documento : ''
+      documento : '',
+      direccion : ''
     }
   },
   methods : {
@@ -152,6 +154,7 @@ export default {
     },
     registrarAsociado( evento ) {
       evento.preventDefault()
+      if( this.email && this.nombre && this.apellido && this.email && this.documento && this.password && this.fecha && this.direccion && this.ciudad && this.ocupacion && this.telefono){ 
       Conexion.crearAsociado(this.email ,this.nombre, this.apellido, this.email, 'asociado', this.documento, this.password, this.fecha)
         .then( resp => {
           this.mensaje = 'Usuario registrado correctamente'
@@ -162,6 +165,9 @@ export default {
           console.log( err )
           this.mensaje = 'Sucedió un error'
         })
+      } else {
+        this.mensaje = 'Por favor rellenar todos los campos del registro'
+      }  
     },
     habilitarBoton(   ) {
       //console.log(this.verificado)
