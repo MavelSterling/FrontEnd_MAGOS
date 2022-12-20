@@ -41,7 +41,8 @@
                 <input class="form-control " type="text" placeholder="Ciudad" aria-label="Ciudad" v-model="ciudad" />
                 <input class="form-control " type="email" placeholder="Correo electrónico" aria-label="Correo" v-model="email" />
                 <input class="form-control " type="password" placeholder="Contraseña" aria-label="Contraseña" v-model="password" />
-                <argon-checkbox checked>
+                <div>
+                  <input type="checkbox" v-model="verificado">
                   <label class="form-check-label" for="flexCheckDefault">
                     Acepto
                    <!-- <a   
@@ -60,9 +61,9 @@
                   </label>
 
                   
-                </argon-checkbox>
+                </div>
                 <div class="text-center">
-                  <argon-button fullWidth color="dark" variant="gradient" class="my-4 mb-2" @click="registrarAsociado">Registrarse</argon-button>
+                  <button fullWidth color="dark" variant="gradient" class="my-4 mb-2 btn mb-0" @click="registrarAsociado" id="botonRegistro" :disabled="habilitarBoton()">Registrarse</button>
                 </div>
                 <p class="text-sm mt-3 mb-0">
                   ¿Tienes cuenta?
@@ -92,7 +93,7 @@ import ArgonButton from "@/components/ArgonButton.vue";
 import Modal from "@/components/Modal.vue";
 import Conexion from '@/classes/Conexion.js'; 
 
-const body = document.getElementsByTagName("body")[0];
+const body = document.getElementsByTagName("body")[0]; 
 
 export default {
   name: "signup",
@@ -120,6 +121,7 @@ export default {
   },
   data() {
     return {
+      verificado: false,
       showModal: false,
       // nombre : 'Alberto',
       // apellido : 'Mujica',
@@ -160,6 +162,10 @@ export default {
           console.log( err )
           this.mensaje = 'Sucedió un error'
         })
+    },
+    habilitarBoton(   ) {
+      //console.log(this.verificado)
+      return (!this.verificado)
     }
   }
 };
