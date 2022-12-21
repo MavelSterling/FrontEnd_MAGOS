@@ -43,7 +43,7 @@
                 <input class="form-control " type="email" placeholder="Correo electrónico" aria-label="Correo" v-model="email" />
                 <input class="form-control " type="password" placeholder="Contraseña" aria-label="Contraseña" v-model="password" />
                 <div>
-                  <input type="checkbox" v-model="verificado">
+                  <input type="checkbox" checked="false" v-model="verificado">
                   <label class="form-check-label" for="flexCheckDefault">
                     Acepto
                    <!-- <a   
@@ -64,7 +64,8 @@
                   
                 </div>
                 <div class="text-center">
-                  <button fullWidth color="dark" variant="gradient" class="my-4 mb-2 btn mb-0" @click="registrarAsociado" id="botonRegistro" :disabled="habilitarBoton()">Registrarse</button>
+                  <button fullWidth color="dark" variant="gradient" :class="'my-4 mb-2 btn mb-0 '" @click="registrarAsociado" id="botonRegistro" :disabled="habilitarBoton()">Registrarse</button>
+                  <h6 class="text.success">{{mensaje}}</h6>
                 </div>
                 <p class="text-sm mt-3 mb-0">
                   ¿Tienes cuenta?
@@ -74,7 +75,7 @@
                   >Iniciar sesión</a>
                 </p>
               </form>
-              <h6 class="text.success">{{mensaje}}</h6>
+              
             </div>
           </div>
         </div>
@@ -180,5 +181,15 @@ export default {
 <style scoped>
  input .form-control {
   margin: 10px 10px;
+ }
+
+ button:hover {
+  background: #93E773;
+  color: white;
+ }
+
+ h6 {
+  font-size: 12px;
+  color: red;
  }
 </style>
