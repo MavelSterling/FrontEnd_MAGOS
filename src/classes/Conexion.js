@@ -35,33 +35,26 @@ class Conexion {
 
 
   static async crearAsociado( username, first_name, last_name, email, rol, documento, password, fechaNacimiento, ){
-    console.log(
-      {
-        method: 'post',
-        url : urlBase + '/users/',
-        headers : {
-          Authorization : `Bearer ${await Conexion.pedirCredenciaesSinRegistro()}`,
-        },
-        data :  {
-          username,
-          first_name,
-          last_name,
-          email,
-          rol,
-          documento,
-          password,
-          fechaNacimiento,
-          is_active : true
-        }
-      }
-    )
+    // console.log(
+    //   {
+    //     method: 'post',
+    //     url : urlBase + '/users/',
+    //     data :  {
+    //       username,
+    //       first_name,
+    //       last_name,
+    //       email,
+    //       rol,
+    //       documento,
+    //       password,
+    //       fechaNacimiento,
+    //       is_active : true
+    //     }
+    //   }
+    // )
     return axios({
       method: 'post',
-      url : urlBase + '/users/',
-      headers : {
-        Authorization : `Bearer ${Conexion.pedirCredenciaesSinRegistro()}`,
-        'Content-Type': 'application/json'
-      },
+      url : urlBase + '/users/create/', 
       data :  {
         username,
         first_name,
@@ -73,7 +66,7 @@ class Conexion {
         fechaNacimiento,
         is_active : true
       }
-    }). then( console.log('token!', await Conexion.pedirCredenciaesSinRegistro() ))
+    })
   }
 
 

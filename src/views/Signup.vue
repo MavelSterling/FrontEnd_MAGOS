@@ -125,27 +125,30 @@ export default {
     return {
       verificado: false,
       showModal: false,
-      // nombre : 'Alberto',
-      // apellido : 'Mujica',
-      // fecha : '1989-11-22',
-      // telefono : '3165672389',
-      // ocupacion : 'Presidente',
-      // ciudad : 'Cali',
-      // email : 'lordmujica07@gmail.com',
-      // password : 'lordmujica123',
-      // mensaje : '',
-      // documento : '1155433987'
-      nombre : '',
-      apellido : '',
-      fecha : '',
-      telefono : '',
-      ocupacion : '',
-      ciudad : '',
-      email : '',
-      password : '',
+      
+      nombre : 'Alberto',
+      apellido : 'Mujica',
+      fecha : '1989-11-22',
+      telefono : '3165672389',
+      ocupacion : 'Presidente',
+      ciudad : 'Cali',
+      email : 'lordmujica07@gmail.com',
+      password : 'lordmujica123',
       mensaje : '',
-      documento : '',
-      direccion : ''
+      documento : '1155433987',
+      direccion : 'Cra 36 # 13 - 42'
+
+      // nombre : '',
+      // apellido : '',
+      // fecha : '',
+      // telefono : '',
+      // ocupacion : '',
+      // ciudad : '',
+      // email : '',
+      // password : '',
+      // mensaje : '',
+      // documento : '',
+      // direccion : ''
     }
   },
   methods : {
@@ -155,17 +158,18 @@ export default {
     },
     registrarAsociado( evento ) {
       evento.preventDefault()
-      if( this.email && this.nombre && this.apellido && this.email && this.documento && this.password && this.fecha && this.direccion && this.ciudad && this.ocupacion && this.telefono){ 
-      Conexion.crearAsociado(this.email ,this.nombre, this.apellido, this.email, 'asociado', this.documento, this.password, this.fecha)
-        .then( resp => {
-          this.mensaje = 'Usuario registrado correctamente'
-          console.log( resp.data )
+      if( this.email && this.nombre && this.apellido && this.email && this.documento && this.password && this.fecha && this.direccion && this.ciudad && this.ocupacion && this.telefono){  
+        
+        Conexion.crearAsociado(this.email ,this.nombre, this.apellido, this.email, 'asociado', this.documento, this.password, this.fecha)
+          .then( resp => { 
+            this.mensaje = 'Usuario registrado correctamente'
+            console.log( resp.data )
 
-        })
-        .catch( err => {
-          console.log( err )
-          this.mensaje = 'Sucedió un error'
-        })
+          })
+          .catch( err => {
+            console.log( err )
+            this.mensaje = 'Sucedió un error'
+          })
       } else {
         this.mensaje = 'Por favor rellenar todos los campos del registro'
       }  
@@ -190,6 +194,6 @@ export default {
 
  h6 {
   font-size: 12px;
-  color: red;
+  color: gray;
  }
 </style>
