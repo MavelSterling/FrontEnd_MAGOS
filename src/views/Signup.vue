@@ -160,7 +160,7 @@ export default {
       evento.preventDefault()
       if( this.email && this.nombre && this.apellido && this.email && this.documento && this.password && this.fecha && this.direccion && this.ciudad && this.ocupacion && this.telefono){  
         
-        Conexion.crearAsociado(this.email ,this.nombre, this.apellido, this.email, 'asociado', this.documento, this.password, this.fecha)
+        Conexion.crearAsociado(this.email ,this.nombre, this.apellido, this.email, 'asociado', this.documento, this.password, this.fecha, this.ocupacion, this.ciudad, this.direccion, this.telefono )
           .then( resp => { 
             this.mensaje = 'Usuario registrado correctamente'
             console.log( resp.data )

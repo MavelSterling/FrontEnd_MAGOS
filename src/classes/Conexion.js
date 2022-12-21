@@ -34,24 +34,7 @@ class Conexion {
   }
 
 
-  static async crearAsociado( username, first_name, last_name, email, rol, documento, password, fechaNacimiento, ){
-    // console.log(
-    //   {
-    //     method: 'post',
-    //     url : urlBase + '/users/',
-    //     data :  {
-    //       username,
-    //       first_name,
-    //       last_name,
-    //       email,
-    //       rol,
-    //       documento,
-    //       password,
-    //       fechaNacimiento,
-    //       is_active : true
-    //     }
-    //   }
-    // )
+  static async crearAsociado( username, first_name, last_name, email, rol, documento, password, fechaNacimiento,ocupacion, ciudad, direccion, telefono ){ 
     return axios({
       method: 'post',
       url : urlBase + '/users/create/', 
@@ -64,7 +47,31 @@ class Conexion {
         documento,
         password,
         fechaNacimiento,
-        is_active : true
+        is_active : true,
+        ocupacion,
+        ciudad,
+        direccion, 
+        telefono
+      }
+    })
+  }
+
+
+  static async crearCliente( username, first_name, last_name, email, rol, documento, password, fechaNacimiento, telefono, ccAsociado='null' ){ 
+    return axios({
+      method: 'post',
+      url : urlBase + '/users/create/', 
+      data :  {
+        username,
+        first_name,
+        last_name,
+        email,
+        rol,
+        documento,
+        password,
+        fechaNacimiento,
+        is_active : true, 
+        telefono
       }
     })
   }
