@@ -135,6 +135,22 @@ class Conexion {
     })
   }
 
+
+  static modificarCuentaDeAhorros( token, id, data ){
+    // const datos = '{'+ 
+    //   (( datos.monto )? `"monto":${datos.monto},` : "" +
+    //   ( datos.descripcion )? `descripcion : ${datos.descripcion},` : "").slice(0,-1) + '}'
+
+    return axios({
+      method: 'PUT',
+      url :urlBase + '/ahorros/update/'+id,
+      headers : {
+        Authorization : `Bearer ${token}` 
+      },
+      data 
+    })
+  }
+
 }
 
 export default Conexion;
