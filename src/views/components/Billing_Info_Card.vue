@@ -26,7 +26,8 @@ import Conexion from '@/classes/Conexion.js';
             </span>
             <span class="mb-2 text-xs">
               Descripción del ahorro:
-              <span class="text-dark ms-sm-2 font-weight-bold">{{ cuenta.descripcion }}</span>
+              <input type="text" placeholder="Actualización"  v-model="descripcionActualizada" class="     d-flex" v-if="actualizador">
+              <span class="text-dark ms-sm-2 font-weight-bold" v-else >{{ cuenta.descripcion }}</span>
             </span>
             <span class="mb-2 text-xs">
               Valor del ahorro:
@@ -42,10 +43,16 @@ import Conexion from '@/classes/Conexion.js';
             </span>
           </div>
           <div class="ms-auto text-end">
-            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
+            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;" @click="desactivarCuenta">
               <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Desactivar
             </a>
-            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;">
+
+            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"
+            @click="guardarActualizacion" v-if="actualizador">
+              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Guardar
+            </a>
+            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"
+            @click="actualizarCuenta" v-else>
               <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar
             </a>
           </div>
@@ -73,29 +80,31 @@ export default {
     return {
       cuentas : 
 
-      // [{
-      //   DocAsociado :  "123456789",
-      //   descripcion :  "This field is Description - Prueba",
-      //   fecha :  "2008-12-01",
-      //   firmaDigital :  "Mario Carvajal",
-      //   idAhorro : 4,
-      //   monto : 1243523545,
-      //   tipoConsignacion: 'fisico' 
-      // },
-      // {
-      //   DocAsociado :  "123456789",
-      //   descripcion :  "This field is Description - Prueba",
-      //   fecha :  "2008-12-01",
-      //   firmaDigital :  "Mario Carvajal",
-      //   idAhorro : 4,
-      //   monto : 1243523545,
-      //   tipoConsignacion: 'fisico' 
-      // }
+      [{
+        DocAsociado :  "123456789",
+        descripcion :  "This field is Description - Prueba",
+        fecha :  "2008-12-01",
+        firmaDigital :  "Mario Carvajal",
+        idAhorro : 4,
+        monto : 1243523545,
+        tipoConsignacion: 'fisico' 
+      },
+      {
+        DocAsociado :  "123456789",
+        descripcion :  "This field is Description - Prueba",
+        fecha :  "2008-12-01",
+        firmaDigital :  "Mario Carvajal",
+        idAhorro : 4,
+        monto : 1243523545,
+        tipoConsignacion: 'fisico' 
+      }
 
-      // ]
-      null
+      ]
+      // null
       ,
-      usuario : new Usuario()
+      usuario : new Usuario(),
+      actualizador : false,
+      descripcionActualizada: ''
     }
   },
   methods: {
@@ -107,6 +116,12 @@ export default {
         })
         .catch( err => console.log( "Error_leer_cuenta_de_ahorros", err ))
     },
+    actualizarCuenta(){
+      this.actualizador = true
+    },
+    guardarActualizacion(){
+      this.actualizador = false
+    },
     eliminar(){
       console.log('hola')
     }
@@ -116,3 +131,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+input { 
+  background-color: #a0d1a0;
+}
+</style>
