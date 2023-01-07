@@ -125,11 +125,12 @@ class Conexion {
 
   // Si no se inserta el segundo parámetro, se tomará como la lectura de todas las cuentas de ahorro
   static leerCuentaDeAhorros( token, DocAsociado="" ){
+    console.log('MIRAAA -> ',DocAsociado)
     return axios({
       method: 'GET',
-      url :urlBase + '/ahorros/all',
+      url :urlBase + '/ahorros/all'+DocAsociado,
       headers : {
-        Authorization : `Bearer ${token}`
+        Authorization : `Bearer ${token}` 
       }
     })
   }
