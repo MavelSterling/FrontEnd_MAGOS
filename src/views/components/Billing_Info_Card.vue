@@ -10,7 +10,7 @@ import Conexion from '@/classes/Conexion.js';
       <ul class="list-group"
       v-for="cuenta in cuentas" :key="cuenta.idAhorro"
       >
-        <Billing_Info_Card_Cuenta :cuenta="cuenta"/>
+        <Billing_Info_Card_Cuenta :cuenta="cuenta" @actualizar="actualizarOtraVez"/>
       </ul>
     </template> 
 
@@ -75,8 +75,15 @@ export default {
         })
         .catch( err => console.log( "Error_leer_cuenta_de_ahorros", err ))
     },
-    eliminar(){
-      console.log('hola')
+    actualizarOtraVez(mensaje){
+      console.log('Me han actualizado =0', mensaje)
+      this.traerCuentas()
+      setTimeout( async () => {
+        await this.traerCuentas()
+        this.$forceUpdate()
+      }, 2000)
+      
+      
     }
   },
   created(){

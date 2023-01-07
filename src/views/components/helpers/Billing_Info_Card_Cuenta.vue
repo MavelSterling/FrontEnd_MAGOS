@@ -84,6 +84,7 @@ export default {
     guardarActualizacion(){
       this.actualizador = false
       this.actualizarDatos()
+      this.$emit('actualizar', true)
       
     },
 
