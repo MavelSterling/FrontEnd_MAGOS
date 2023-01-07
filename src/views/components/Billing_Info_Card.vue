@@ -1,3 +1,4 @@
+import Conexion from '@/classes/Conexion.js';
 <template>
   <div class="card">
     <div class="card-header pb-0 px-3">
@@ -92,7 +93,32 @@
 </template>
 
 <script>
+/* eslint-disable */
+import Conexion from '@/classes/Conexion';
+import Usuario from '@/classes/Usuario.js'; 
 export default {
   name: "Billing_InfoCard",
+  data(){
+    return {
+      cuentas : [],
+      usuario : new Usuario()
+    }
+  },
+  methods: {
+    async traerCuentas(){
+      await Conexion.leerCuentaDeAhorros( this.usuario.getToken, "/"+this.usuario.getDocumento )
+        .then( resp => {
+          console.log( resp )
+          this.cuentas = resp.data
+        })
+        .catch( err => console.log( "Error_leer_cuenta_de_ahorros", err ))
+    },
+    eliminar(){
+      console.log('hola')
+    }
+  },
+  created(){
+    this.traerCuentas()
+  }
 };
 </script>

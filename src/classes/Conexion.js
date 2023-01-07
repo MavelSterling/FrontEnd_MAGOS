@@ -123,6 +123,17 @@ class Conexion {
 
   }
 
+  // Si no se inserta el segundo parámetro, se tomará como la lectura de todas las cuentas de ahorro
+  static leerCuentaDeAhorros( token, DocAsociado="" ){
+    return axios({
+      method: 'GET',
+      url :urlBase + '/ahorros/all',
+      headers : {
+        Authorization : `Bearer ${token}`
+      }
+    })
+  }
+
 }
 
 export default Conexion;
