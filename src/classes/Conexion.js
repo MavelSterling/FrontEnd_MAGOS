@@ -101,6 +101,28 @@ class Conexion {
       }
     })
   }
+
+  // Cuenta de Ahorros
+  static crearCuentaDeAhorros( token, DocAsociado, fecha, descripcion, monto, firmaDigital, tipoConsignacion){
+    console.log('crear cuenta de ahorros')
+    return axios({
+      method: 'POST',
+      url: urlBase + '/ahorros/create',
+      headers : {
+        Authorization : `Bearer ${token}`
+      },
+      data : {
+        DocAsociado,
+        fecha,
+        descripcion,
+        monto,
+        firmaDigital,
+        tipoConsignacion
+      }
+    })
+
+  }
+
 }
 
 export default Conexion;

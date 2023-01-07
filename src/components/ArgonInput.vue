@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group">
+  <div class="form-group" @keypress="$emit('contenido', this.valor)">
     <div :class="hasIcon(icon)">
       <span v-if="iconDir === 'left'" class="input-group-text">
         <i :class="getIcon(icon)"></i>
@@ -8,11 +8,11 @@
         :type="type"
         class="form-control"
         :class="getClasses(size, valid)"
-        :name="name"
-        :id="id"
-        :value="value"
+        :name="name"  
         :placeholder="placeholder"
         :isRequired="isRequired"
+        
+        v-model="valor"
       />
       <span v-if="iconDir === 'right'" class="input-group-text">
         <i :class="getIcon(icon)"></i>
@@ -22,8 +22,14 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   name: "argon-input",
+  data(){
+    return {
+      valor : this.value
+    }
+  },
   props: {
     size: {
       type: String,
@@ -53,7 +59,7 @@ export default {
       return `${sizeValue} ${isValidValue}`;
     },
     getIcon: (icon) => (icon ? icon : null),
-    hasIcon: (icon) => (icon ? "input-group" : null),
+    hasIcon: (icon) => (icon ? "input-group" : null), 
   },
 };
 </script>
