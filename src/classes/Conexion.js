@@ -163,6 +163,28 @@ class Conexion {
     })
   }
 
+  static registrarPrestamos(token, data){
+    return axios({
+      method: 'POST',
+      url: urlBase + '/prestamos/create',
+      headers : {
+        Authorization : `Bearer ${token}`
+      },
+      data 
+    })
+  }
+
+  static modificarPrestamos(token, id, data){
+    return axios({
+      method: 'PUT',
+      urls: urlBase + '/prestamos/update/' + id,
+      headers : {
+        Authorization : `Bearer ${token}`
+      },
+      data
+    })
+  }
+
 }
 
 export default Conexion;
