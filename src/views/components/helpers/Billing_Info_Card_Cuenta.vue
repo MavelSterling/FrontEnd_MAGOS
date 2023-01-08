@@ -35,10 +35,14 @@
         Firma:
         <span class="text-dark ms-sm-2 font-weight-bold">{{  cuenta.firmaDigital }}</span>
       </span>
+      <span class="mb-2 text-xs">
+        Estado de cuenta:
+        <span class="text-dark ms-sm-2 font-weight-bold">{{  definirEstadoDeCuenta() }}</span>
+      </span>
       <h4 v-if="mensaje">{{ mensaje }}</h4>
     </div>
     <div class="ms-auto text-end">
-      <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;" @click="desactivarCuenta">
+      <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;" @click="desactivarCuenta" v-if="actualizador && cuenta.autorizado">
         <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Desactivar
       </a>
 
@@ -77,6 +81,15 @@ export default {
     }
   },
   methods:{
+    definirEstadoDeCuenta(){
+      const respuesta = ( this.cuenta.autorizado === true )? 'Activado' :
+                        ( this.cuenta.autorizado === false )? 'Desactivado' :
+                        ( this.cuenta.autorizado === null ) ? 'Verificación pendiente por parte del gerente' : 'ERROR SERVIDOR'
+      return respuesta
+    },
+    desactivarCuenta(){
+      this.cuenta.autorizado = false
+    },
     actualizarCuenta(){
       this.actualizador = true
     },
@@ -94,15 +107,16 @@ export default {
         monto: this.cuenta.monto,
         firmaDigital: this.cuenta.firmaDigital,
         tipoConsignacion: this.cuenta.tipoConsignacion,
-        descripcion: this.descripcionActualizada
+        descripcion: this.descripcionActualizada,
+        autorizado: this.cuenta.autorizado
       }
       Conexion.modificarCuentaDeAhorros( this.usuario.getToken, this.cuenta.idAhorro, datos )
         .then( resp => {
           console.log( resp )
           this.mensaje = 'Cambio realizado exitosamente'
-          setTimeout(() => {
-            this.$forceUpdate()
-          },500)
+          // setTimeout(() => {
+          //   // this.$forceUpdate()
+          // },1000)
         })
         .catch( err => {
           console.log( err )
@@ -111,7 +125,7 @@ export default {
         .finally(() => {
           setTimeout( () => {
             this.mensaje = null
-          },10000)
+          },6000)
         })
     }
   }
