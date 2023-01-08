@@ -199,7 +199,7 @@ export default {
       return routeArr[1];
     },
     desconectar() {
-      usuario.desconectar()
+      this.usuario.desconectar()
       this.$forceUpdate()
       setTimeout( () => {
         alert('Espera')

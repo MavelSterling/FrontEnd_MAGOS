@@ -75,8 +75,7 @@ export default {
     return {
       usuario : new Usuario(),
       actualizador : false,
-      descripcionActualizada: this.cuenta.descripcion,
-      usuario: new Usuario(),
+      descripcionActualizada: this.cuenta.descripcion, 
       mensaje : null
     }
   },

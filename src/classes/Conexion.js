@@ -151,6 +151,18 @@ class Conexion {
     })
   }
 
+  // Préstamos
+  static leerPrestamos(token, id=""){
+    
+    return axios({
+      method: 'GET',
+      url: urlBase + '/prestamos/'+id,
+      headers: {
+        Authorization :`Bearer ${token}`
+      } 
+    })
+  }
+
 }
 
 export default Conexion;
