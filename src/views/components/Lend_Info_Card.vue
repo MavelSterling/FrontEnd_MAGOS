@@ -1,14 +1,28 @@
 <template>
   <div class="card">
     <div class="card-header pb-0 px-3">
-      <h6 class="mb-0">Información del préstamo</h6>
+      <h6 class="mb-0">Información de préstamos como deudor</h6>
     </div>
     <div class="card-body pt-4 p-3">
       <ul class="list-group" v-for="prestamo in prestamos" :key="prestamo.id"> 
-        <Lend_Info_Card_Component :prestamo="prestamo" />
+        <Lend_Info_Card_Component :prestamo="prestamo" :codeudorx="false"  />
       </ul>
     </div>
   </div>
+
+  <div class="card">
+    <div class="card-header pb-0 px-3">
+      <h6 class="mb-0">Información de préstamos como codeudor</h6>
+    </div>
+    <div class="card-body pt-4 p-3">
+      <ul class="list-group" v-for="prestamo in prestamos" :key="prestamo.id"> 
+        <Lend_Info_Card_Component :prestamo="prestamo"  :codeudorx="true" />
+      </ul>
+    </div>
+  </div>
+
+  
+
 </template>
 
 <script>

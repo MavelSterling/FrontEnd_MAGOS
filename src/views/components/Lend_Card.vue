@@ -7,10 +7,12 @@
         </div>
       </div>
     </div>
+
+    
     <div class="card-body p-5">
       <div class="row">
          
-        <input class="col-md-6 mb-md-0 mb-4 card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" type="text" placeholder="CC deudor" readonly :value="usuario.getDocumento"> 
+        <input class="col-md-6 mb-md-0 mb-4 card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" type="text" placeholder="CC deudor" readonly :value="'CC del deudor : '+ usuario.getDocumento"> 
 
         <input class="col-md-6 mb-md-0 mb-4 card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" type="text" placeholder="CC del codeudor" v-model="codeudor">
         
@@ -22,24 +24,13 @@
        
       </div>
       <h3 v-if="mensaje">{{ mensaje }}</h3>
-    </div>
+    </div> 
     <div class="col-10 text-end mb-3">
           <argon-button class="bg-gradient-info text-white" @click="registrarPrestamo">
            <!--<i class="fas fa-plus me-1"></i>--> 
             Registrar solicitud de préstamo
           </argon-button>
-        </div>
-       <!-- <div class="col-3 text-end">
-          <argon-button class="bg-gradient-warning text-white">
-            Actualizar abono
-          </argon-button>
-        </div>
-       <div class="col-3 text-end">
-          <argon-button class="bg-gradient-danger text-white" >
-            Desactivar abono
-
-          </argon-button>
-        </div>-->
+        </div> 
   </div>
 </template>
 

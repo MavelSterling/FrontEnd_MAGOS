@@ -43,15 +43,33 @@
     </div>
     <div class="ms-auto text-end">
      
-      <a class="btn btn-link  px-3 mb-0 text-success" href="javascript:;"
-      @click="pagar">
-        <i class=" fas fa-dragon text-success me-2" aria-hidden="true"></i>Pagar
-      </a> 
+      <template v-if="codeudorx">
+        <a class="btn btn-link  px-3 mb-0 text-danger" href="javascript:;"
+        @click="denegar">
+          <i class=" material-icons" aria-hidden="true"></i>Denegar
+        </a>
+
+        <a class="btn btn-link  px-3 mb-0 text-success" href="javascript:;"
+        @click="autorizar">
+          <i class=" fas fa-dragon text-success me-2" aria-hidden="true"></i>Autorizar
+        </a>
+      </template>
+
+      <template v-else>
+        <a class="btn btn-link  px-3 mb-0 text-success" href="javascript:;"
+        @click="pagar">
+          <i class=" fas fa-dragon text-success me-2" aria-hidden="true"></i>Pagar
+        </a> 
+      </template>
+      
+
+      
     </div>
   </li>
   </template>
   <template v-else>
-    <p>Actualmente no tiene préstamos realizados a su nombre como deudor</p>
+    <p v-if="codeudorx">Actualmente no tiene préstamos realizados a su nombre como codeudor</p>
+    <p v-else>Actualmente no tiene préstamos realizados a su nombre como deudor</p>
   </template>
 </template>
 
@@ -60,11 +78,16 @@ import Usuario from '@/classes/Usuario.js';
 
 export default {
   name: 'lend-info-card-component',
-  props:{
+  props: {
     prestamo:{
       default: null,
       required: true
+    },
+    codeudorx: {
+      default : true,
+      required: true
     }
+
   },
   data(){
     return {
@@ -79,6 +102,16 @@ export default {
       this.mensaje = "Te debería de llevar al componente de pagos"
       // this.$emit('informacion', this.prestamo)
     },
+
+    autorizar(){
+      this.mensaje = "Para que se autorice el préstamo"
+    },
+
+    denegar(){
+      this.mensaje = "Para que se niegue el préstamo"
+    }
+
+    
 
     // guardarActualizacion(){
     //   this.actualizador = false
@@ -114,6 +147,10 @@ export default {
     //       },6000)
     //     })
     // }
+  },
+
+  beforeMount(){
+    console.log('i', this.codeudorx)
   }
 }
 </script>
