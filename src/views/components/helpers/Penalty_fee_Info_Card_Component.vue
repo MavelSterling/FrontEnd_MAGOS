@@ -24,12 +24,7 @@
       <span class="mb-2 text-xs">
         Fecha de la sanción:
         <span class="text-dark font-weight-bold ms-sm-2">{{ sancion.fecha }}</span>
-      </span>
-
-      <span class="mb-2 text-xs">
-        Motivo de la sanción:
-        <span class="text-dark font-weight-bold ms-sm-2">{{ sancion.motivo }}</span>
-      </span>
+      </span> 
 
       <span class="mb-2 text-xs">
         Motivo de la sanción:
@@ -51,7 +46,7 @@
     <div class="ms-auto text-end">
        
       <a class="btn btn-link text-success px-3 mb-0" href="javascript:;"
-      @click="pagar" >
+      @click="pagar" v-if="usuario.getRol !=='admin'">
         <i class="fas fa-dragon text-success me-2" aria-hidden="true"></i>Pagar
       </a>
  
