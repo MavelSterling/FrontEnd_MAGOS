@@ -222,6 +222,41 @@ class Conexion {
     })
   }
 
+
+  // CRUD Abonos
+
+  static crearAbono( token, data){
+    return axios({
+      method: 'POST',
+      url: urlBase+'/abono/create',
+      headers:{
+        Authorization: `Bearer ${token}`
+      },
+      data
+    })
+  }
+
+  static leerAbonos( token, id=""){
+    return axios({
+      method: 'GET',
+      url: urlBase+'/abono/all',
+      headers:{
+        Authorization: `Bearer ${token}`
+      }
+    })
+  }
+
+  static modificarAbono( token, id, data){
+    return axios({
+      method: 'PUT',
+      url: urlBase+'/abono/modify/'+id,
+      headers:{
+        Authorization: `Bearer ${token}`
+      },
+      data
+    })
+  }
+
 }
 
 export default Conexion;
