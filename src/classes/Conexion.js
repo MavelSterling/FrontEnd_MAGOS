@@ -239,7 +239,7 @@ class Conexion {
   static leerAbonos( token, id=""){
     return axios({
       method: 'GET',
-      url: urlBase+'/abono/all',
+      url: urlBase+'/abono/all'+id,
       headers:{
         Authorization: `Bearer ${token}`
       }
