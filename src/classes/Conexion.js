@@ -185,6 +185,43 @@ class Conexion {
     })
   }
 
+
+  // CRUD Sanciones
+
+  static crearSancion( token, data){
+    return axios({
+      method : 'POST',
+      url: urlBase + '/sanciones/create',
+      headers:{
+        Authorization: `Bearer ${token}`
+      },
+      data
+    })
+  }
+
+
+  static leerSanciones( token, id=""){
+    return axios({ 
+      method : 'GET',
+      url: urlBase + '/sanciones/'+id,
+      headers:{
+        Authorization: `Bearer ${token}`
+      }
+    })
+  }
+
+
+  static modificarSancion( token, id, data){
+    return axios({
+      method : 'PUT',
+      url: urlBase + '/sancion/update/' + id,
+      headers:{
+        Authorization: `Bearer ${token}`
+      },
+      data
+    })
+  }
+
 }
 
 export default Conexion;

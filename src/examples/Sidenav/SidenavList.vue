@@ -201,9 +201,9 @@ export default {
     desconectar() {
       this.usuario.desconectar()
       this.$forceUpdate()
-      setTimeout( () => {
-        alert('Espera')
-      },6000)
+      // setTimeout( () => {
+      //   alert('Espera')
+      // },6000)
       
     }
   }
