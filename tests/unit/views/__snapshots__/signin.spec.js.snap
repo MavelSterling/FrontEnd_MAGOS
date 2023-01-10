@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signin Component Todo el componente debe hacer match con el snapshot 1`] = `
+<div class="container top-0 position-sticky z-index-sticky">
+  <div class="row">
+    <div class="col-12">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg top-0 z-index-3 position-absolute mt-4 blur  border-radius-lg my-3 py-2 start-0 end-0 mx-4 shadow">
+        <div class="container ps-2 pe-0"><a href="/" class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-black">MAGOS</a><button class="shadow-none navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="mt-2 navbar-toggler-icon"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></span></button>
+          <div class="collapse navbar-collapse" id="navigation">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item"><a aria-current="page" href="/dashboard-default" class="nav-link d-flex align-items-center me-2 active"><i class="fa fa-chart-pie opacity-6 me-1 text-dark" aria-hidden="true"></i> Inicio </a></li>
+              <!-- <li class="nav-item">
+            <router-link class="nav-link me-2" to="/profile">
+              <i
+                class="fa fa-user opacity-6 me-1"
+                aria-hidden="true"
+                :class="isBlur ? 'text-dark' : 'text-white'"
+              ></i>
+              Perfil
+            </router-link>
+          </li> -->
+              <li class="nav-item"><a href="/signup" class="nav-link me-2"><i class="fas fa-user-circle opacity-6 me-1 text-dark" aria-hidden="true"></i> Registrarse </a></li>
+              <!-- <li class="nav-item">
+            <router-link class="nav-link me-2" to="/signin">
+              <i
+                class="fas fa-key opacity-6 me-1"
+                aria-hidden="true"
+                :class="isBlur ? 'text-dark' : 'text-white'"
+              ></i>
+              Iniciar sesión
+            </router-link>
+          </li>-->
+            </ul>
+            <!-- <ul class="navbar-nav d-lg-block d-none">
+          <li class="nav-item">
+            <a
+              href="https://www.creative-tim.com/product/vue-argon-dashboard"
+              class="btn btn-sm mb-0 me-1"
+              :class="isBtn"
+              >Free download</a
+            >
+          </li>
+        </ul>-->
+          </div>
+        </div>
+      </nav><!-- End Navbar -->
+    </div>
+  </div>
+</div>
+<main class="mt-0 main-content">
+  <section>
+    <div class="page-header min-vh-100">
+      <div class="container">
+        <div class="row">
+          <div class="mx-auto col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0">
+            <div class="card card-plain">
+              <div class="pb-0 card-header text-start">
+                <h4 class="font-weight-bolder">Inicio de sesión</h4>
+                <p class="mb-0">Ingrese su correo electrónico y contraseña para iniciar sesión</p>
+              </div>
+              <div class="card-body">
+                <form role="form">
+                  <div class="mb-3">
+                    <!-- <ArgonInput  @contenido="retornarValorInput"  /> --><input type="text" placeholder="Email" name="email" size="40" id-test="email">
+                  </div>
+                  <div class="mb-3"><input type="password" placeholder="Password" name="password" size="40" id-test="password"></div>
+                  <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="rememberMe"><label class="form-check-label" for="rememberMe">Recordar usuario</label></div>
+                  <div class="text-center"><button class="btn mb-0 bg-gradient-success btn-lg w-100 null mt-4" id-test="login">Entrar</button></div>
+                  <h6 class="alert-danger"></h6>
+                </form>
+              </div>
+              <div class="px-1 pt-0 text-center card-footer px-lg-2">
+                <p class="mx-auto mb-4 text-sm"> ¿No tienes una cuenta? ¡Únete como <a href="/signup" class="text-success text-gradient font-weight-bold">Asociado</a> o como <a href="/signup-cliente" class="text-success text-gradient font-weight-bold">Cliente</a> ! </p>
+              </div>
+            </div>
+          </div>
+          <div class="top-0 my-auto text-center col-6 d-lg-flex d-none h-100 pe-0 position-absolute end-0 justify-content-center flex-column">
+            <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image:url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');background-size:cover;"><span class="mask bg-gradient-success opacity-6"></span>
+              <h4 class="mt-5 text-white font-weight-bolder position-relative">Bienvenid@ a MAGOS</h4>
+              <p class="text-white position-relative">Su dinero en un lugar seguro.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+`;

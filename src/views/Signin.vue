@@ -25,12 +25,12 @@
                   <form role="form">
                     <div class="mb-3">
                       <!-- <ArgonInput  @contenido="retornarValorInput"  /> -->
-                      <input type="text" placeholder="Email" name="email" size="40" v-model='email'/>
+                      <input type="text" placeholder="Email" name="email" size="40" v-model='email' id-test="email"/>
                     </div>
                     <div class="mb-3">
-                      <input type="password" placeholder="Password" name="password" size="40" v-model='password'/>
+                      <input type="password" placeholder="Password" name="password" size="40" v-model='password' id-test="password"/>
                     </div>
-                    <argon-switch id="rememberMe">Recordar usuario</argon-switch>
+                    <argon-switch id="rememberMe">Recordar usuario</argon-switch> 
 
                     <div class="text-center">
                       <argon-button
@@ -40,6 +40,7 @@
                         fullWidth
                         size="lg"
                         v-on:click="login"
+                        id-test="login"
                       >Entrar</argon-button>
                     </div>
                     <h6 class="alert-danger">
@@ -143,6 +144,7 @@ export default {
       this.email = event
     },
     async login(e){
+      console.log('loginUsuario ejecutado correctamente')
       e.preventDefault() // Para evitar que redireccione la página
 
       // this.datos = {
@@ -176,6 +178,7 @@ export default {
         
         await Conexion.loginUsuario( this.email, this.password )
           .then( resp => {
+            
             console.log( resp )
            
             console.log('¿Estoy logueado?: ',resp.data.message)
@@ -206,6 +209,7 @@ export default {
     printx( e ) {
       e.preventDefault()
       console.log( this.email, this.password )
+      console.log('ESTOY VIVOOOOO')
     },
 
     
