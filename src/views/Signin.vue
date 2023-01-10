@@ -144,7 +144,7 @@ export default {
       this.email = event
     },
     async login(e){
-      console.log('loginUsuario ejecutado correctamente')
+      // console.log('loginUsuario ejecutado correctamente')
       e.preventDefault() // Para evitar que redireccione la página
 
       // this.datos = {

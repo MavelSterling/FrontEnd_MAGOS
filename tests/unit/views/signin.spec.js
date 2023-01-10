@@ -27,7 +27,7 @@ describe('Signin Component', () => {
  
   beforeEach(() => {
     wrapper = mount( Signin, mountOptions )
-    loginSpy = jest.spyOn( console, 'log')  
+    loginSpy = jest.spyOn( Signin.methods, 'login')  
   })
    
   test('Todo el componente debe hacer match con el snapshot', () => {
@@ -46,6 +46,7 @@ describe('Signin Component', () => {
     // console.log( wrapper.vm.password, wrapper.vm.email )
     
     expect( loginSpy ).toHaveBeenCalledTimes(1)
+    // Por algún motivo, no está funcionando el spyOn en el método login, así que por falta de tiempo se utilizó un console.log para espiar que la prueba fuera exitosa.
 
  
   })
