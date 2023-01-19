@@ -107,7 +107,7 @@
 import Chart from "chart.js/auto";
 
 export default {
-  name: "consumption-by-room-chart",
+  name: "consumption-room-chart",
   mounted() {
     // Chart Doughnut Consumption by room
     var ctx1 = document.getElementById("chart-consumption").getContext("2d");

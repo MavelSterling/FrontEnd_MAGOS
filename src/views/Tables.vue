@@ -10,21 +10,52 @@
         <projects-table />
       </div>
     </div>
+    <div class="mt-4 row">
+      <div class="col-12">
+        <GradientLineChart/>
+      </div>
+    </div>
+    <div class="mt-4 row">
+      <div class="col-12">
+        <ConsumptionDayChart/>
+      </div>
+    </div>
+    <div class="mt-4 row">
+      <div class="col-12">
+        <ConsumptionRoomChart/>
+      </div>
+    </div>
+    <div class="mt-4 row">
+      <div class="col-12">
+        <ActiveUsersChart/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import AuthorsTable from "./components/AuthorsTable.vue";
 import ProjectsTable from "./components/ProjectsTable.vue";
+import GradientLineChart from "../examples/Charts/GradientLineChart.vue";
+import ConsumptionDayChart from "../examples/Charts/ConsumptionDayChart.vue"
+import ConsumptionRoomChart from "../examples/Charts/ConsumptionRoomChart.vue"
+import ActiveUsersChart from "../examples/Charts/ActiveUsersChart.vue"
+import Conexion from "../classes/Conexion";
+
 
 export default {
   name: "tables",
   components: {
     AuthorsTable,
-    ProjectsTable
+    ProjectsTable,
+    GradientLineChart,
+    ConsumptionDayChart,
+    ConsumptionRoomChart,
+    ActiveUsersChart
   },
   data() {
     return {
+      topahorros: Array,
       stats: {
         titleColor: "opacity-7 text-white",
         descColor: "text-white",
@@ -51,5 +82,16 @@ export default {
       },
     };
   },
+  methods:{
+    async reporte_topAhorros(){
+      this.topahorros = await Conexion.reporte_top_ahorros()
+      console.log(this.topahorros);
+      let cedula = this.topahorros.filter((item)=>{ return typeof item.DocAsociado_id === 'string' })
+      console.log(cedula);
+    }
+  },
+  mounted(){
+    this.reporte_topAhorros()
+  }
 };
 </script>

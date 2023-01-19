@@ -257,6 +257,12 @@ class Conexion {
     })
   }
 
+  static async reporte_top_ahorros(){
+    const data = await axios.get(`${urlBase}/reportes/ahorrotop`)
+    console.log(data.data);
+    return data.data;
+  }
+
 }
 
 export default Conexion;
