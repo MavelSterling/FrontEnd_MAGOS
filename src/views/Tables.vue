@@ -12,22 +12,22 @@
     </div>
     <div class="mt-4 row">
       <div class="col-12">
-        <GradientLineChart/>
+        <GradientLineChart />
       </div>
     </div>
     <div class="mt-4 row">
       <div class="col-12">
-        <ConsumptionDayChart/>
+        <ConsumptionDayChart />
       </div>
     </div>
     <div class="mt-4 row">
       <div class="col-12">
-        <ConsumptionRoomChart/>
+        <ConsumptionRoomChart />
       </div>
     </div>
     <div class="mt-4 row">
       <div class="col-12">
-        <ActiveUsersChart/>
+        <ActiveUsersChart />
       </div>
     </div>
   </div>
@@ -41,6 +41,7 @@ import ConsumptionDayChart from "../examples/Charts/ConsumptionDayChart.vue"
 import ConsumptionRoomChart from "../examples/Charts/ConsumptionRoomChart.vue"
 import ActiveUsersChart from "../examples/Charts/ActiveUsersChart.vue"
 import Conexion from "../classes/Conexion";
+import Reporte from "../classes/Reportes"
 
 
 export default {
@@ -82,15 +83,20 @@ export default {
       },
     };
   },
-  methods:{
-    async reporte_topAhorros(){
-      this.topahorros = await Conexion.reporte_top_ahorros()
-      console.log(this.topahorros);
-      let cedula = this.topahorros.filter((item)=>{ return typeof item.DocAsociado_id === 'string' })
-      console.log(cedula);
+  methods: {
+    async reporte_topAhorros() {
+      await Conexion.reporte_top_ahorros().then(
+        resp => {
+          let data = resp.data
+          console.log(data);
+          let reporte = new Reporte(data, null)
+        }
+      ).catch(
+        err => { console.log(err); }
+      )
     }
   },
-  mounted(){
+  mounted() {
     this.reporte_topAhorros()
   }
 };
