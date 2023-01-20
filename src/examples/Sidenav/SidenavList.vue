@@ -47,7 +47,7 @@
         >
           <template v-slot:icon>
             <i
-              class="ni ni-credit-card text-success text-sm opacity-10"
+              class="ni ni-diamond text-success text-sm opacity-10"
             ></i>
           </template>
         </sidenav-item>
