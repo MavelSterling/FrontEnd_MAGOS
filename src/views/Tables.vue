@@ -90,6 +90,7 @@ export default {
           let data = resp.data
           console.log(data);
           let reporte = new Reporte(data, null)
+          reporte.topAhorros()
         }
       ).catch(
         err => { console.log(err); }

@@ -259,7 +259,6 @@ class Conexion {
 
   static async reporte_top_ahorros() {
     return axios.get(`${urlBase}/reportes/ahorrotop`)
-    return data
   }
 
 }

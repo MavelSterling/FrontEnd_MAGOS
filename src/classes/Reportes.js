@@ -12,7 +12,15 @@ class Reporte {
         this.object = _object
     }
 
-    static topAhorro() {
+    get getArray() {
+        return this.array
+    }
+
+    get getObject() {
+        return this.object
+    }
+
+    static topAhorros() {
         console.log(this.array);
     }
 }
