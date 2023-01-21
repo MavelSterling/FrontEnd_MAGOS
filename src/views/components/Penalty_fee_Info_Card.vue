@@ -47,7 +47,7 @@ export default {
   },
   methods:{
     traerSanciones(){
-      Conexion.leerSanciones( this.usuario.getToken)
+      Conexion.leerSanciones( this.usuario.getToken, this.usuario.getDocumento)
         .then( resp => {
           console.log( resp)
           this.sanciones = resp.data

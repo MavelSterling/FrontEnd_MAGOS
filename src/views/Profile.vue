@@ -296,7 +296,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <profile-card />
+          <!-- <profile-card /> -->
         </div>
       </div>
     </div>

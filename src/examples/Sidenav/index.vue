@@ -1,5 +1,4 @@
-<template>
-  <div>
+<template>  
   <div
     v-show="this.$store.state.layout === 'default'"
     class="min-height-300 position-absolute w-100"
@@ -41,8 +40,7 @@
     </div>
     <hr class="mt-0 horizontal dark" />
     <sidenav-list :cardBg="custom_class" />
-  </aside>
-  </div>
+  </aside> 
 </template>
 <script>
 import SidenavList from "./SidenavList.vue";

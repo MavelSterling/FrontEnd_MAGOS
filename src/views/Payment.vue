@@ -2,10 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <div class="row mt-4">
-          <div class="col-xl-6 mb-xl-0 mb-4">
-            <master-card />
-          </div>
+        <div class="row mt-4"> 
           <div class="col-xl-6">
             <div class="row">
               <!--<div class="col-md-6">
