@@ -13,9 +13,8 @@
 
             <form action="#" class="col-md-6 mb-md-0 mb-4 card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
               <label for="lang">Tipo de cuenta a abonar</label>
-              <select name="tipoConsignacion" id="lang" class="col-md-6 mb-md-0 mb-4 card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" v-model="destino">
-                <option value="ahorros" selected="true">Ahorros</option>
-                <option value="prestamos">Préstamos</option>
+              <select name="tipoConsignacion" id="lang" class="col-md-6 mb-md-0 mb-4 card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" v-model="destino"> 
+                <option value="prestamos" selected>Préstamos</option>
                 <option value="sanciones">Sanciones</option>
               </select> 
             </form>
