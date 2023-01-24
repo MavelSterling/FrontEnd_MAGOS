@@ -118,23 +118,23 @@ export default {
       showModal: false,
       mensaje : '',
       
-      nombre : 'Alberto',
-      apellido : 'Mujica',
-      fecha : '1989-11-22',
-      telefono : '3165672389', 
-      email : 'lordmujica07@gmail.com',
-      password : 'lordmujica123',
-      documento : '1155433987', 
-      ccAsociado : '123456789'
+      // nombre : 'Alberto',
+      // apellido : 'Mujica',
+      // fecha : '1989-11-22',
+      // telefono : '3165672389', 
+      // email : 'lordmujica07@gmail.com',
+      // password : 'lordmujica123',
+      // documento : '1155433987', 
+      // ccAsociado : '123456789'
 
-      // nombre : '',
-      // apellido : '',
-      // fecha : '',
-      // telefono : '', 
-      // email : '',
-      // password : '', 
-      // documento : '', 
-      // ccAsociado : ''
+      nombre : '',
+      apellido : '',
+      fecha : '',
+      telefono : '', 
+      email : '',
+      password : '', 
+      documento : '', 
+      ccAsociado : ''
     }
   },
   methods : {
@@ -151,7 +151,7 @@ export default {
             this.mensaje = 'Usuario registrado correctamente'
             console.log( resp.data )
 
-            // nombre : '',
+            this.nombre = ''
             this.apellido = ''
             this.fecha = ''
             this.telefono = '' 

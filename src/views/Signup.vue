@@ -122,29 +122,29 @@ export default {
       verificado: false,
       showModal: false,
       
-      nombre : 'Alberto',
-      apellido : 'Mujica',
-      fecha : '1989-11-22',
-      telefono : '3165672389',
-      ocupacion : 'Presidente',
-      ciudad : 'Cali',
-      email : 'lordmujica07@gmail.com',
-      password : 'lordmujica123',
-      mensaje : '',
-      documento : '1155433987',
-      direccion : 'Cra 36 # 13 - 42'
-
-      // nombre : '',
-      // apellido : '',
-      // fecha : '',
-      // telefono : '',
-      // ocupacion : '',
-      // ciudad : '',
-      // email : '',
-      // password : '',
+      // nombre : 'Alberto',
+      // apellido : 'Mujica',
+      // fecha : '1989-11-22',
+      // telefono : '3165672389',
+      // ocupacion : 'Presidente',
+      // ciudad : 'Cali',
+      // email : 'lordmujica07@gmail.com',
+      // password : 'lordmujica123',
       // mensaje : '',
-      // documento : '',
-      // direccion : ''
+      // documento : '1155433987',
+      // direccion : 'Cra 36 # 13 - 42'
+
+      nombre : '',
+      apellido : '',
+      fecha : '',
+      telefono : '',
+      ocupacion : '',
+      ciudad : '',
+      email : '',
+      password : '',
+      mensaje : '',
+      documento : '',
+      direccion : ''
     }
   },
   methods : {
