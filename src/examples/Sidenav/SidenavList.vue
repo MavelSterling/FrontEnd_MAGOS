@@ -65,7 +65,7 @@
           </template>
         </sidenav-item>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" v-if=" usuario.getRol !== 'cliente'">
         <sidenav-item
           url="/penalty_fee"
           :class="getRoute() === 'tables' ? 'active' : ''"
@@ -78,7 +78,7 @@
           </template>
         </sidenav-item>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" v-if=" usuario.getRol !== 'cliente'">
         <sidenav-item
           url="/meeting"
           :class="getRoute() === 'tables' ? 'active' : ''"
@@ -115,16 +115,8 @@
           </template>
         </sidenav-item>
       </li> -->
-      <li class="mt-3 nav-item">
-        <h6
-          v-if="this.$store.state.isRTL"
-          class="text-xs ps-4 text-uppercase font-weight-bolder opacity-6"
-          :class="this.$store.state.isRTL ? 'me-4' : 'ms-2'"
-        >
-        USERS
-        </h6>
-        <h6
-          v-else
+      <li class="mt-3 nav-item"> 
+        <h6 
           class="text-xs ps-4 text-uppercase font-weight-bolder opacity-6"
           :class="this.$store.state.isRTL ? 'me-4' : 'ms-2'"
         >
@@ -174,7 +166,7 @@
 /* eslint-disable */
 import SidenavItem from "./SidenavItem.vue";
 import SidenavCard from "./SidenavCard.vue";
-import Usuario from '@/classes/Usuario.js';
+import Usuario from '@/classes/Usuario.js'; 
 
 export default {
   name: "SidenavList",

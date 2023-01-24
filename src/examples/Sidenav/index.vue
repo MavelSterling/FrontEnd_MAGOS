@@ -24,7 +24,7 @@
         aria-hidden="true"
         id="iconSidenav"
       ></i>
-      <router-link class="m-0 navbar-brand" to="/">
+      <div class="m-0 navbar-brand">
         <img
           :src="
             this.$store.state.darkMode ||
@@ -36,7 +36,7 @@
           alt="main_logo"
         />
         <span class="ms-2 font-weight-bold me-2">MAGOS</span> <!-- name navigation -->
-      </router-link>
+      </div>
     </div>
     <hr class="mt-0 horizontal dark" />
     <sidenav-list :cardBg="custom_class" />

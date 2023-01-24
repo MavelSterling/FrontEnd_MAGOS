@@ -174,8 +174,8 @@ export default {
             if( err.response.data.email ) {
               this.mensaje += err.response.data.email + ' '
             }
-            if( err.response.data.email ) {
-              this.mensaje += 'El asociado ya se encuentra ocupado' + ' '
+            if( err.response.data.asociadoVinculado ) {
+              this.mensaje += err.response.data.asociadoVinculado + ' '
             }
           })
       } else {
