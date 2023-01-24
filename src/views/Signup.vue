@@ -176,7 +176,17 @@ export default {
           })
           .catch( err => {
             console.log( err )
-            this.mensaje = 'Sucedió un error'
+            console.log( err )
+            this.mensaje = 'Sucedió un error. '
+            if( err.response.data.errors ) {
+              this.mensaje += err.response.data.errors + ' '
+            }
+            if( err.response.data.documento ) {
+              this.mensaje += err.response.data.documento + ' '
+            }
+            if( err.response.data.email ) {
+              this.mensaje += err.response.data.email + ' '
+            } 
           })
       } else {
         this.mensaje = 'Por favor rellenar todos los campos del registro'

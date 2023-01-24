@@ -116,6 +116,7 @@ export default {
     return {
       verificado: false,
       showModal: false,
+      mensaje : '',
       
       nombre : 'Alberto',
       apellido : 'Mujica',
@@ -123,7 +124,6 @@ export default {
       telefono : '3165672389', 
       email : 'lordmujica07@gmail.com',
       password : 'lordmujica123',
-      mensaje : '',
       documento : '1155433987', 
       ccAsociado : '123456789'
 
@@ -132,8 +132,7 @@ export default {
       // fecha : '',
       // telefono : '', 
       // email : '',
-      // password : '',
-      // mensaje : '',
+      // password : '', 
       // documento : '', 
       // ccAsociado : ''
     }
@@ -152,10 +151,32 @@ export default {
             this.mensaje = 'Usuario registrado correctamente'
             console.log( resp.data )
 
+            // nombre : '',
+            this.apellido = ''
+            this.fecha = ''
+            this.telefono = '' 
+            this.email = ''
+            this.password = '' 
+            this.documento = '' 
+            this.ccAsociado = ''
+            this.verificado = false
+
           })
           .catch( err => {
             console.log( err )
-            this.mensaje = 'Sucedió un error'
+            this.mensaje = 'Sucedió un error. '
+            if( err.response.data.errors ) {
+              this.mensaje += err.response.data.errors + ' '
+            }
+            if( err.response.data.documento ) {
+              this.mensaje += err.response.data.documento + ' '
+            }
+            if( err.response.data.email ) {
+              this.mensaje += err.response.data.email + ' '
+            }
+            if( err.response.data.email ) {
+              this.mensaje += 'El asociado ya se encuentra ocupado' + ' '
+            }
           })
       } else {
         this.mensaje = 'Por favor rellenar todos los campos del registro'

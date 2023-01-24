@@ -57,10 +57,10 @@ class Conexion {
   }
 
 
-  static async crearCliente( username, first_name, last_name, email, rol, documento, password, fechaNacimiento, telefono, ccAsociado='null' ){ 
+  static async crearCliente( username, first_name, last_name, email, rol, documento, password, fechaNacimiento, telefono, asociadoVinculado='-1' ){ 
     return axios({
       method: 'post',
-      url : urlBase + '/users/create/', 
+      url : urlBase + '/clientes/create/', 
       data :  {
         username,
         first_name,
@@ -71,7 +71,8 @@ class Conexion {
         password,
         fechaNacimiento,
         is_active : true, 
-        telefono
+        telefono,
+        asociadoVinculado
       }
     })
   }
