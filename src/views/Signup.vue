@@ -57,7 +57,10 @@
                   
                 </div>
                 <div class="text-center">
-                  <button fullWidth color="dark" variant="gradient" :class="'my-4 mb-2 btn mb-0 '" @click="registrarAsociado" id="botonRegistro" :disabled="habilitarBoton()">Registrarse</button>
+                  <button fullWidth color="dark" 
+                  variant="gradient" :class="'my-4 mb-2 btn mb-0 '" 
+                  @click.prevent="registrarAsociado" id="botonRegistro" :disabled="habilitarBoton()"
+                  >Registrarse</button>
                   <h6 class="text.success">{{mensaje}}</h6>
                 </div>
                 <p class="text-sm mt-3 mb-0">
@@ -157,6 +160,18 @@ export default {
           .then( resp => { 
             this.mensaje = 'Usuario registrado correctamente'
             console.log( resp.data )
+
+            this.nombre = ''
+            this.apellido = ''
+            this.fecha = ''
+            this.telefono = ''
+            this.ocupacion = ''
+            this.ciudad = ''
+            this.email = ''
+            this.password = '' 
+            this.documento = ''
+            this.direccion = '',
+            this.verificado = false
 
           })
           .catch( err => {
