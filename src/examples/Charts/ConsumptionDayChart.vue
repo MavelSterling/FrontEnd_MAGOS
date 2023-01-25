@@ -14,18 +14,9 @@ import Chart from "chart.js/auto";
 export default {
   name: "consumption-day-chart",
 
-  props:{
-      label:Array,
-      data:Array
-  },
-
   mounted() {
     // Chart Consumption by day
     var ctx = document.getElementById("chart-cons-week").getContext("2d");
-
-    const chart_data = this.$props
-
-    console.log(chart_data);
 
     new Chart(ctx, {
       type: "bar",

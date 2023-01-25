@@ -257,8 +257,34 @@ class Conexion {
     })
   }
 
-  static async reporte_top_ahorros() {
+  static reporte_top_ahorros() {
     return axios.get(`${urlBase}/reportes/ahorrotop`)
+  }
+
+  static reporte_top_prestamo() {
+    return axios.get(`${urlBase}/reportes/prestamotop`)
+  }
+
+  static reporte_mes_prestamos() {
+    return axios.get(`${urlBase}/reportes/prestamosmes`)
+  }
+
+  static reporte_fecha_reunion(data) {
+    let json = JSON.stringify({
+      'fechaInicio': {
+        'year': data.fechaInicio.year
+      }
+    })
+    console.log(json);
+    return axios.get(
+      urlBase + '/reporte/fechasreunion',
+      data,
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    )
   }
 
 }

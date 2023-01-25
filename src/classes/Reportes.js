@@ -1,13 +1,28 @@
+import Conexion from "../classes/Conexion";
+
 class Reporte {
 
-    constructor(_array, _object) {
-        this.array = _array | null;
-        this.object = _object | null
+    topAhorros = [];
+    topPrestamos = {};
+    mesPrestamos = {};
+    fechaReunion = {};
+
+    constructor() {
+        this.topAhorros = [];
+        this.topPrestamos = {};
+        this.mesPrestamos = {};
+        this.fechaReunion = {};
     }
 
+    /**
+     * @param {any[]} _array
+     */
     set setArray(_array) {
         this.array = _array
     }
+    /**
+     * @param {{}} _object
+     */
     set setObject(_object) {
         this.object = _object
     }
@@ -20,8 +35,54 @@ class Reporte {
         return this.object
     }
 
-    static topAhorros() {
-        console.log(this.array);
+    static async reporte_topAhorros() {
+        await Conexion.reporte_top_ahorros().then(
+            resp => {
+                let data = resp.data
+                this.topAhorros = data
+                console.log(this.topAhorros);
+            }
+        ).catch(
+            err => { console.log(err); }
+        )
+    }
+
+    static async reporte_topPrestamos() {
+        await Conexion.reporte_top_prestamo().then(
+            resp => {
+                let data = resp.data;
+                this.topPrestamos = data;
+                console.log(this.topPrestamos);
+                console.log(Object.keys(this.topPrestamos));
+                console.log(Object.values(this.topPrestamos));
+            }
+        ).catch(
+            err => { console.log(err); }
+        )
+    }
+
+    static async reporte_mesPrestamos() {
+        await Conexion.reporte_mes_prestamos().then(
+            resp => {
+                let data = resp.data
+                this.mesPrestamos = data
+                console.log(this.mesPrestamos);
+            }
+        ).catch(
+            err => { console.log(err); }
+        )
+    }
+
+    static async reporte_fechaReunion(rango) {
+        await Conexion.reporte_fecha_reunion(rango).then(
+            resp => {
+                let data = resp.data;
+                this.object = data;
+                console.log(this.object);
+            }
+        ).catch(
+            err => { console.log(err); }
+        )
     }
 }
 

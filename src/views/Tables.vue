@@ -11,8 +11,9 @@
       </div>
     </div>
     <div class="mt-4 row">
-      <div class="col-12">
-        <GradientLineChart />
+      <div class="col-12" v-if="topPrestamos.label">
+        <GradientLineChart v-bind:title="topPrestamos.title" v-bind:label="topPrestamos.label"
+          v-bind:data="topPrestamos.data" />
       </div>
     </div>
     <div class="mt-4 row">
@@ -40,8 +41,8 @@ import GradientLineChart from "../examples/Charts/GradientLineChart.vue";
 import ConsumptionDayChart from "../examples/Charts/ConsumptionDayChart.vue"
 import ConsumptionRoomChart from "../examples/Charts/ConsumptionRoomChart.vue"
 import ActiveUsersChart from "../examples/Charts/ActiveUsersChart.vue"
-import Conexion from "../classes/Conexion";
 import Reporte from "../classes/Reportes"
+import { onMounted } from "vue";
 
 
 export default {
@@ -56,7 +57,11 @@ export default {
   },
   data() {
     return {
-      topahorros: Array,
+      topPrestamos: {
+        title: 'TOP 10 meses con más prestamos',
+        label: [],
+        data: []
+      },
       stats: {
         titleColor: "opacity-7 text-white",
         descColor: "text-white",
@@ -83,22 +88,33 @@ export default {
       },
     };
   },
-  methods: {
-    async reporte_topAhorros() {
-      await Conexion.reporte_top_ahorros().then(
-        resp => {
-          let data = resp.data
-          console.log(data);
-          let reporte = new Reporte(data, null)
-          reporte.topAhorros()
+  async created() {
+    await Reporte.reporte_mesPrestamos()
+    await Reporte.reporte_topPrestamos()
+    await Reporte.reporte_topAhorros()
+    this.topPrestamos.label = Object.keys(Reporte.topPrestamos)
+    this.topPrestamos.data = Object.values(Reporte.topPrestamos)
+    /* await Reporte.reporte_fechaReunion(
+      {
+        fechaInicio: {
+          year: 2023,
+          month: 1,
+          day: 1
+        },
+        fechaFin: {
+          year: 2023,
+          month: 1,
+          day: 31
         }
-      ).catch(
-        err => { console.log(err); }
-      )
-    }
+      }
+    ) */
   },
-  mounted() {
-    this.reporte_topAhorros()
+  async onMounted() {
+    await Reporte.reporte_topPrestamos()
+    this.topPrestamos.label = Object.keys(Reporte.topPrestamos)
+    this.topPrestamos.data = Object.values(Reporte.topPrestamos)
+    console.log(this.topPrestamos.label);
+    console.log(this.topPrestamos.data);
   }
 };
 </script>
