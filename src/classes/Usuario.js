@@ -11,6 +11,8 @@ class Usuario {
   _documento = 'null'; 
   _token = 'null'; 
 
+  // falta ciudad, direccion, ocupacion, telefono
+
 
   constructor( ){
     //username, first_name, last_name, email, rol, fechaNacimiento, documento 

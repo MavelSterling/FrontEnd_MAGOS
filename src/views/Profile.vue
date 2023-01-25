@@ -246,9 +246,9 @@
                   <input class="form-control" type="text" :value="usuario.getLast_name" readonly />
                 </div>
               
-                  <div class="form-group ">
+                  <div class="form-group p-3">
                     <div class="input-group">
-                      <div class="input-group-prepend">
+                      <div class=" ">
                         <span class="input-group-text">
                         <i class="ni ni-calendar-grid-58"></i></span>
                       </div>
@@ -276,7 +276,7 @@
                     <label for="example-text-input" class="form-control-label"
                       >Ciudad</label
                     >
-                    <argon-input type="text" value="New York" :readonlyx="true"/>
+                    <argon-input type="text" :value="usuario" :readonlyx="true"/>
                   </div> 
                 </div>
                 <hr class="horizontal dark" />
