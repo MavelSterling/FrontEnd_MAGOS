@@ -1,106 +1,56 @@
 <template>
   <div class="card">
     <div class="card-header pb-0 px-3">
-      <h6 class="mb-0">Información del préstamo</h6>
+      <h6 class="mb-0">Información de préstamos como deudor</h6>
     </div>
     <div class="card-body pt-4 p-3">
-      <ul class="list-group">
-        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-          <div class="d-flex flex-column">
-           <!-- <h6 class="mb-3 text-sm">Oliver Liam</h6>-->
-            <span class="mb-2 text-xs">
-              Nombre del deudor:
-              <span class="text-dark font-weight-bold ms-sm-2">Cliente 1</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Nombre del codeudor:
-              <span class="text-dark font-weight-bold ms-sm-2">Cliente 1</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Id del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Valor del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">1000000</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Fecha del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">01/12/2022</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Estado del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">Activo</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Interés:
-              <span class="text-dark ms-sm-2 font-weight-bold">2.5</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Comisión:
-              <span class="text-dark ms-sm-2 font-weight-bold">25000</span>
-            </span>
-          </div>
-          <div class="ms-auto text-end">
-            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
-              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Desactivar
-            </a>
-            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;">
-              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar
-            </a>
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
-          <div class="d-flex flex-column">
-            <span class="mb-2 text-xs">
-              Nombre del deudor:
-              <span class="text-dark font-weight-bold ms-sm-2">Cliente 1</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Nombre del codeudor:
-              <span class="text-dark font-weight-bold ms-sm-2">Cliente 1</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Id del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Valor del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">1000000</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Fecha del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">01/12/2022</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Estado del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">Activo</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Interés:
-              <span class="text-dark ms-sm-2 font-weight-bold">2.5</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Comisión:
-              <span class="text-dark ms-sm-2 font-weight-bold">25000</span>
-            </span>
-          </div>
-          <div class="ms-auto text-end">
-            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
-              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Desactivar
-            </a>
-            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;">
-              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar
-            </a>
-          </div>
-        </li>
+      <ul class="list-group" v-for="prestamo in prestamos" :key="prestamo.id"> 
+        <Lend_Info_Card_Component :prestamo="prestamo" :codeudorx="false"  />
       </ul>
     </div>
   </div>
+
+  <div class="card">
+    <div class="card-header pb-0 px-3">
+      <h6 class="mb-0">Información de préstamos como codeudor</h6>
+    </div>
+    <div class="card-body pt-4 p-3">
+      <ul class="list-group" v-for="prestamo in prestamos" :key="prestamo.id"> 
+        <Lend_Info_Card_Component :prestamo="prestamo"  :codeudorx="true" />
+      </ul>
+    </div>
+  </div>
+
+  
+
 </template>
 
 <script>
+import Lend_Info_Card_Component from './helpers/Lend_Info_Card_Component.vue';
+import Conexion from '@/classes/Conexion';
+import Usuario from '@/classes/Usuario.js';
+
 export default {
   name: "Lend_InfoCard",
+  components : {
+    Lend_Info_Card_Component
+  },
+  data(){
+    return {
+      usuario : new Usuario(),
+      prestamos : null
+    }
+  },
+  methods :{
+    async traerPrestamos() {
+      await Conexion.leerPrestamos( this.usuario.getToken)
+        .then( resp => {
+          this.prestamos = resp.data.prestamos
+        })
+    }
+  },
+  beforeMount(){
+    this.traerPrestamos()
+  }
 };
 </script>

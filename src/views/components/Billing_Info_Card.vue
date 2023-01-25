@@ -1,98 +1,95 @@
+import Conexion from '@/classes/Conexion.js';
 <template>
   <div class="card">
     <div class="card-header pb-0 px-3">
       <h6 class="mb-0">Información de la cuenta</h6>
     </div>
     <div class="card-body pt-4 p-3">
-      <ul class="list-group">
-        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-          <div class="d-flex flex-column">
-           <!-- <h6 class="mb-3 text-sm">Oliver Liam</h6>-->
-            <span class="mb-2 text-xs">
-              ID cuenta de ahorro:
-              <span class="text-dark font-weight-bold ms-sm-2">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              ID Asociado:
-              <span class="text-dark font-weight-bold ms-sm-2">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Fecha del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">01/12/2022</span>
-            </span>
-            <span class="text-xs">
-              Descripción del ahorro:
-              <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Valor del ahorro:
-              <span class="text-dark ms-sm-2 font-weight-bold">1000000</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Tipo de consignación:
-              <span class="text-dark ms-sm-2 font-weight-bold">Activo</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Firma:
-              <span class="text-dark ms-sm-2 font-weight-bold">Nombre</span>
-            </span>
-          </div>
-          <div class="ms-auto text-end">
-            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
-              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Desactivar
-            </a>
-            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;">
-              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar
-            </a>
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
-          <div class="d-flex flex-column">
-            <span class="mb-2 text-xs">
-              ID cuenta de ahorro:
-              <span class="text-dark font-weight-bold ms-sm-2">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              ID Asociado:
-              <span class="text-dark font-weight-bold ms-sm-2">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Fecha del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">01/12/2022</span>
-            </span>
-            <span class="text-xs">
-              Descripción del ahorro:
-              <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Valor del ahorro:
-              <span class="text-dark ms-sm-2 font-weight-bold">1000000</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Tipo de consignación:
-              <span class="text-dark ms-sm-2 font-weight-bold">Activo</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Firma:
-              <span class="text-dark ms-sm-2 font-weight-bold">Nombre</span>
-            </span>
-          </div>
-          <div class="ms-auto text-end">
-            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
-              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Desactivar
-            </a>
-            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;">
-              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar
-            </a>
-          </div>
-        </li>
+       
+    <template v-if="cuentas"> 
+      <ul class="list-group"
+      v-for="cuenta in cuentas" :key="cuenta.idAhorro"
+      >
+        <Billing_Info_Card_Cuenta :cuenta="cuenta" @actualizar="actualizarOtraVez"/>
       </ul>
+    </template> 
+
+      <template v-else>
+        <span class="mb-2 text-xs">
+            Aún no ha creado ninguna cuenta de ahorros a su nombre.
+        </span>
+      </template> 
+      
+      
     </div>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
+import Conexion from '@/classes/Conexion';
+import Usuario from '@/classes/Usuario.js'; 
+import Billing_Info_Card_Cuenta from "./helpers/Billing_Info_Card_Cuenta.vue";
 export default {
   name: "Billing_InfoCard",
+  components:{
+    Billing_Info_Card_Cuenta
+  },
+  data(){
+    return {
+      cuentas : 
+
+      [{
+        DocAsociado :  "123456789",
+        descripcion :  "This field is Description - Prueba",
+        fecha :  "2008-12-01",
+        firmaDigital :  "Mario Carvajal",
+        idAhorro : 4,
+        monto : 1243523545,
+        tipoConsignacion: 'fisico' 
+      },
+      {
+        DocAsociado :  "123456789",
+        descripcion :  "This field is Description - Prueba",
+        fecha :  "2008-12-01",
+        firmaDigital :  "Mario Carvajal",
+        idAhorro : 4,
+        monto : 1243523545,
+        tipoConsignacion: 'fisico' 
+      }
+
+      ]
+      // null
+      ,
+      usuario : new Usuario(),
+      actualizador : false,
+      descripcionActualizada: ''
+    }
+  },
+  methods: {
+    async traerCuentas(){
+      await Conexion.leerCuentaDeAhorros( this.usuario.getToken, "/"+this.usuario.getDocumento )
+        .then( resp => {
+          console.log( resp )
+          this.cuentas = resp.data
+        })
+        .catch( err => console.log( "Error_leer_cuenta_de_ahorros", err ))
+    },
+    actualizarOtraVez(mensaje){
+      console.log('Me han actualizado =0', mensaje)
+      this.traerCuentas()
+      setTimeout( async () => {
+        await this.traerCuentas()
+        this.$forceUpdate()
+      }, 2000)
+      
+      
+    }
+  },
+  created(){
+    this.traerCuentas()
+  }
 };
 </script>
+
+

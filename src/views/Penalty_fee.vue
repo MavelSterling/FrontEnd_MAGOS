@@ -26,7 +26,7 @@
               </div>-->
             </div>
           </div>
-         <div class="col-md-13 mb-3">
+         <div class="col-md-13 mb-3" v-if="usuario.getRol === 'admin'">
             <Penalty_fee_Card/>
           </div>
         </div>
@@ -53,6 +53,7 @@ import Penalty_fee_Card from "./components/Penalty_fee_Card.vue";
 //import InvoiceCard from "./components/InvoiceCard.vue";
 import Penalty_fee_Info_Card from "./components/Penalty_fee_Info_Card.vue";
 //import TransactionCard from "./components/TransactionCard.vue";
+import Usuario from '@/classes/Usuario.js';
 
 export default {
   name: "Penalty_fee",
@@ -78,6 +79,7 @@ export default {
         desc: "Monto recibido:",
         price: "$455.00",
       },*/
+      usuario: new Usuario()
     };
   },
 };

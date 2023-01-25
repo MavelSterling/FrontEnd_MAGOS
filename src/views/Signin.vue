@@ -24,6 +24,7 @@
                 <div class="card-body">
                   <form role="form">
                     <div class="mb-3">
+                      <!-- <ArgonInput  @contenido="retornarValorInput"  /> -->
                       <input type="text" placeholder="Email" name="email" size="40" v-model='email'/>
                     </div>
                     <div class="mb-3">
@@ -94,7 +95,8 @@ import Usuario from "@/classes/Usuario.js"
 import Navbar from "@/examples/PageLayout/Navbar.vue"; 
 import ArgonSwitch from "@/components/ArgonSwitch.vue";
 import ArgonButton from "@/components/ArgonButton.vue"; 
-import { createLogger } from 'vuex';
+import ArgonInput from "@/components/ArgonInput.vue"
+import { createLogger } from 'vuex'; 
 
 const body = document.getElementsByTagName("body")[0];
 const hola =123
@@ -103,7 +105,8 @@ export default {
   components: {
     Navbar, 
     ArgonButton,
-    ArgonSwitch
+    ArgonSwitch,
+    ArgonInput
   },
   created() {
     this.$store.state.hideConfigButton = true;
@@ -111,6 +114,7 @@ export default {
     this.$store.state.showSidenav = false;
     this.$store.state.showFooter = false;
     body.classList.remove("bg-gray-100");
+    this.usuario.desconectar();
   },
   beforeUnmount() {
     this.$store.state.hideConfigButton = false;
@@ -130,6 +134,14 @@ export default {
     }
   },
   methods:{
+
+    retornarValorInput(event){ 
+      this.email = event
+      console.log(event)
+    },
+    getInputValue(event){
+      this.email = event
+    },
     async login(e){
       e.preventDefault() // Para evitar que redireccione la página
 
