@@ -2,8 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "../views/Dashboard.vue";
 import Tables from "../views/Tables.vue";
 import Billing from "../views/Billing.vue";
-//import VirtualReality from "../views/VirtualReality.vue";
-import RTL from "../views/Rtl.vue";
+//import VirtualReality from "../views/VirtualReality.vue"; 
 import Profile from "../views/Profile.vue";
 import Signup from "../views/Signup.vue";
 import SignupCliente from "../views/SignupCliente.vue";
@@ -12,6 +11,7 @@ import Meeting from "../views/Meeting.vue";
 import Payment from "../views/Payment.vue";
 import Lend from "../views/Lend.vue";
 import Penalty_fee from "../views/Penalty_fee.vue";
+import ErrorComponent from "../views/ErrorComponent"
 const routes = [
   {
     path: "/",
@@ -37,12 +37,7 @@ const routes = [
     path: "/virtual-reality",
     name: "Virtual Reality",
     component: VirtualReality,
-  },*/
-  {
-    path: "/rtl-page",
-    name: "RTL",
-    component: RTL,
-  },
+  },*/ 
   {
     path: "/profile",
     name: "Perfil de usuario",
@@ -83,6 +78,10 @@ const routes = [
     name: "Sanciones",
     component: Penalty_fee,
   },
+  {
+    path: "/:pathMatch(.*)*",
+    component: ErrorComponent
+  }
   
 ];
 

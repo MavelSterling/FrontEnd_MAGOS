@@ -1,11 +1,4 @@
-<template>
-  <div class="container top-0 position-sticky z-index-sticky">
-    <div class="row">
-      <div class="col-12">
-        <navbar isBtn="bg-gradient-light" />
-      </div>
-    </div>
-  </div>
+<template> 
   <main class="main-content mt-0">
     <div
       class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
@@ -123,26 +116,25 @@ export default {
     return {
       verificado: false,
       showModal: false,
-      
-      nombre : 'Alberto',
-      apellido : 'Mujica',
-      fecha : '1989-11-22',
-      telefono : '3165672389', 
-      email : 'lordmujica07@gmail.com',
-      password : 'lordmujica123',
       mensaje : '',
-      documento : '1155433987', 
-      ccAsociado : '123456789'
+      
+      // nombre : 'Alberto',
+      // apellido : 'Mujica',
+      // fecha : '1989-11-22',
+      // telefono : '3165672389', 
+      // email : 'lordmujica07@gmail.com',
+      // password : 'lordmujica123',
+      // documento : '1155433987', 
+      // ccAsociado : '123456789'
 
-      // nombre : '',
-      // apellido : '',
-      // fecha : '',
-      // telefono : '', 
-      // email : '',
-      // password : '',
-      // mensaje : '',
-      // documento : '', 
-      // ccAsociado : ''
+      nombre : '',
+      apellido : '',
+      fecha : '',
+      telefono : '', 
+      email : '',
+      password : '', 
+      documento : '', 
+      ccAsociado : ''
     }
   },
   methods : {
@@ -159,10 +151,32 @@ export default {
             this.mensaje = 'Usuario registrado correctamente'
             console.log( resp.data )
 
+            this.nombre = ''
+            this.apellido = ''
+            this.fecha = ''
+            this.telefono = '' 
+            this.email = ''
+            this.password = '' 
+            this.documento = '' 
+            this.ccAsociado = ''
+            this.verificado = false
+
           })
           .catch( err => {
             console.log( err )
-            this.mensaje = 'Sucedió un error'
+            this.mensaje = 'Sucedió un error. '
+            if( err.response.data.errors ) {
+              this.mensaje += err.response.data.errors + ' '
+            }
+            if( err.response.data.documento ) {
+              this.mensaje += err.response.data.documento + ' '
+            }
+            if( err.response.data.email ) {
+              this.mensaje += err.response.data.email + ' '
+            }
+            if( err.response.data.asociadoVinculado ) {
+              this.mensaje += err.response.data.asociadoVinculado + ' '
+            }
           })
       } else {
         this.mensaje = 'Por favor rellenar todos los campos del registro'

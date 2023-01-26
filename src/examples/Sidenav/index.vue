@@ -1,9 +1,9 @@
-<template>
+<template>  
   <div
     v-show="this.$store.state.layout === 'default'"
     class="min-height-300 position-absolute w-100"
     :class="`${this.$store.state.darkMode ? 'bg-transparent' : 'bg-success'}`"
-  />
+  ></div>
   <aside
     class="my-3 overflow-auto border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl"
     :class="`${
@@ -24,7 +24,7 @@
         aria-hidden="true"
         id="iconSidenav"
       ></i>
-      <router-link class="m-0 navbar-brand" to="/">
+      <div class="m-0 navbar-brand">
         <img
           :src="
             this.$store.state.darkMode ||
@@ -36,11 +36,11 @@
           alt="main_logo"
         />
         <span class="ms-2 font-weight-bold me-2">MAGOS</span> <!-- name navigation -->
-      </router-link>
+      </div>
     </div>
     <hr class="mt-0 horizontal dark" />
     <sidenav-list :cardBg="custom_class" />
-  </aside>
+  </aside> 
 </template>
 <script>
 import SidenavList from "./SidenavList.vue";

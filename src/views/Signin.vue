@@ -1,15 +1,4 @@
-<template>
-  <div class="container top-0 position-sticky z-index-sticky">
-    <div class="row">
-      <div class="col-12">
-        <navbar
-          isBlur="blur  border-radius-lg my-3 py-2 start-0 end-0 mx-4 shadow"
-          v-bind:darkMode="true"
-          isBtn="bg-gradient-success"
-        />
-      </div>
-    </div>
-  </div>
+<template> 
   <main class="mt-0 main-content">
     <section>
       <div class="page-header min-vh-100">
@@ -25,12 +14,12 @@
                   <form role="form">
                     <div class="mb-3">
                       <!-- <ArgonInput  @contenido="retornarValorInput"  /> -->
-                      <input type="text" placeholder="Email" name="email" size="40" v-model='email'/>
+                      <input type="text" placeholder="Email" name="email" size="40" v-model='email' id-test="email"/>
                     </div>
                     <div class="mb-3">
-                      <input type="password" placeholder="Password" name="password" size="40" v-model='password'/>
+                      <input type="password" placeholder="Password" name="password" size="40" v-model='password' id-test="password"/>
                     </div>
-                    <argon-switch id="rememberMe">Recordar usuario</argon-switch>
+                    <argon-switch id="rememberMe">Recordar usuario</argon-switch> 
 
                     <div class="text-center">
                       <argon-button
@@ -40,6 +29,7 @@
                         fullWidth
                         size="lg"
                         v-on:click="login"
+                        id-test="login"
                       >Entrar</argon-button>
                     </div>
                     <h6 class="alert-danger">
@@ -143,6 +133,7 @@ export default {
       this.email = event
     },
     async login(e){
+      // console.log('loginUsuario ejecutado correctamente')
       e.preventDefault() // Para evitar que redireccione la página
 
       // this.datos = {
@@ -176,6 +167,7 @@ export default {
         
         await Conexion.loginUsuario( this.email, this.password )
           .then( resp => {
+            
             console.log( resp )
            
             console.log('¿Estoy logueado?: ',resp.data.message)
@@ -186,9 +178,14 @@ export default {
               const usuario = new Usuario()
               usuario.setToken = this.tokenAutenticacion
               usuario.setEmail = this.email
-              usuario.setPassword = this.password
-              usuario.saludar() 
-              usuario.obtenerUsuarios()
+              usuario.setPassword = this.password 
+              console.log('Mira 💪', resp.data.data)
+              usuario.insertarDatosAsociado(resp.data.data )
+
+
+              // usuario.saludar() 
+              // usuario.obtenerUsuarios()
+
               this.$router.push('dashboard-default') // IMPORTANTE, para cambiar de componente
             }catch( err ){
               //console.log( 'No pude entrar D:   ')
@@ -206,6 +203,7 @@ export default {
     printx( e ) {
       e.preventDefault()
       console.log( this.email, this.password )
+      console.log('ESTOY VIVOOOOO')
     },
 
     

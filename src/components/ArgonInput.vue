@@ -11,7 +11,7 @@
         :name="name"  
         :placeholder="placeholder"
         :isRequired="isRequired"
-        
+        :readonly="readonlyx"
         v-model="valor"
       />
       <span v-if="iconDir === 'right'" class="input-group-text">
@@ -31,6 +31,11 @@ export default {
     }
   },
   props: {
+    readonlyx: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
     size: {
       type: String,
       default: "default",

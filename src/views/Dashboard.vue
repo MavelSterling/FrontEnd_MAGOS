@@ -108,7 +108,7 @@
           </div>
             <!-- line chart -->
           <div class="card z-index-2">
-            <gradient-line-chart  />
+            <!-- <gradient-line-chart  /> -->
           </div>
         </div>
       </div>

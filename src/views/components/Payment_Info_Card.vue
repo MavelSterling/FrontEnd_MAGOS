@@ -1,90 +1,77 @@
 <template>
   <div class="card">
     <div class="card-header pb-0 px-3">
-      <h6 class="mb-0">Información de abonos</h6>
+      <h6 class="mb-0">Información de abonos que has consignado</h6>
     </div>
     <div class="card-body pt-4 p-3">
-      <ul class="list-group">
-        <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-          <div class="d-flex flex-column">
-           <!-- <h6 class="mb-3 text-sm">Oliver Liam</h6>-->
-            <span class="mb-2 text-xs">
-              Nombre del abonador:
-              <span class="text-dark font-weight-bold ms-sm-2">Cliente 1</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Id del abono:
-              <span class="text-dark ms-sm-2 font-weight-bold">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Id del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Valor del abono:
-              <span class="text-dark ms-sm-2 font-weight-bold">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Fecha del abono:
-              <span class="text-dark ms-sm-2 font-weight-bold">01/12/2022</span>
-            </span>
-            <span class="text-xs">
-              Descripción del abono:
-              <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span>
-            </span>
-          </div>
-          <div class="ms-auto text-end">
-            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
-              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Desactivar
-            </a>
-            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;">
-              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar
-            </a>
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
-          <div class="d-flex flex-column">
-            <span class="mb-2 text-xs">
-              Nombre del abonador:
-              <span class="text-dark font-weight-bold ms-sm-2">Cliente 2</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Id del abono:
-              <span class="text-dark ms-sm-2 font-weight-bold">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Id del préstamo:
-              <span class="text-dark ms-sm-2 font-weight-bold">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Valor del abono:
-              <span class="text-dark ms-sm-2 font-weight-bold">01</span>
-            </span>
-            <span class="mb-2 text-xs">
-              Fecha del abono:
-              <span class="text-dark ms-sm-2 font-weight-bold">01/12/2022</span>
-            </span>
-            <span class="text-xs">
-              Descripción del abono:
-              <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span>
-            </span>
-          </div>
-          <div class="ms-auto text-end">
-            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
-              <i class="far fa-trash-alt me-2" aria-hidden="true"></i>Desactivar
-            </a>
-            <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;">
-              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar
-            </a>
-          </div>
-        </li>
+      <ul class="list-group" v-for="abono in abonos" :key="abono.idAbono">
+        <Payment_Info_Card_Component :abono="abono" :abonoAMiCuenta="false"  />
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header pb-0 px-3">
+      <h6 class="mb-0">Información de abonos que te han consignado</h6>
+    </div>
+    <div class="card-body pt-4 p-3">
+      <ul class="list-group" v-for="abono in abonosQueTeConsignaron" :key="abono.idAbono">
+        <Payment_Info_Card_Component :abono="abono" :abonoAMiCuenta="true"  />
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import Payment_Info_Card_Component from './helpers/Payment_Info_Card_Component.vue';
+import Usuario from '@/classes/Usuario.js';
+import Conexion from '@/classes/Conexion'; 
 export default {
   name: "Payment_Info_Card",
+  components:{
+    Payment_Info_Card_Component
+  },
+  data(){
+    return {
+      usuario : new Usuario(),
+      abonosQueTeConsignaron : null,
+      abonos : 
+      // null
+      // mocks hasta que el BACKEND haya terminado la api
+      [ 
+    {
+        "idAbono": 666,
+        "monto": 6666666,
+        "fecha": "2025-01-06",
+        "descripcion": "prueba",
+        "idPrestamo": "blablabla",
+        "abona": "555121",
+        "cuentaAhorro": 31312,
+        "idSancion": 3124
+    }
+]
+    } 
+  },
+  methods:{
+    traerAbonos(){
+      Conexion.leerAbonos( this.usuario.getToken)
+        .then( resp => {
+          this.abonos = resp.data
+        })
+        .catch( err => console.log('Sucedió un eror', err))
+    },
+    // RECORDAR HACER MÉTODO PARA OBTENER AQUELLOS ABONOS QUE SE LE HAN CONSIGNADO AL USUARIO
+    traerAbonosQueTeConsignaron(){
+      Conexion.leerAbonos( this.usuario.getToken)
+        .then( resp => {
+          this.abonosQueTeConsignaron = resp.data
+        })
+        .catch( err => console.log('Sucedió un eror', err))
+    }
+  },
+  created(){
+    this.traerAbonos()
+    this.traerAbonosQueTeConsignaron()
+  }
 };
 </script>

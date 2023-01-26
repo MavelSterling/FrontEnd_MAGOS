@@ -22,7 +22,24 @@ export default {
   data(){
     return {
       usuario : new Usuario(),
-      sanciones : null
+      // sanciones : null,
+      // Mientras se resuelve el problema del backend
+      sanciones : [{
+        asociadoReferente : '123Prueba',
+        motivo: '123Prueba',
+        costo: 15000,
+        estadoMulta: false, 
+        fecha: '2023/01/13',
+        montoPagado: 12000
+      },
+      {
+        asociadoReferente : '123Prueba',
+        motivo: '123Prueba',
+        costo: 15000,
+        estadoMulta: true, 
+        fecha: '2023/01/13',
+        montoPagado: 15000
+      }]
     }
   },
   components :{
@@ -30,7 +47,7 @@ export default {
   },
   methods:{
     traerSanciones(){
-      Conexion.leerSanciones( this.usuario.getToken)
+      Conexion.leerSanciones( this.usuario.getToken, this.usuario.getDocumento)
         .then( resp => {
           console.log( resp)
           this.sanciones = resp.data
@@ -38,7 +55,7 @@ export default {
         .catch( err => console.log(err))
     }
   },
-  beforeCreate(){
+  created(){
     this.traerSanciones()
   }
 };

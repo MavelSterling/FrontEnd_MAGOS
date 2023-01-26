@@ -1,11 +1,4 @@
-<template>
-  <div class="container top-0 position-sticky z-index-sticky">
-    <div class="row">
-      <div class="col-12">
-        <navbar isBtn="bg-gradient-light" />
-      </div>
-    </div>
-  </div>
+<template> 
   <main class="main-content mt-0">
     <div
       class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg"
@@ -64,7 +57,10 @@
                   
                 </div>
                 <div class="text-center">
-                  <button fullWidth color="dark" variant="gradient" :class="'my-4 mb-2 btn mb-0 '" @click="registrarAsociado" id="botonRegistro" :disabled="habilitarBoton()">Registrarse</button>
+                  <button fullWidth color="dark" 
+                  variant="gradient" :class="'my-4 mb-2 btn mb-0 '" 
+                  @click.prevent="registrarAsociado" id="botonRegistro" :disabled="habilitarBoton()"
+                  >Registrarse</button>
                   <h6 class="text.success">{{mensaje}}</h6>
                 </div>
                 <p class="text-sm mt-3 mb-0">
@@ -126,29 +122,29 @@ export default {
       verificado: false,
       showModal: false,
       
-      nombre : 'Alberto',
-      apellido : 'Mujica',
-      fecha : '1989-11-22',
-      telefono : '3165672389',
-      ocupacion : 'Presidente',
-      ciudad : 'Cali',
-      email : 'lordmujica07@gmail.com',
-      password : 'lordmujica123',
-      mensaje : '',
-      documento : '1155433987',
-      direccion : 'Cra 36 # 13 - 42'
-
-      // nombre : '',
-      // apellido : '',
-      // fecha : '',
-      // telefono : '',
-      // ocupacion : '',
-      // ciudad : '',
-      // email : '',
-      // password : '',
+      // nombre : 'Alberto',
+      // apellido : 'Mujica',
+      // fecha : '1989-11-22',
+      // telefono : '3165672389',
+      // ocupacion : 'Presidente',
+      // ciudad : 'Cali',
+      // email : 'lordmujica07@gmail.com',
+      // password : 'lordmujica123',
       // mensaje : '',
-      // documento : '',
-      // direccion : ''
+      // documento : '1155433987',
+      // direccion : 'Cra 36 # 13 - 42'
+
+      nombre : '',
+      apellido : '',
+      fecha : '',
+      telefono : '',
+      ocupacion : '',
+      ciudad : '',
+      email : '',
+      password : '',
+      mensaje : '',
+      documento : '',
+      direccion : ''
     }
   },
   methods : {
@@ -165,10 +161,32 @@ export default {
             this.mensaje = 'Usuario registrado correctamente'
             console.log( resp.data )
 
+            this.nombre = ''
+            this.apellido = ''
+            this.fecha = ''
+            this.telefono = ''
+            this.ocupacion = ''
+            this.ciudad = ''
+            this.email = ''
+            this.password = '' 
+            this.documento = ''
+            this.direccion = '',
+            this.verificado = false
+
           })
           .catch( err => {
             console.log( err )
-            this.mensaje = 'Sucedió un error'
+            console.log( err )
+            this.mensaje = 'Sucedió un error. '
+            if( err.response.data.errors ) {
+              this.mensaje += err.response.data.errors + ' '
+            }
+            if( err.response.data.documento ) {
+              this.mensaje += err.response.data.documento + ' '
+            }
+            if( err.response.data.email ) {
+              this.mensaje += err.response.data.email + ' '
+            } 
           })
       } else {
         this.mensaje = 'Por favor rellenar todos los campos del registro'
