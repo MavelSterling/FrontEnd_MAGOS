@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="card">
+  <!-- <div class="card">
     <div class="card-header pb-0 px-3">
       <h6 class="mb-0">Información de abonos que te han consignado</h6>
     </div>
@@ -19,7 +19,7 @@
         <Payment_Info_Card_Component :abono="abono" :abonoAMiCuenta="true"  />
       </ul>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
