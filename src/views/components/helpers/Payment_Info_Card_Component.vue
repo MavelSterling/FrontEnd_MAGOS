@@ -19,26 +19,26 @@
         Descripción del abono:
         <span class="text-dark ms-sm-2 font-weight-bold">{{ abono.descripcion }}</span>
       </span>
-      <span class="mb-2 text-xs" v-if="abono.idPrestamo">
+      <span class="mb-2 text-xs" v-if="abono.cuentaPrestamo">
         ID del préstamo que se consignó:
-        <span class="text-dark ms-sm-2 font-weight-bold">{{ abono.idPrestamo }}</span>
+        <span class="text-dark ms-sm-2 font-weight-bold">{{ abono.cuentaPrestamo }}</span>
       </span>
-      <span class="mb-2 text-xs" v-else-if="abono.idSancion">
+      <span class="mb-2 text-xs" v-else-if="abono.cuentaSancion">
         ID de la sanción que se consignó:
-        <span class="text-dark ms-sm-2 font-weight-bold">{{ abono.idSancion }}</span>
+        <span class="text-dark ms-sm-2 font-weight-bold">{{ abono.cuentaSancion }}</span>
       </span>
-      <span class="mb-2 text-xs" v-else>
+      <!-- <span class="mb-2 text-xs" v-else>
         ID de la cuenta que se consignó:
         <span class="text-dark ms-sm-2 font-weight-bold"> SE IMPLEMENTARÁ CUANDO LA API ESTÉ COMPLETA POR EL BACKEND</span>
-      </span>
+      </span> -->
       <span class="mb-2 text-xs">
         CC del abonador:
         <span class="text-dark ms-sm-2 font-weight-bold"> {{ abono.abona}}</span>
       </span>
-      <span class="mb-2 text-xs">
+      <!-- <span class="mb-2 text-xs">
         Número de cuenta de donde provino el abono:
         <span class="text-dark ms-sm-2 font-weight-bold">{{ abono.cuentaAhorro }}</span>
-      </span>
+      </span> -->
       <h4 v-if="mensaje">{{ mensaje }}</h4>
     </div>
     <div class="ms-auto text-end">

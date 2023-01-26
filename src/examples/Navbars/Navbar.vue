@@ -45,7 +45,7 @@
                 class="fa fa-user"
                 :class="this.$store.state.isRTL ? 'ms-sm-2' : 'me-sm-2'"
               ></i> 
-              <span class="d-sm-inline d-none" @click="saludar" v-if="usuario.getFirst_name!=='null'">¡Hola! {{usuario.getFirst_name}} {{usuario.getLast_name}}</span>
+              <span class="d-sm-inline d-none" @click="saludar" v-if="usuario.getFirst_name">¡Hola! {{usuario.getFirst_name}} {{usuario.getLast_name}}</span>
             </div>
             <!-- </router-link> -->
           </li>
@@ -243,13 +243,9 @@ export default {
   watch : {
     usuario : function( value, oldValue){
       console.log('hay cambiooox')
-      this.$forceUpdate() // Esto no está funcionando
+      // this.$forceUpdate() // Esto no está funcionando
     }
   },
-  beforeCreate () {
-    setTimeout( ()=>{
-      console.log('ya se creó123' )
-      this.actualizar();},3000)
-  }
+   
 };
 </script>

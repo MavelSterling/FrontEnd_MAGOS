@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="card">
+  <!-- <div class="card">
     <div class="card-header pb-0 px-3">
       <h6 class="mb-0">Información de abonos que te han consignado</h6>
     </div>
@@ -19,7 +19,7 @@
         <Payment_Info_Card_Component :abono="abono" :abonoAMiCuenta="true"  />
       </ul>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -36,20 +36,20 @@ export default {
       usuario : new Usuario(),
       abonosQueTeConsignaron : null,
       abonos : 
-      // null
+      null
       // mocks hasta que el BACKEND haya terminado la api
-      [ 
-    {
-        "idAbono": 666,
-        "monto": 6666666,
-        "fecha": "2025-01-06",
-        "descripcion": "prueba",
-        "idPrestamo": "blablabla",
-        "abona": "555121",
-        "cuentaAhorro": 31312,
-        "idSancion": 3124
-    }
-]
+//       [ 
+//     {
+//         "idAbono": 666,
+//         "monto": 6666666,
+//         "fecha": "2025-01-06",
+//         "descripcion": "prueba",
+//         "idPrestamo": "blablabla",
+//         "abona": "555121",
+//         "cuentaAhorro": 31312,
+//         "idSancion": 3124
+//     }
+// ]
     } 
   },
   methods:{
