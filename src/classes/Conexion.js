@@ -126,7 +126,8 @@ class Conexion {
 
   // Si no se inserta el segundo parámetro, se tomará como la lectura de todas las cuentas de ahorro
   static leerCuentaDeAhorros( token, DocAsociado="" ){
-    console.log('MIRAAA -> ',DocAsociado)
+    console.log('MIRAAA -> ',DocAsociado);
+    DocAsociado = DocAsociado? '/' + DocAsociado : '';
     return axios({
       method: 'GET',
       url :urlBase + '/ahorros/all'+DocAsociado,
@@ -238,6 +239,7 @@ class Conexion {
   }
 
   static leerAbonos( token, id=""){
+    id = (id)? '/'+id : '';
     return axios({
       method: 'GET',
       url: urlBase+'/abono/all'+id,

@@ -37,30 +37,29 @@ export default {
   },
   data(){
     return {
-      cuentas : 
+      cuentas : null,
 
-      [{
-        DocAsociado :  "123456789",
-        descripcion :  "This field is Description - Prueba",
-        fecha :  "2008-12-01",
-        firmaDigital :  "Mario Carvajal",
-        idAhorro : 4,
-        monto : 1243523545,
-        tipoConsignacion: 'fisico' 
-      },
-      {
-        DocAsociado :  "123456789",
-        descripcion :  "This field is Description - Prueba",
-        fecha :  "2008-12-01",
-        firmaDigital :  "Mario Carvajal",
-        idAhorro : 4,
-        monto : 1243523545,
-        tipoConsignacion: 'fisico' 
-      }
+      // [{
+      //   DocAsociado :  "123456789",
+      //   descripcion :  "This field is Description - Prueba",
+      //   fecha :  "2008-12-01",
+      //   firmaDigital :  "Mario Carvajal",
+      //   idAhorro : 4,
+      //   monto : 1243523545,
+      //   tipoConsignacion: 'fisico' 
+      // },
+      // {
+      //   DocAsociado :  "123456789",
+      //   descripcion :  "This field is Description - Prueba",
+      //   fecha :  "2008-12-01",
+      //   firmaDigital :  "Mario Carvajal",
+      //   idAhorro : 4,
+      //   monto : 1243523545,
+      //   tipoConsignacion: 'fisico' 
+      // }
 
-      ]
-      // null
-      ,
+      // ]
+      // null 
       usuario : new Usuario(),
       actualizador : false,
       descripcionActualizada: ''
