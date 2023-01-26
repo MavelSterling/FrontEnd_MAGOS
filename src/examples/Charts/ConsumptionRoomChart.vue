@@ -3,13 +3,9 @@
     <div class="p-3 pb-0 card-header">
       <div class="d-flex align-items-center">
         <h6 class="mb-0">Consumption by room</h6>
-        <button
-          type="button"
+        <button type="button"
           class="mb-0 btn btn-icon-only btn-rounded btn-outline-secondary ms-2 btn-sm d-flex align-items-center justify-content-center ms-auto"
-          data-bs-toggle="tooltip"
-          data-bs-placement="bottom"
-          title="See the consumption per room"
-        >
+          data-bs-toggle="tooltip" data-bs-placement="bottom" title="See the consumption per room">
           <i class="fas fa-info"></i>
         </button>
       </div>
@@ -107,7 +103,7 @@
 import Chart from "chart.js/auto";
 
 export default {
-  name: "consumption-by-room-chart",
+  name: "consumption-room-chart",
   mounted() {
     // Chart Doughnut Consumption by room
     var ctx1 = document.getElementById("chart-consumption").getContext("2d");
@@ -136,6 +132,7 @@ export default {
               "#11cdef",
               "#2dce89",
               "#fb6340",
+              "#ffaf"
             ],
 
             data: [15, 20, 13, 32, 20],

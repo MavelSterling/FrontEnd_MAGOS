@@ -2,11 +2,11 @@
   <div class="card">
     <div class="pb-0 card-header mb-0">
       <h6>{{ title }}</h6>
-      <p class="text-sm">
+      <!-- <p class="text-sm">
         <i class="fa fa-arrow-up text-success"></i>
-        <span class="font-weight-bold">{{detail1}}</span>
-        {{detail2}}
-      </p>
+        <span class="font-weight-bold">{{ detail1 }}</span>
+        {{ detail2 }}
+      </p> -->
     </div>
     <div class="p-3 card-body">
       <div class="chart">
@@ -25,7 +25,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Sales overview",
+      default: "Gradient Line Chart",
     },
     detail1: {
       type: String,
@@ -35,6 +35,9 @@ export default {
       type: String,
       default: "in 2021",
     },
+    label: Array,
+    data: Array,
+    label_dataset: String
   },
 
   mounted() {
@@ -42,16 +45,18 @@ export default {
 
     var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
 
+    console.log(this.$props.data);
+
     gradientStroke1.addColorStop(1, "rgba(94, 114, 228, 0.2)");
     gradientStroke1.addColorStop(0.2, "rgba(94, 114, 228, 0.0)");
     gradientStroke1.addColorStop(0, "rgba(94, 114, 228, 0)");
     new Chart(ctx1, {
       type: "line",
       data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: this.$props.label,
         datasets: [
           {
-            label: "Mobile apps",
+            label: this.$props.label_dataset,
             tension: 0.4,
             borderWidth: 0,
             pointRadius: 0,
@@ -60,7 +65,7 @@ export default {
             // eslint-disable-next-line no-dupe-keys
             borderWidth: 3,
             fill: true,
-            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+            data: this.$props.data,
             maxBarThickness: 6,
           },
         ],
