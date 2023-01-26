@@ -4,9 +4,9 @@
     <div class="p-3 pb-0 card-header">
       <h6 class="mb-0">{{ "Agenda del mes"}}</h6>
       <div class="d-flex">
-        <div class="mb-0 text-sm p font-weight-bold widget-calendar-day">Diciembre</div>
+        <div class="mb-0 text-sm p font-weight-bold widget-calendar-day">Enero</div>
         <span>,&nbsp;</span>
-        <div class="mb-1 text-sm p font-weight-bold widget-calendar-year">2022</div>
+        <div class="mb-1 text-sm p font-weight-bold widget-calendar-year">2023</div>
       </div>
     </div>
     <!-- Card body -->
@@ -35,7 +35,7 @@ export default {
       headerToolbar: false,
       selectable: true,
       editable: true,
-      initialDate: "2022-12-01",
+      initialDate: "2023-01-01",
       events: [
         {
           title: "Reunión cancelada",
