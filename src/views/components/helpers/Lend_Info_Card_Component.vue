@@ -5,7 +5,7 @@
     <div class="d-flex flex-column"> 
       <span class="mb-2 text-xs">
         ID del préstamo:
-        <span class="text-dark font-weight-bold ms-sm-2">{{ prestamo.solicitudPrestamo }}</span>
+        <span class="text-dark font-weight-bold ms-sm-2">{{ prestamo.id }}</span>
       </span>
       <span class="mb-2 text-xs">
         CC del deudor:
@@ -21,7 +21,7 @@
       </span>
       <span class="mb-2 text-xs">
         Cantidad pagada:
-        <span class="text-dark ms-sm-2 font-weight-bold"> SE IMPLEMENTARÁ CUANDO SE ACTUALICE LA API</span>
+        <span class="text-dark ms-sm-2 font-weight-bold"> {{ prestamo.pagoDeuda? prestamo.pagoDeuda:'0' }}</span>
       </span>
       <span class="mb-2 text-xs">
         Fecha del préstamo
@@ -37,7 +37,7 @@
       </span> 
       <span class="mb-2 text-xs">
         Autorización del préstamo
-        <span class="text-dark ms-sm-2 font-weight-bold">CUANDO SE ACTUALICE LA API</span>
+        <span class="text-dark ms-sm-2 font-weight-bold">{{  prestamo.estadoPrestamo? 'Préstamo autorizado' : 'Préstamo no autorizado' }}</span>
       </span> 
       <h4 v-if="mensaje">{{ mensaje }}</h4>
     </div>
