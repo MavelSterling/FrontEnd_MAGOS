@@ -83,15 +83,17 @@ export default {
       const data = {
         abona: this.usuario.getDocumento,
         monto: this.monto,
-        // cuentaAhorro: this.cuenta,
+        cuentaAhorro: null,
         descripcion: this.descripcion,
         // idPrestamo: this.numeroCuentaADepositar,
       }
 
       if(this.destino === "prestamos"){
-        data["idPrestamo"] = this.numeroCuentaADepositar
+        data["cuentaPrestamo"] = this.numeroCuentaADepositar
+        data["cuentaSancion"] = null
       }else if(this.destino === "sanciones"){
-        data["idSancion"] = this.numeroCuentaADepositar
+        data["cuentaSancion"] = this.numeroCuentaADepositar
+        data["cuentaPrestamo"] = null
       }else if( this.destino === "ahorros" ){
         // CUANDO YA SE HAYA IMPLEMENTADO EN EL BACKEND
         console.log("implementar después")
