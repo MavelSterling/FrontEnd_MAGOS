@@ -24,22 +24,23 @@ export default {
       usuario : new Usuario(),
       // sanciones : null,
       // Mientras se resuelve el problema del backend
-      sanciones : [{
-        asociadoReferente : '123Prueba',
-        motivo: '123Prueba',
-        costo: 15000,
-        estadoMulta: false, 
-        fecha: '2023/01/13',
-        montoPagado: 12000
-      },
-      {
-        asociadoReferente : '123Prueba',
-        motivo: '123Prueba',
-        costo: 15000,
-        estadoMulta: true, 
-        fecha: '2023/01/13',
-        montoPagado: 15000
-      }]
+      sanciones : null
+      // [{
+      //   asociadoReferente : '123Prueba',
+      //   motivo: '123Prueba',
+      //   costo: 15000,
+      //   estadoMulta: false, 
+      //   fecha: '2023/01/13',
+      //   montoPagado: 12000
+      // },
+      // {
+      //   asociadoReferente : '123Prueba',
+      //   motivo: '123Prueba',
+      //   costo: 15000,
+      //   estadoMulta: true, 
+      //   fecha: '2023/01/13',
+      //   montoPagado: 15000
+      // }]
     }
   },
   components :{

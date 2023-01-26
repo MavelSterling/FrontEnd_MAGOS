@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="card">
+  <!-- <div class="card">
     <div class="card-header pb-0 px-3">
       <h6 class="mb-0">Información de préstamos como codeudor</h6>
     </div>
@@ -19,7 +19,7 @@
         <Lend_Info_Card_Component :prestamo="prestamo"  :codeudorx="true" />
       </ul>
     </div>
-  </div>
+  </div> -->
 
   
 

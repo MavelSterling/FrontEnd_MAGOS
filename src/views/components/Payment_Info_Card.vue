@@ -36,20 +36,20 @@ export default {
       usuario : new Usuario(),
       abonosQueTeConsignaron : null,
       abonos : 
-      // null
+      null
       // mocks hasta que el BACKEND haya terminado la api
-      [ 
-    {
-        "idAbono": 666,
-        "monto": 6666666,
-        "fecha": "2025-01-06",
-        "descripcion": "prueba",
-        "idPrestamo": "blablabla",
-        "abona": "555121",
-        "cuentaAhorro": 31312,
-        "idSancion": 3124
-    }
-]
+//       [ 
+//     {
+//         "idAbono": 666,
+//         "monto": 6666666,
+//         "fecha": "2025-01-06",
+//         "descripcion": "prueba",
+//         "idPrestamo": "blablabla",
+//         "abona": "555121",
+//         "cuentaAhorro": 31312,
+//         "idSancion": 3124
+//     }
+// ]
     } 
   },
   methods:{

@@ -99,8 +99,10 @@ export default {
   },
   methods:{ 
     pagar(){
-      this.mensaje = "Te debería de llevar al componente de pagos"
+      // this.mensaje = "Te debería de llevar al componente de pagos"
       // this.$emit('informacion', this.prestamo)
+      this.$router.push('/payment')
+      // console.log('pepepepe')
     },
 
     autorizar(){
