@@ -59,7 +59,7 @@ class Reporte {
 
     static async reporte_mesPrestamos() {
         await Conexion.reporte_mes_prestamos().then(
-            resp => {
+            (resp) => {
                 let data = resp.data
                 this.mesPrestamos = data
             }
