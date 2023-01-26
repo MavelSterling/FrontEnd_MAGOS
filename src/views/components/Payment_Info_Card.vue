@@ -54,7 +54,7 @@ export default {
   },
   methods:{
     traerAbonos(){
-      Conexion.leerAbonos( this.usuario.getToken)
+      Conexion.leerAbonos( this.usuario.getToken, this.usuario.getDocumento)
         .then( resp => {
           this.abonos = resp.data
         })
