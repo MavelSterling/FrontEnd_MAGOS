@@ -25,9 +25,7 @@
               <label for="lang">Cuenta de ahorros con la que pagará</label>
               <select name="tipoConsignacion" id="lang" class="col-md-6 mb-md-0 mb-4 card card-body border card-plain border-radius-lg d-flex align-items-center flex-row" v-model="cuenta">
                 <!-- AÑADIR FUNCIONALIDAD BACKEND-->
-                <option value=123 >1412412</option>
-                <option value=123 >1412412</option>
-                <option value=123 >1412412</option>
+                <option v-for="cuenta in cuentasDeAhorro" :key="cuenta.idAhorro" :value="cuenta.idAhorro">{{ cuenta.idAhorro }}</option> 
               </select> 
             </form>
 
@@ -69,15 +67,23 @@ export default {
       fecha: null,
       descripcion : '',
       mensaje: null,
-      usuario : new Usuario()
+      usuario : new Usuario(),
+      cuentasDeAhorro: null
     };
+  },
+  created(){
+    Conexion.leerCuentaDeAhorros( this.usuario.getToken, this.usuario.getDocumento )
+    .then( resp => {
+      // console.log('ctas ahorros', resp.data)
+      this.cuentasDeAhorro = resp.data 
+      } )
   },
   methods:{
     registrarAbono(){
       const data = {
         abona: this.usuario.getDocumento,
         monto: this.monto,
-        cuentaAhorro: this.cuenta,
+        // cuentaAhorro: this.cuenta,
         descripcion: this.descripcion,
         // idPrestamo: this.numeroCuentaADepositar,
       }

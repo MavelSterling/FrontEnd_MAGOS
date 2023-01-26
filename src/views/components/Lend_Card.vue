@@ -72,13 +72,13 @@ export default {
           this.mensaje = 'Solicitud realizada con éxito'
         })
         .catch( err => {
-          this.mensaje = 'Error con los datos proporcionados, por favor intentar nuevamente'
+          this.mensaje = 'Error.'
           console.log(err)
         })
         .finally( () => {
           setTimeout(() => {
             this.mensaje = ""
-          }, 7000)
+          }, 5000)
         })
     },
 
