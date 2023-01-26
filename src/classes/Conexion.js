@@ -1,8 +1,8 @@
 import axios from "axios";
 /* eslint-disable */
 
-//const numeroPuerto = '8081'; // Es el puerto por defecto cuando se ejecuta el comando npm run serve
-const numeroPuerto = '8080'; // Es el puerto por defecto cuando se ejecuta el comando npm run serve
+//const numeroPuerto = '8080'; // Es el puerto por defecto cuando se ejecuta el comando npm run serve
+const numeroPuerto = '8081'; // Es el puerto por defecto cuando se ejecuta el comando npm run serve
 const urlBase = `http://localhost:${numeroPuerto}/api`;
 const extension = "";
 const numeral = ""; // Para consultar por los usuarios según su característica única 
