@@ -6,7 +6,7 @@
         <div class="card-body px-0 pt-0 pb-2">
             <div class="table-responsive p-0">
                 <table class="table align-items-center justify-content-center mb-0">
-                    <thead>
+                   <!--<thead>
                         <tr>
                             <th v-bind:key="iterador + 1" v-for="columna in columnas" class="text-uppercase
                                 text-secondary
@@ -17,7 +17,7 @@
                                 {{ columna }}
                             </th>
                         </tr>
-                    </thead>
+                    </thead>-->
                     <tbody>
 
                         <tr v-for:="fila in filas">
