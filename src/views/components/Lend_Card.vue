@@ -47,11 +47,12 @@ export default {
   data() {
     return { 
       usuario : new Usuario(),
-      monto : null,
       comision : null,
+      monto : null,
       codeudor : '',
+      fecha: null,
       mensaje : '',
-      fecha: null
+
     };
   },
   methods:{
@@ -63,13 +64,18 @@ export default {
         estadoPrestamo : false,
         interes : (this.usuario.getRol === 'cliente') ? 0.025 : 0.02,
         comision : this.comision,
-        deudor : this.usuario.getDocumento,
+        // deudor : this.usuario.getDocumento,
+        deudor : "1",
         codeudor : this.codeudor
       }
       Conexion.registrarPrestamos( this.usuario.getToken, datos )
         .then( resp => {
           console.log(resp)
           this.mensaje = 'Solicitud realizada con éxito'
+          this.monto = ''
+          this.codeudor = ''
+          this.fecha= ''
+
         })
         .catch( err => {
           this.mensaje = 'Error.'
