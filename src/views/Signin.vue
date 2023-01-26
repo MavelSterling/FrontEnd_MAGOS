@@ -178,9 +178,14 @@ export default {
               const usuario = new Usuario()
               usuario.setToken = this.tokenAutenticacion
               usuario.setEmail = this.email
-              usuario.setPassword = this.password
-              usuario.saludar() 
-              usuario.obtenerUsuarios()
+              usuario.setPassword = this.password 
+              console.log('Mira 💪', resp.data.data)
+              usuario.insertarDatosAsociado(resp.data.data )
+
+
+              // usuario.saludar() 
+              // usuario.obtenerUsuarios()
+
               this.$router.push('dashboard-default') // IMPORTANTE, para cambiar de componente
             }catch( err ){
               //console.log( 'No pude entrar D:   ')
