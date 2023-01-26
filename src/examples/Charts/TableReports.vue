@@ -8,7 +8,7 @@
                 <table class="table align-items-center justify-content-center mb-0">
                     <thead>
                         <tr>
-                            <th v-bind:key="iterador + 1" v-for="columna in columnas" class="text-uppercase
+                            <th v-bind:key="columna" v-for="columna in columnas" class="text-uppercase
                                 text-secondary
                                 text-xxs 
                                 font-weight-bolder 
