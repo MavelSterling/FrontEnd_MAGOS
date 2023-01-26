@@ -40,7 +40,6 @@ class Reporte {
             resp => {
                 let data = resp.data
                 this.topAhorros = data
-                console.log(this.topAhorros);
             }
         ).catch(
             err => { console.log(err); }
@@ -52,9 +51,6 @@ class Reporte {
             resp => {
                 let data = resp.data;
                 this.topPrestamos = data;
-                console.log(this.topPrestamos);
-                console.log(Object.keys(this.topPrestamos));
-                console.log(Object.values(this.topPrestamos));
             }
         ).catch(
             err => { console.log(err); }
@@ -66,7 +62,6 @@ class Reporte {
             resp => {
                 let data = resp.data
                 this.mesPrestamos = data
-                console.log(this.mesPrestamos);
             }
         ).catch(
             err => { console.log(err); }

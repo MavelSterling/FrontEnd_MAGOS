@@ -1,7 +1,7 @@
 <template>
   <div class="card h-100">
     <div class="p-3 card-body">
-      <h6>Consumption per day</h6>
+      <h6>{{ title }}</h6>
       <div class="pt-3 chart">
         <canvas id="chart-cons-week" class="chart-canvas" height="170"></canvas>
       </div>
@@ -14,6 +14,16 @@ import Chart from "chart.js/auto";
 export default {
   name: "consumption-day-chart",
 
+  props: {
+    title: {
+      type: String,
+      default: 'Consumption per day'
+    },
+    label: Array,
+    data: Array,
+    label_dataset: String
+  },
+
   mounted() {
     // Chart Consumption by day
     var ctx = document.getElementById("chart-cons-week").getContext("2d");
@@ -21,16 +31,16 @@ export default {
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        labels: this.$props.label,
         datasets: [
           {
-            label: "Watts",
+            label: this.$props.label_dataset,
             tension: 0.4,
             borderWidth: 0,
             borderRadius: 4,
             borderSkipped: false,
             backgroundColor: "#3A416F",
-            data: [150, 230, 380, 220, 420, 200, 70],
+            data: this.$props.data,
             maxBarThickness: 6,
           },
         ],

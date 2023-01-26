@@ -1,66 +1,56 @@
 <template>
   <div class="py-4 container-fluid">
-    <div class=" row">
-      <div class="col-12">
-        <authors-table />
+    <div class="mt-4 row">
+      <div v-if="topAhorros.items.length > 0" class="col-12">
+        <table-reports v-bind:_columnas="topAhorros.columnas" v-bind:_filas="topAhorros.items" />
       </div>
     </div>
     <div class="mt-4 row">
-      <div class="col-12">
-        <projects-table />
-      </div>
-    </div>
-    <div class="mt-4 row">
-      <div class="col-12" v-if="topPrestamos.label">
+      <div class="col-12" v-if="topPrestamos.label.length > 0">
         <GradientLineChart v-bind:title="topPrestamos.title" v-bind:label="topPrestamos.label"
-          v-bind:data="topPrestamos.data" />
+          v-bind:data="topPrestamos.data" v-bind:label_dataset="topPrestamos.label_dataset" />
       </div>
     </div>
     <div class="mt-4 row">
-      <div class="col-12">
-        <ConsumptionDayChart />
-      </div>
-    </div>
-    <div class="mt-4 row">
-      <div class="col-12">
-        <ConsumptionRoomChart />
-      </div>
-    </div>
-    <div class="mt-4 row">
-      <div class="col-12">
-        <ActiveUsersChart />
+      <div class="col-12" v-if="mesPrestamos.label.length > 0">
+        <ConsumptionDayChart v-bind:title="mesPrestamos.title" v-bind:label="mesPrestamos.label"
+          v-bind:data="mesPrestamos.data" v-bind:label_dataset="mesPrestamos.label_dataset" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import AuthorsTable from "./components/AuthorsTable.vue";
-import ProjectsTable from "./components/ProjectsTable.vue";
+import TableReports from "../examples/Charts/TableReports.vue";
 import GradientLineChart from "../examples/Charts/GradientLineChart.vue";
 import ConsumptionDayChart from "../examples/Charts/ConsumptionDayChart.vue"
-import ConsumptionRoomChart from "../examples/Charts/ConsumptionRoomChart.vue"
-import ActiveUsersChart from "../examples/Charts/ActiveUsersChart.vue"
 import Reporte from "../classes/Reportes"
-import { onMounted } from "vue";
 
 
 export default {
   name: "tables",
   components: {
-    AuthorsTable,
-    ProjectsTable,
     GradientLineChart,
     ConsumptionDayChart,
-    ConsumptionRoomChart,
-    ActiveUsersChart
+    TableReports
   },
   data() {
     return {
-      topPrestamos: {
+      mesPrestamos: {
         title: 'TOP 10 meses con más prestamos',
         label: [],
-        data: []
+        data: [],
+        label_dataset: 'Pesos'
+      },
+      topPrestamos: {
+        title: 'Top Asociados con más prestamos',
+        label: [],
+        data: [],
+        label_dataset: 'Prestamos'
+      },
+      topAhorros: {
+        columnas: ['Cédula', 'Monto'],
+        items: []
       },
       stats: {
         titleColor: "opacity-7 text-white",
@@ -88,33 +78,16 @@ export default {
       },
     };
   },
-  async created() {
+  async mounted() {
     await Reporte.reporte_mesPrestamos()
     await Reporte.reporte_topPrestamos()
     await Reporte.reporte_topAhorros()
+    this.mesPrestamos.label = Object.keys(Reporte.mesPrestamos)
+    this.mesPrestamos.data = Object.values(Reporte.mesPrestamos)
     this.topPrestamos.label = Object.keys(Reporte.topPrestamos)
     this.topPrestamos.data = Object.values(Reporte.topPrestamos)
-    /* await Reporte.reporte_fechaReunion(
-      {
-        fechaInicio: {
-          year: 2023,
-          month: 1,
-          day: 1
-        },
-        fechaFin: {
-          year: 2023,
-          month: 1,
-          day: 31
-        }
-      }
-    ) */
+    this.topAhorros.items = Reporte.topAhorros
+    console.log(this.topAhorros.items);
   },
-  async onMounted() {
-    await Reporte.reporte_topPrestamos()
-    this.topPrestamos.label = Object.keys(Reporte.topPrestamos)
-    this.topPrestamos.data = Object.values(Reporte.topPrestamos)
-    console.log(this.topPrestamos.label);
-    console.log(this.topPrestamos.data);
-  }
 };
 </script>
