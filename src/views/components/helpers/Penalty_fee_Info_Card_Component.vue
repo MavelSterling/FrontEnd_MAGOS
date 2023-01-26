@@ -76,7 +76,8 @@ export default {
   },
   methods:{
     pagar(){
-      this.mensaje= "Acción para pagar"
+      // this.mensaje= "Acción para pagar"
+      this.$router.push('/payment')
     },
  
     

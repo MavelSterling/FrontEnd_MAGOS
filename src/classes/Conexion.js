@@ -57,11 +57,11 @@ class Conexion {
   }
 
 
-  static async crearCliente(username, first_name, last_name, email, rol, documento, password, fechaNacimiento, telefono, ccAsociado = 'null') {
+  static async crearCliente( username, first_name, last_name, email, rol, documento, password, fechaNacimiento, telefono, asociadoVinculado='-1' ){ 
     return axios({
       method: 'post',
-      url: urlBase + '/users/create/',
-      data: {
+      url : urlBase + '/clientes/create/', 
+      data :  {
         username,
         first_name,
         last_name,
@@ -70,8 +70,9 @@ class Conexion {
         documento,
         password,
         fechaNacimiento,
-        is_active: true,
-        telefono
+        is_active : true, 
+        telefono,
+        asociadoVinculado
       }
     })
   }
@@ -124,8 +125,9 @@ class Conexion {
   }
 
   // Si no se inserta el segundo parámetro, se tomará como la lectura de todas las cuentas de ahorro
-  static leerCuentaDeAhorros(token, DocAsociado = "") {
-    console.log('MIRAAA -> ', DocAsociado)
+  static leerCuentaDeAhorros( token, DocAsociado="" ){
+    console.log('MIRAAA -> ',DocAsociado);
+    DocAsociado = DocAsociado? '/' + DocAsociado : '';
     return axios({
       method: 'GET',
       url: urlBase + '/ahorros/all' + DocAsociado,
@@ -236,7 +238,9 @@ class Conexion {
     })
   }
 
-  static leerAbonos(token, id = "") {
+
+  static leerAbonos( token, id=""){
+    id = (id)? '/'+id : '';
     return axios({
       method: 'GET',
       url: urlBase + '/abono/all' + id,

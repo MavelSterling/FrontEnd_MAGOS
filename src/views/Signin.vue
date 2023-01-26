@@ -1,15 +1,4 @@
-<template>
-  <div class="container top-0 position-sticky z-index-sticky">
-    <div class="row">
-      <div class="col-12">
-        <navbar
-          isBlur="blur  border-radius-lg my-3 py-2 start-0 end-0 mx-4 shadow"
-          v-bind:darkMode="true"
-          isBtn="bg-gradient-success"
-        />
-      </div>
-    </div>
-  </div>
+<template> 
   <main class="mt-0 main-content">
     <section>
       <div class="page-header min-vh-100">
@@ -189,9 +178,14 @@ export default {
               const usuario = new Usuario()
               usuario.setToken = this.tokenAutenticacion
               usuario.setEmail = this.email
-              usuario.setPassword = this.password
-              usuario.saludar() 
-              usuario.obtenerUsuarios()
+              usuario.setPassword = this.password 
+              console.log('Mira 💪', resp.data.data)
+              usuario.insertarDatosAsociado(resp.data.data )
+
+
+              // usuario.saludar() 
+              // usuario.obtenerUsuarios()
+
               this.$router.push('dashboard-default') // IMPORTANTE, para cambiar de componente
             }catch( err ){
               //console.log( 'No pude entrar D:   ')

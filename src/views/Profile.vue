@@ -235,14 +235,20 @@
                 </div>
                 <div class="col-md-6">
                   <label for="example-text-input" class="form-control-label"
+                    >Teléfono</label
+                  >
+                  <input class="form-control" type="text" :value="usuario.getTelefono" readonly />
+                </div>
+                <div class="col-md-6" v-if="usuario.getRol !== 'cliente'">
+                  <label for="example-text-input" class="form-control-label"
                     >Ocupación</label
                   >
-                  <argon-input type="text" value="Médico" />
+                  <input class="form-control" type="text" :value="usuario.getOcupacion" readonly />
                 </div>
               
-                  <div class="form-group ">
+                  <div class="form-group p-3" v-if="usuario.getRol !== 'cliente'">
                     <div class="input-group">
-                      <div class="input-group-prepend">
+                      <div class=" ">
                         <span class="input-group-text">
                         <i class="ni ni-calendar-grid-58"></i></span>
                       </div>
@@ -253,7 +259,7 @@
                   </div>
               
               <hr class="horizontal dark" />
-              <template v-if="usuario.getRol !== 'admin'"> 
+              <template v-if="usuario.getRol !== 'cliente'"> 
                 <p class="text-uppercase text-sm">Residencia</p>
                 <div class="row">
                   <div class="col-md-12">
@@ -262,21 +268,16 @@
                     >
                     <argon-input
                       type="text"
-                      value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                      :value=" usuario.getDireccion"
+                      :readonlyx="true"
                     />
                   </div>
                   <div class="col-md-6">
                     <label for="example-text-input" class="form-control-label"
                       >Ciudad</label
                     >
-                    <argon-input type="text" value="New York" />
-                  </div>
-                  <div class="col-md-6">
-                    <label for="example-text-input" class="form-control-label"
-                      >Teléfono</label
-                    >
-                    <argon-input type="text" value="437300" />
-                  </div>
+                    <argon-input type="text" :value="usuario.getCiudad" :readonlyx="true"/>
+                  </div> 
                 </div>
                 <hr class="horizontal dark" />
               </template>
@@ -296,7 +297,7 @@
           </div>
         </div>
         <div class="col-md-4">
-          <profile-card />
+          <!-- <profile-card /> -->
         </div>
       </div>
     </div>

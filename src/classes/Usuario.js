@@ -1,16 +1,19 @@
 import Conexion from "./Conexion";
 /* eslint-disable */
 class Usuario {  
-  _username = 'null';  
-  _first_name = 'null';  
-  _last_name = 'null';  
-  _email = 'null';  
-  _rol = 'null';  
-  _password = 'null';  // No es necesario guardarla
-  _fechaNacimiento = 'null';  
-  _documento = 'null'; 
-  _token = 'null'; 
-
+  _username = '';  
+  _first_name = '';  
+  _last_name = '';  
+  _email = '';  
+  _rol = '';  
+  _password = '';    
+  _fechaNacimiento = '';  
+  _documento = ''; 
+  _token = '';  
+  _ciudad = '';
+  _direccion = '';
+  _ocupacion = '';
+  _telefono = '';
 
   constructor( ){
     //username, first_name, last_name, email, rol, fechaNacimiento, documento 
@@ -28,6 +31,20 @@ class Usuario {
 
     Usuario.instance = this;
     return this;
+  }
+
+  insertarDatosAsociado({username, first_name, last_name, email, rol, fechaNacimiento, documento, ciudad, direccion, ocupacion, telefono}) {
+    this._username = username;  
+    this._first_name = first_name;  
+    this._last_name = last_name;  
+    this._email = email;  
+    this._rol = rol;      
+    this._fechaNacimiento = fechaNacimiento;  
+    this._documento = documento;    
+    this._ciudad = (ciudad)? ciudad : 'null';
+    this._direccion = (direccion)? direccion : 'null';
+    this._ocupacion = (ocupacion)? ocupacion : 'null';
+    this._telefono = (telefono)? telefono : 'null';
   }
 
   // getters
@@ -66,6 +83,23 @@ class Usuario {
   get getToken() {
     return this._token;
   }
+
+  get getCiudad() {
+    return this._ciudad;
+  }
+
+  get getDireccion() {
+    return this._direccion;
+  }
+
+  get getOcupacion() {
+    return this._ocupacion;
+  }
+
+  get getTelefono() {
+    return this._telefono;
+  }
+
   
   // setters
 
@@ -104,6 +138,23 @@ class Usuario {
   set setToken( token ) {
     this._token = token;
   }
+
+  set setCiudad( ciudad ) {
+    this._ciudad = ciudad;
+  }
+
+  set setDireccion( direccion ) {
+    this._direccion = direccion;
+  }
+
+  set setOcupacion( ocupacion ) {
+    this._ocupacion = ocupacion;
+  }
+
+  set setTelefono( telefono ) {
+    this._telefono = telefono;
+  }
+
 
   guardarInformacion( {username, first_name, last_name, email, rol, fechaNacimiento, documento,
     password} ){
